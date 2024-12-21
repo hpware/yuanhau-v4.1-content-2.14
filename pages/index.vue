@@ -1,15 +1,6 @@
 <script setup lang="ts">
 useHead({
     title: '首頁 | 吳元皓',
-    link: [
-        { rel: 'dns-prefetch', href: 'https://utfs.io' },
-        { rel: 'dns-prefetch', href: 'https://blogge.yuanh.xyz/' },
-        { rel: 'prefetch', href: 'https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7'}
-    ],
-    meta: [
-        { name: 'description', content: '吳元皓的個人網站首頁' },
-        { name: 'keywords', content: '吳元皓,吳元皓的個人網站,吳元皓的個人網站首頁,吳元皓的個人網站首頁' },
-    ],
 })
 // Init
 import { ref, onMounted } from "vue";
@@ -73,11 +64,11 @@ const othercooltext = dyothertext();
       <NuxtImg alt="大頭貼" class="pfp" draggable="false"
         src="/img/pfp-1.jpg"
         />
-      <h2 style="margin-top: 0em; margin-bottom: 0em">
+      <h2 class="mbmt0">
         <span style="margin-bottom:0em;" id="zhname">吳元皓</span>
       </h2>
       <DiscordStatus />
-      <p style="margin-top: 0em; margin-bottom: 0em">
+      <p class="mbmt0">
         嗨! 我是一個高中生，我對<a
           href="/photos"
           style="color: white"
@@ -87,7 +78,7 @@ const othercooltext = dyothertext();
         <span>{{otherCoolText}}</span>
       </p>
       <h3 class="buttons">
-        <NuxtLink class="not-a-button profilebutton" href="/about">關於我</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink><!--|<NuxtLink class="not-a-button profilebutton" to="/projects">專案</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>--></h3>
+        <NuxtLink class="not-a-button profilebutton" href="/about">關於我</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink>|<!--暫用--><a class="not-a-button profilebutton" href="https://yuanh.xyz/projects">專案(舊站)</a><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>--></h3>
       <p class="socials"><a href="https://github.com/hpware" alt="github"><i class="bi bi-github"></i></a>
         <a href="https://instagram.com/yh_.5_26" alt="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://threads.net/yh_.5_26" alt="threads"><i class="bi bi-threads"></i></a>
@@ -202,5 +193,9 @@ const othercooltext = dyothertext();
 footer {
         display:none;
     }
+}
+.mbmt0 {
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 </style>
