@@ -39,7 +39,7 @@ Disallow: /
 
 # Normal bots
 User-agent: *
-Disallow: /user/panel/
+Disallow: /user/
 Disallow: /api/
 Disallow: /markdown/
 Disallow: 
