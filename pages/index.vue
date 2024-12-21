@@ -88,7 +88,7 @@ const othercooltext = dyothertext();
         <span>{{otherCoolText}}</span>
       </p>
       <h3 class="buttons">
-        <NuxtLink class="not-a-button profilebutton" href="/about">關於我</NuxtLink><!--|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/projects">專案</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>--></h3>
+        <NuxtLink class="not-a-button profilebutton" href="/about">關於我</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink><!--|<NuxtLink class="not-a-button profilebutton" to="/projects">專案</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>--></h3>
       <p class="socials"><a href="https://github.com/hpware" alt="github"><i class="bi bi-github"></i></a>
         <a href="https://instagram.com/yh_.5_26" alt="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://threads.net/yh_.5_26" alt="threads"><i class="bi bi-threads"></i></a>
