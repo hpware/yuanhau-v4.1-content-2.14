@@ -3,13 +3,12 @@ useHead({
     title: '首頁 | 吳元皓',
     link: [
         { rel: 'dns-prefetch', href: 'https://utfs.io' },
-        { rel: 'dns-prefetch', href: 'https://blogge.yuanh.xyz/' }
+        { rel: 'dns-prefetch', href: 'https://blogge.yuanh.xyz/' },
+        { rel: 'prefetch', href: 'https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7'}
     ],
     meta: [
         { name: 'description', content: '吳元皓的個人網站首頁' },
         { name: 'keywords', content: '吳元皓,吳元皓的個人網站,吳元皓的個人網站首頁,吳元皓的個人網站首頁' },
-        { name: 'author', content: '吳元皓' },
-        { name: 'copyright', content: '吳元皓' },
     ],
 })
 // Init

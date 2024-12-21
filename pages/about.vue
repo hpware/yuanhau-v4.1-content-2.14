@@ -6,6 +6,9 @@ import '~/components/about.css';
 import Loading from '~/components/loading/discordstyle.vue';
 useHead({
   title: '關於我 | 吳元皓',
+  link: [
+  { rel: 'prefetch', href: 'https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7'}
+  ],
   meta: [
     { name: 'description', content: '關於吳元皓' },
   ],
