@@ -79,10 +79,10 @@ const othercooltext = dyothertext();
       </p>
       <h3 class="buttons">
         <NuxtLink class="not-a-button profilebutton" href="/about">關於我</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink>|<!--暫用--><a class="not-a-button profilebutton" href="https://yuanh.xyz/projects">專案(舊站)</a><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>--></h3>
-      <p class="socials"><a href="https://github.com/hpware" alt="github"><i class="bi bi-github"></i></a>
-        <a href="https://instagram.com/yh_.5_26" alt="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://threads.net/yh_.5_26" alt="threads"><i class="bi bi-threads"></i></a>
-        <a href="mailto:hw@yuanhau.com" alt="email"><i class="bi bi-inbox"></i></a>
+      <p class="socials"><a href="https://github.com/hpware" alt="github" id="github"><i class="bi bi-github"></i></a>
+        <a href="https://instagram.com/yh_.5_26" alt="instagram" id="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://threads.net/yh_.5_26" alt="threads" id="threads"><i class="bi bi-threads"></i></a>
+        <a href="mailto:hw@yuanhau.com" alt="email" id="email"><i class="bi bi-inbox"></i></a>
         </p>
     </section>
     </div>

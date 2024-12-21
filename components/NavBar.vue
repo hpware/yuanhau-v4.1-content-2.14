@@ -16,7 +16,7 @@ const ff_off = () => {
 <template>
     <div class="po">
         <div class="enablesidebar" v-if="!ff">
-         <button @click="ff = true" alt="Menu Button"><i class="bi bi-list"></i></button>
+         <button @click="ff = true" alt="Menu Button" id="menu-button"><i class="bi bi-list"></i></button>
         </div>
        <div class="nav" v-if="ff">
                 <Transition name="fade">
