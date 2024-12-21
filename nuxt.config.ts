@@ -14,20 +14,23 @@ export default defineNuxtConfig({
     '/blog/**': { swr: 3600 },
   },
 
-  modules: [
-    'nuxt-umami',
-    '@nuxtjs/robots',
-    'nuxt-auth-utils',
-    '@kgierke/nuxt-basic-auth',
-    '@sentry/nuxt/module',
-    '@nuxt/image',
-  ],
+  modules: ['nuxt-umami', '@nuxtjs/robots', 'nuxt-auth-utils', '@kgierke/nuxt-basic-auth', '@sentry/nuxt/module', '@nuxt/image', '@nuxtjs/sitemap'],
   umami: {
     enabled: true,
     host: 'https://data.yuanhau.com',
     autoTrack: true,
     id: '2a995ed3-bdc7-4557-bf53-b724d29bb337',
     ignoreLocalhost: true,
+  },
+  sitemap: {
+    sitemaps: {
+      posts: {
+        include: [
+          '/blog/**',
+        ],
+        defaults: { priority: 0.7 },
+      },
+    },
   },
   app: {
     head: {
