@@ -71,7 +71,9 @@ English is what most docs are writen in. This is a huge advantage for me, as I c
 Zeroday (HITCON)
 [![](https://zeroday.hitcon.org/images/zd-logo.svg)](https://zeroday.hitcon.org/user/hw49/vulnerability)
 
+
 這個平台為一個 [Thread](https://www.threads.net/@rex978956/post/C91y8CQx2ON) 上有人建議我舉報 Bug 的平台。
+
 --- 
 ## 檢定通過
 **GEPT**
