@@ -94,11 +94,6 @@ const othercooltext = dyothertext();
         <a href="https://threads.net/yh_.5_26" alt="threads"><i class="bi bi-threads"></i></a>
         <a href="mailto:hw@yuanhau.com" alt="email"><i class="bi bi-inbox"></i></a>
         </p>
-        <br/>
-<!--        <footer>
-          <p>Copyright © {{ new Date().getFullYear() }} 吳元皓</p>
-        </footer>
--->
     </section>
     </div>
 </template>
@@ -191,20 +186,6 @@ const othercooltext = dyothertext();
     color: #b3b3b3;
   }
 }
-footer {
-      position:fixed;
-      bottom:1rem;
-      text-align: center;
-      color:rgba(255, 255, 255, 0.829);
-      p {
-        font-size: 0.6em;
-         margin-bottom: 0;
-      }
-       a {
-         text-decoration: none;
-         font-size: 0.8em;
-       }
-    }
 @media screen and (min-width: 700px) {
     .background {
       position: fixed;
