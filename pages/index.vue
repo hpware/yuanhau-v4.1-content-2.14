@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-    title: '首頁| 吳元皓',
+    title: '首頁 | 吳元皓',
     link: [
         { rel: 'dns-prefetch', href: 'https://utfs.io' },
         { rel: 'dns-prefetch', href: 'https://blogge.yuanh.xyz/' }
