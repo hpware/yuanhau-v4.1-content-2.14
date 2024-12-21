@@ -72,7 +72,7 @@ const othercooltext = dyothertext();
     <section id="aboutme" class="about">
       <br />
       <NuxtImg alt="大頭貼" class="pfp" draggable="false"
-        src="https://utfs.io/f/CCLPSN5W2HD54UUISb2l2q0rQXUaYE5mBZ1PdIuVpt4l6F3T"
+        src="/img/pfp-1.jpg"
         />
       <h2 style="margin-top: 0em; margin-bottom: 0em">
         <span style="margin-bottom:0em;" id="zhname">吳元皓</span>
