@@ -20,7 +20,10 @@ async function getCodingHistoryMD() {
     const mdtext = await mdfile.text();
     codinghistory.value = marked(mdtext);
   } catch (e) {
-    throw e;
+    throw createError({
+      statusCode: 500,
+      message: '錯誤: ' + e,
+    });
     loading.value = false;
   } finally {
     setTimeout(() => {

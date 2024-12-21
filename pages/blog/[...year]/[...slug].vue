@@ -23,7 +23,6 @@ async function getBlog() {
                 statusCode: 404,
                 message: '找不到文章',
             });
-            return;
         } else {
             const text = await res.text();
             post.value = marked(text);
@@ -33,7 +32,6 @@ async function getBlog() {
             statusCode: 500,
             message: '錯誤: ' + e,
         });
-        return;
     }
 }
 onMounted(getBlog);
