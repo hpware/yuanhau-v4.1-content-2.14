@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import NavBar from '~/components/NavBar.vue';
 const error = useError();
 </script>
 
 <template>
     <NuxtLayout>
+        
         <div>
             <h1>{{error.statusCode}}</h1>
             <p> 穿梭者，你好<br/>你已經踏入到一個所人未知的地方<br />

@@ -119,16 +119,16 @@ const othercooltext = dyothertext();
   color: white;
   width:100%;
   min-height:100vh;
-  z-index:1;
-  
 }
 .about {
   text-align: center;
   backdrop-filter: blur(10px);
+  padding:0;
+  margin:0;
   background: rgba(0, 0, 0, 0.38);
   margin:0;
   min-height:100vh;
-  z-index:1;
+  width:100%;
 }
 @keyframes pfp-fade-in {
   0% {
