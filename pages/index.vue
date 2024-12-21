@@ -80,7 +80,7 @@ const othercooltext = dyothertext();
       <DiscordStatus />
       <p style="margin-top: 0em; margin-bottom: 0em">
         嗨! 我是一個高中生，我對<a
-          href="/images/"
+          href="/photos"
           style="color: white"
           >攝影</a
         >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 HTML, Vercel 與 Git &
@@ -95,9 +95,10 @@ const othercooltext = dyothertext();
         <a href="mailto:hw@yuanhau.com" alt="email"><i class="bi bi-inbox"></i></a>
         </p>
         <br/>
-        <footer>
+<!--        <footer>
           <p>Copyright © {{ new Date().getFullYear() }} 吳元皓</p>
         </footer>
+-->
     </section>
     </div>
 </template>
