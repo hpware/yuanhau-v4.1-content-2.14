@@ -15,11 +15,11 @@ export default defineNuxtConfig({
     '/api/**': { cors: true },
     '/user/panel/**': { ssr: true },
     '/blog/': { prerender: true },
-    '/post/**': { swr: 3600 },
+    '/post/**': { ssr: true },
   },
 
   modules: ['nuxt-umami', '@nuxtjs/robots', 'nuxt-auth-utils', '@kgierke/nuxt-basic-auth', '@sentry/nuxt/module', '@nuxt/image', '@nuxtjs/sitemap', '@nuxt/content'],
-  
+
   umami: {
     enabled: true,
     host: 'https://data.yuanhau.com',
@@ -81,7 +81,6 @@ export default defineNuxtConfig({
       prefix: '/post',
       driver: 'github',
       repo: "hpware/posts",
-      token: process.env.GITHUB_TOKEN,
       branch: "main",
       dir: "content",
       ttl: 3600,
