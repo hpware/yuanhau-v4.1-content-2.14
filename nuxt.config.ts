@@ -1,7 +1,11 @@
+import { resolve } from "node:path";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+
+  devtools: {
+    enabled: true
+  },
 
   routeRules: {
     '/': { prerender: true },
@@ -10,11 +14,12 @@ export default defineNuxtConfig({
     '/web3/**': { prerender: true },
     '/api/**': { cors: true },
     '/user/panel/**': { ssr: true },
-    '/blog/': { swr: 3600 },
-    '/blog/**': { swr: 3600 },
+    '/blog/': { prerender: true },
+    '/post/**': { swr: 3600 },
   },
 
-  modules: ['nuxt-umami', '@nuxtjs/robots', 'nuxt-auth-utils', '@kgierke/nuxt-basic-auth', '@sentry/nuxt/module', '@nuxt/image', '@nuxtjs/sitemap'],
+  modules: ['nuxt-umami', '@nuxtjs/robots', 'nuxt-auth-utils', '@kgierke/nuxt-basic-auth', '@sentry/nuxt/module', '@nuxt/image', '@nuxtjs/sitemap', '@nuxt/content'],
+  
   umami: {
     enabled: true,
     host: 'https://data.yuanhau.com',
@@ -22,14 +27,17 @@ export default defineNuxtConfig({
     id: '2a995ed3-bdc7-4557-bf53-b724d29bb337',
     ignoreLocalhost: true,
   },
+
   site:{
     url: 'https://yuanhau.com',
     title: '吳元皓',
     description: '吳元皓的個人網站',
   },
+
   sitemap: {
 
   },
+
   app: {
     head: {
       htmlAttrs: {
@@ -67,5 +75,16 @@ export default defineNuxtConfig({
         { name: 'og:author:email', content: 'hw@yuanhau.com' },
       ],
     }
-  }
+  },
+  content: {
+    blog: {
+      prefix: '/post',
+      driver: 'github',
+      repo: "hpware/posts",
+      token: process.env.GITHUB_TOKEN,
+      branch: "main",
+      dir: "content",
+      ttl: 3600,
+    },
+  },
 })

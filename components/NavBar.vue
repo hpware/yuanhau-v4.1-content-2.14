@@ -26,9 +26,9 @@ const ff_off = () => {
                 <!--Main Navagation-->
                 <a href="/"><button alt="Home page"><i class="bi bi-house"></i>首頁</button></a>
                 <NuxtLink to="/about"><button alt="About page"><i class="bi bi-info-circle"></i>關於我</button></NuxtLink>
+                <NuxtLink to="/blog"><button alt="Blog" ><i class="bi bi-journal-text"></i>Blog</button></NuxtLink>
                 <NuxtLink to=""><button alt="My Projects" class="nd"><i class="bi bi-code-square"></i>專案</button></NuxtLink>
                 <NuxtLink to=""><button alt="Photo library" class="nd"><i class="bi bi-images"></i>相簿</button></NuxtLink>
-                <NuxtLink to=""><button alt="Blog" class="nd"><i class="bi bi-journal-text"></i>Blog</button></NuxtLink>
                 <a href="mailto:hw@yuanhau.com" target="_blank"><button alt="email"><i class="bi bi-inbox"></i>我的信箱</button></a>
                 <!--<a href="/user/login" class="login"><button alt="login"><i class="bi bi-person"></i>登入</button></a>-->
 
