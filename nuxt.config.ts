@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/**': { prerender: true },
     '/prerender/**': { prerender: true },
-    '/web3/**': {prerender: true},
+    '/web3/**': { prerender: true },
     '/api/**': { cors: true },
     '/user/panel/**': { ssr: true },
     '/blog/': { swr: 3600 },
@@ -22,10 +22,13 @@ export default defineNuxtConfig({
     id: '2a995ed3-bdc7-4557-bf53-b724d29bb337',
     ignoreLocalhost: true,
   },
+  site:{
+    url: 'https://yuanhau.com',
+    title: '吳元皓',
+    description: '吳元皓的個人網站',
+  },
   sitemap: {
-    sitemaps: {
-      
-    },
+
   },
   app: {
     head: {
