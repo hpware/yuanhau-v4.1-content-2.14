@@ -131,7 +131,7 @@ const othercooltext = dyothertext();
   align-items: center;
   border-radius: 50%;
   width: 20%;
-  min-width:100px;
+  min-width:250px;
   animation: ease-in 300ms pfp-fade-in;
   margin-bottom: 0em
 }

@@ -7,6 +7,8 @@ const DiscordStatus = ref("");
 const statusColor = ref("");
 const statusIcon = ref("");
 const text = ref("");
+const error = ref("");
+const errorb = ref(false);
 
 // Function
 onMounted(async () => {
@@ -74,12 +76,14 @@ onMounted(async () => {
       }
     }
   } catch (error) {
+    errorb.value = true;
   }
 });
 </script>
 
 <template>
-    <span class="onlinepr"><i class="bi" :class="statusIcon" :style="statusColor"></i>&nbsp;
+    <span class="err" v-if="errorb == true">error fetching Discord status</span>
+    <span class="onlinepr" v-else><i class="bi" :class="statusIcon" :style="statusColor"></i>&nbsp;
       <span>{{ text }}</span>
     </span>
 </template>
