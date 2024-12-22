@@ -1,4 +1,4 @@
 [submodule "posts"]
-    path = content/post
+    path = content
     url = https://github.com/hpware/posts.git
     branch = main
