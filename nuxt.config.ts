@@ -79,11 +79,7 @@ export default defineNuxtConfig({
   content: {
     blog: {
       prefix: '/post',
-      driver: 'github',
-      repo: "hpware/posts",
-      branch: "main",
-      dir: "content",
-      ttl: 3600,
+      driver: 'fs',
     },
   },
 })
