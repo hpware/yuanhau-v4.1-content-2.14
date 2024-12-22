@@ -43,5 +43,3 @@ Disallow: /user/
 Disallow: /api/
 Disallow: /markdown/
 Disallow: 
-
-Sitemap: https://yuanh.xyz/sitemap.xml
