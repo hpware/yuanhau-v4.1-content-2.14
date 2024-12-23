@@ -33,16 +33,41 @@ import Giscus from '@giscus/vue'
             <a href="/blog"><button>返回Blog主頁</button></a>
         </template>
     </ContentDoc>
+    <div class="footer">
+      <p>Made with nuxt & giscus.</p>
+      <p class="end">我的網站，我的規則</p>
+    </div>
     </main>
 </template>
 <style scoped>
 .comments {
   margin-top: 2rem;
-  margin-bottom:20px;
+  margin-bottom:0;
   width:90%;
   display:block;
   margin-left:auto;
   margin-right:auto;
-  
+}
+.footer {
+  align-content: end;
+  align-items:end;
+  text-align:center;
+  position:absolute;
+  display:grid;
+  left:0;
+  right:0;
+  p {
+    font-size: 0.5em;
+    margin-top:0.1em;
+    margin-bottom:0;
+  }
+  p.end {
+    margin-bottom:0.5em;
+    margin-top:0.1em;
+    font-size:x-large;
+    color:rgb(169, 169, 169);
+  }
+  margin-top:1em;
+  margin-bottom:1em;
 }
 </style>
