@@ -26,6 +26,10 @@ import Giscus from '@giscus/vue'
             crossorigin="anonymous"
             async/>
           </div>
+          <div class="footer">
+            <p>Made with nuxt & giscus.</p>
+            <p class="end">我的網站，我的規則</p>
+          </div>
         </template>
         <template #not-found>
             <h1>>_<</h1>
@@ -33,10 +37,6 @@ import Giscus from '@giscus/vue'
             <a href="/blog"><button>返回Blog主頁</button></a>
         </template>
     </ContentDoc>
-    <div class="footer">
-      <p>Made with nuxt & giscus.</p>
-      <p class="end">我的網站，我的規則</p>
-    </div>
     </main>
 </template>
 <style scoped>
@@ -69,5 +69,12 @@ import Giscus from '@giscus/vue'
   }
   margin-top:1em;
   margin-bottom:1em;
+}
+@media (max-width: 502px) {
+  .comments {
+    width:95%;
+    margin-left:0;
+    margin-right:0;
+  }
 }
 </style>
