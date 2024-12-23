@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { marked } from "marked";
-import { animate } from 'motion';
-import '~/components/about.css';
-import Loading from '~/components/loading/discordstyle.vue';
+import { animate } from "motion";
+import "~/components/about.css";
+import Loading from "~/components/loading/discordstyle.vue";
 useHead({
-  title: '關於我 | 吳元皓',
+  title: "關於我 | 吳元皓",
   link: [
-  { rel: 'prefetch', href: 'https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7'}
+    {
+      rel: "prefetch",
+      href: "https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7",
+    },
   ],
-  meta: [
-    { name: 'description', content: '關於吳元皓' },
-  ],
+  meta: [{ name: "description", content: "關於吳元皓" }],
 });
 // Refs
 const codinghistory = ref();
@@ -25,30 +26,30 @@ async function getCodingHistoryMD() {
   } catch (e) {
     throw createError({
       statusCode: 500,
-      message: '錯誤: ' + e,
+      message: "錯誤: " + e,
     });
     loading.value = false;
   } finally {
     setTimeout(() => {
       loading.value = false;
     }, 1000);
-  }    
+  }
 }
-  getCodingHistoryMD();
-  </script>
+getCodingHistoryMD();
+</script>
 <template>
   <div v-if="loading" class="loading">
-    <Loading/>
+    <Loading />
   </div>
-    <section id="about" class="about" v-if="!loading">
-        <div v-ref="codinghistory" v-html="codinghistory"></div>
-    </section>
+  <section id="about" class="about" v-if="!loading">
+    <div v-ref="codinghistory" v-html="codinghistory"></div>
+  </section>
 </template>
 <style scoped>
 .loading {
   justify-content: center;
   align-items: center;
-  text-align:center;
-  margin-top:5%;
+  text-align: center;
+  margin-top: 5%;
 }
 </style>

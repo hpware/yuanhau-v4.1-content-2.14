@@ -1,12 +1,12 @@
 <script setup lang="ts">
 useHead({
-    title: '首頁 | 吳元皓',
-})
+  title: "首頁 | 吳元皓",
+});
 // Init
 import { ref, onMounted } from "vue";
 import DiscordStatus from "~/components/DiscordStatus.vue";
 import { marked } from "marked";
-import { animate } from 'motion';
+import { animate } from "motion";
 
 // Ref
 const moreAbout = ref(false);
@@ -61,60 +61,76 @@ const othercooltext = dyothertext();
   <div class="background">
     <section id="aboutme" class="about">
       <br />
-      <NuxtImg alt="大頭貼" class="pfp" draggable="false"
+      <NuxtImg
+        alt="大頭貼"
+        class="pfp"
+        draggable="false"
         src="/img/pfp-1.jpg"
-        />
+      />
       <h2 class="mbmt0">
-        <span style="margin-bottom:0em;" id="zhname">吳元皓</span>
+        <span style="margin-bottom: 0em" id="zhname">吳元皓</span>
       </h2>
       <DiscordStatus />
       <p class="mbmt0">
-        嗨! 我是一個高中生，我對<a
-          href="/photos"
-          style="color: white"
-          >攝影</a
+        嗨! 我是一個高中生，我對<a href="/photos" style="color: white">攝影</a
         >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 HTML, Vercel 與 Git &
         Debian(Ubuntu)<br />
-        <span>{{otherCoolText}}</span>
+        <span>{{ otherCoolText }}</span>
       </p>
       <h3 class="buttons">
-        <NuxtLink class="not-a-button profilebutton" href="/about">關於我</NuxtLink>|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink>|<!--暫用--><a class="not-a-button profilebutton" href="https://yuanh.xyz/projects">專案(舊站)</a><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>--></h3>
-      <p class="socials"><a href="https://github.com/hpware" alt="github" id="github"><i class="bi bi-github"></i></a>
-        <a href="https://instagram.com/yh_.5_26" alt="instagram" id="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://threads.net/yh_.5_26" alt="threads" id="threads"><i class="bi bi-threads"></i></a>
-        <a href="mailto:hw@yuanhau.com" alt="email" id="email"><i class="bi bi-inbox"></i></a>
-        </p>
+        <NuxtLink class="not-a-button profilebutton" href="/about"
+          >關於我</NuxtLink
+        >|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink
+        >|<!--暫用--><a
+          class="not-a-button profilebutton"
+          href="https://yuanh.xyz/projects"
+          >專案(舊站)</a
+        ><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>-->
+      </h3>
+      <p class="socials">
+        <a href="https://github.com/hpware" alt="github" id="github"
+          ><i class="bi bi-github"></i
+        ></a>
+        <a href="https://instagram.com/yh_.5_26" alt="instagram" id="instagram"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a href="https://threads.net/yh_.5_26" alt="threads" id="threads"
+          ><i class="bi bi-threads"></i
+        ></a>
+        <a href="mailto:hw@yuanhau.com" alt="email" id="email"
+          ><i class="bi bi-inbox"></i
+        ></a>
+      </p>
     </section>
-    </div>
+  </div>
 </template>
-
 
 <style scoped>
 .background {
   background-image: url("https://utfs.io/f/CCLPSN5W2HD58Z27Hs4o2sROedIPkBh97bo83YyxSurMXgNt");
   background-size: cover;
-  margin:0;
-  padding:0;
-  display:flex;
+  margin: 0;
+  padding: 0;
+  display: flex;
   background-repeat: no-repeat;
-  background-color:#878a8e;
+  background-color: #878a8e;
   background-position: center;
-  text-align:center;
+  text-align: center;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   color: white;
-  width:100%;
-  min-height:100vh;
+  width: 100%;
+  min-height: 100vh;
 }
 .about {
   text-align: center;
   backdrop-filter: blur(10px);
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   background: rgba(0, 0, 0, 0.38);
-  margin:0;
-  min-height:100vh;
-  width:100%;
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
 }
 @keyframes pfp-fade-in {
   0% {
@@ -131,9 +147,9 @@ const othercooltext = dyothertext();
   align-items: center;
   border-radius: 50%;
   width: 20%;
-  min-width:250px;
+  min-width: 250px;
   animation: ease-in 300ms pfp-fade-in;
-  margin-bottom: 0em
+  margin-bottom: 0em;
 }
 .pfp:hover {
   filter: drop-shadow(0 0 2em #444444aa);
@@ -151,9 +167,9 @@ const othercooltext = dyothertext();
   text-decoration: none;
 }
 .button {
-  width:100%;
+  width: 100%;
   text-align: center;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 .profilebutton {
@@ -170,29 +186,28 @@ const othercooltext = dyothertext();
   a {
     color: white;
     transition: all 200ms;
-    margin:10px;
+    margin: 10px;
   }
   a:hover {
     color: #b3b3b3;
   }
 }
 @media screen and (min-width: 700px) {
-    .background {
-      position: fixed;
-    }
-
+  .background {
+    position: fixed;
   }
+}
 @media (max-width: 800px) {
   .profilebutton {
-  color: rgb(201, 201, 201);
-  transition: all 200ms;
-}
-.profilebutton:hover {
-  color: rgba(154, 154, 154, 0.75);
-}
-footer {
-        display:none;
-    }
+    color: rgb(201, 201, 201);
+    transition: all 200ms;
+  }
+  .profilebutton:hover {
+    color: rgba(154, 154, 154, 0.75);
+  }
+  footer {
+    display: none;
+  }
 }
 .mbmt0 {
   margin-top: 0em;

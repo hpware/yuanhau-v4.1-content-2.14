@@ -18,8 +18,8 @@ async function fetchGH() {
     user.value = await res.json();
 }
 */
-export default defineEventHandler((event) =>{
-    return {
-        status: 403,
-    }
-})
+export default defineEventHandler((event) => {
+  return {
+    status: 403,
+  };
+});

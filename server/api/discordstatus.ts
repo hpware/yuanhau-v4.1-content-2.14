@@ -1,27 +1,29 @@
 interface ActivityStatus {
-    type: number;
-    name?: string;
-    details?: string;
-    state?: string;
-  }
-  
-  interface DiscordResponse {
-    DiscordStatus: string;
-    statusColor: string;
-    statusIcon: string;
-    text: string;
-  }
- 
+  type: number;
+  name?: string;
+  details?: string;
+  state?: string;
+}
+
+interface DiscordResponse {
+  DiscordStatus: string;
+  statusColor: string;
+  statusIcon: string;
+  text: string;
+}
+
 // Set Vars for this thingy
 let DiscordStatus = "";
 let statusColor = "";
 let statusIcon = "";
-let text = '';
+let text = "";
 
 // Function
 const fetchDiscordStatus = async () => {
   try {
-    const response = await fetch("https://api.lanyard.rest/v1/users/918723093646684180");
+    const response = await fetch(
+      "https://api.lanyard.rest/v1/users/918723093646684180",
+    );
     const data = await response.json();
     DiscordStatus = data.data.discord_status;
     // Status set & color
@@ -47,7 +49,6 @@ const fetchDiscordStatus = async () => {
     const IsOnWeb = data.data.active_on_discord_web;
     const IsOnDesktop = data.data.active_on_discord_desktop;
     if (IsOnDesktop === true || IsOnWeb === true) {
-
     } else if (IsOnMobile === true) {
       statusIcon = "bi-circle-fill";
     }
@@ -55,8 +56,13 @@ const fetchDiscordStatus = async () => {
     const ActivityStatus0 = data.data.activities[0];
     if (ActivityStatus0) {
       if (ActivityStatus0.type === 0) {
-        if (ActivityStatus0.name === "WebStorm" || ActivityStatus0.name === "Visual Studio Code" || ActivityStatus0.name === "PyCharm" || ActivityStatus0.name === "Code") {
-          const FileNameStatus =  ActivityStatus0.state;
+        if (
+          ActivityStatus0.name === "WebStorm" ||
+          ActivityStatus0.name === "Visual Studio Code" ||
+          ActivityStatus0.name === "PyCharm" ||
+          ActivityStatus0.name === "Code"
+        ) {
+          const FileNameStatus = ActivityStatus0.state;
           const ProjectName = ActivityStatus0.details;
           text = `${FileNameStatus} ${ProjectName}`;
           statusIcon = "bi-code-slash .fontsize1";
@@ -68,7 +74,8 @@ const fetchDiscordStatus = async () => {
       } else if (ActivityStatus0.type === 2) {
         let SpotifyCurrentlyPlayingSong = ActivityStatus0.details;
         let SpotifyCurrentlyPlayingArtist = ActivityStatus0.state;
-        let SpotifyCurrentlyPlayingArtistComma = SpotifyCurrentlyPlayingArtist.replace(/;/g, ", ");
+        let SpotifyCurrentlyPlayingArtistComma =
+          SpotifyCurrentlyPlayingArtist.replace(/;/g, ", ");
         let SpotifyCurrentlyPlaying = `${SpotifyCurrentlyPlayingSong} - ${SpotifyCurrentlyPlayingArtistComma}`;
         let text = SpotifyCurrentlyPlaying;
         statusIcon = "bi-music-note fontsize1";
@@ -80,21 +87,19 @@ const fetchDiscordStatus = async () => {
         // 👆👆👆 I have no idea what is this doing here, but old code still works tho.
         statusIcon = "bi-music-note fontsize1";
       } else if (ActivityStatus0.type === 4) {
-        const ActivityName= ActivityStatus0.state;
+        const ActivityName = ActivityStatus0.state;
         text = `Status: ${ActivityName}`;
       }
     }
-  } catch (error) {
-  }
+  } catch (error) {}
 };
 
-
-export default defineEventHandler((event) =>{
-    fetchDiscordStatus();
-    return {
-        DiscordStatus: DiscordStatus,
-        statusColor: statusColor,
-        statusIcon: statusIcon,
-        text: text
-    }
-})
+export default defineEventHandler((event) => {
+  fetchDiscordStatus();
+  return {
+    DiscordStatus: DiscordStatus,
+    statusColor: statusColor,
+    statusIcon: statusIcon,
+    text: text,
+  };
+});

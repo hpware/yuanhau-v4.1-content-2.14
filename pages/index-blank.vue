@@ -1,38 +1,35 @@
 <script setup lang="ts">
 useHead({
-    title: 'Work in Progess| 吳元皓',
-})
+  title: "Work in Progess| 吳元皓",
+});
 </script>
 <template>
   <div class="background">
-
-    <section id="aboutme" class="about">
-    </section>
-    </div>
+    <section id="aboutme" class="about"></section>
+  </div>
 </template>
 
 <style scoped>
 .background {
   background-image: url("https://utfs.io/f/CCLPSN5W2HD58Z27Hs4o2sROedIPkBh97bo83YyxSurMXgNt");
   background-size: cover;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   background-repeat: no-repeat;
-  background-color:#878a8e;
+  background-color: #878a8e;
   background-position: center;
   color: white;
-  width:100%;
-  min-height:100vh;
-  z-index:1;
-  
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1;
 }
 .about {
   text-align: center;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.38);
-  margin:0;
-  min-height:100vh;
-  z-index:1;
+  margin: 0;
+  min-height: 100vh;
+  z-index: 1;
 }
 @keyframes pfp-fade-in {
   0% {
@@ -49,7 +46,7 @@ useHead({
   align-items: center;
   border-radius: 50%;
   width: 20%;
-  min-width:100px;
+  min-width: 100px;
   animation: ease-in 300ms pfp-fade-in;
 }
 .pfp:hover {
@@ -68,9 +65,9 @@ useHead({
   text-decoration: none;
 }
 .button {
-  width:100%;
+  width: 100%;
   text-align: center;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 .profilebutton {
@@ -87,42 +84,41 @@ useHead({
   a {
     color: white;
     transition: all 200ms;
-    margin:10px;
+    margin: 10px;
   }
   a:hover {
     color: #b3b3b3;
   }
 }
 footer {
-      position:fixed;
-      bottom:1rem;
-      text-align: center;
-      color:rgba(255, 255, 255, 0.829);
-      p {
-        font-size: 0.6em;
-         margin-bottom: 0;
-      }
-       a {
-         text-decoration: none;
-         font-size: 0.8em;
-       }
-    }
-@media screen and (min-width: 700px) {
-    .background {
-      position: fixed;
-    }
-
+  position: fixed;
+  bottom: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.829);
+  p {
+    font-size: 0.6em;
+    margin-bottom: 0;
   }
+  a {
+    text-decoration: none;
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 700px) {
+  .background {
+    position: fixed;
+  }
+}
 @media (max-width: 800px) {
   .profilebutton {
-  color: rgb(201, 201, 201);
-  transition: all 200ms;
-}
-.profilebutton:hover {
-  color: rgba(154, 154, 154, 0.75);
-}
-footer {
-        display:none;
-    }
+    color: rgb(201, 201, 201);
+    transition: all 200ms;
+  }
+  .profilebutton:hover {
+    color: rgba(154, 154, 154, 0.75);
+  }
+  footer {
+    display: none;
+  }
 }
 </style>

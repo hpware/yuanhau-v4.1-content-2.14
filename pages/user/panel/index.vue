@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-const githubUsername = ref('');
-
+import { ref } from "vue";
+const githubUsername = ref("");
 
 //const token = useCookie('token');
 
@@ -23,7 +22,10 @@ const githubUsername = ref('');
 //console.log(data);
 </script>
 <template>
-    <div>
-        <h1><span>{{ githubUsername }}</span>的面板</h1>
-    </div>
+  <div>
+    <h1>
+      <span>{{ githubUsername }}</span
+      >的面板
+    </h1>
+  </div>
 </template>

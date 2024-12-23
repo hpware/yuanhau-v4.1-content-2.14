@@ -13,7 +13,9 @@ const errorb = ref(false);
 // Function
 onMounted(async () => {
   try {
-    const response = await fetch("https://api.lanyard.rest/v1/users/918723093646684180");
+    const response = await fetch(
+      "https://api.lanyard.rest/v1/users/918723093646684180",
+    );
     const data = await response.json();
     DiscordStatus.value = data.data.discord_status;
     // Status set & color
@@ -39,7 +41,6 @@ onMounted(async () => {
     const IsOnWeb = data.data.active_on_discord_web;
     const IsOnDesktop = data.data.active_on_discord_desktop;
     if (IsOnDesktop === true || IsOnWeb === true) {
-
     } else if (IsOnMobile === true) {
       statusIcon.value = "bi-circle-fill";
     }
@@ -47,7 +48,12 @@ onMounted(async () => {
     const ActivityStatus0 = data.data.activities[0];
     if (ActivityStatus0) {
       if (ActivityStatus0.type === 0) {
-        if (ActivityStatus0.name === "WebStorm" || ActivityStatus0.name === "Visual Studio Code" || ActivityStatus0.name === "PyCharm" || ActivityStatus0.name === "Code") {
+        if (
+          ActivityStatus0.name === "WebStorm" ||
+          ActivityStatus0.name === "Visual Studio Code" ||
+          ActivityStatus0.name === "PyCharm" ||
+          ActivityStatus0.name === "Code"
+        ) {
           const FileNameStatus = ref(ActivityStatus0.state);
           const ProjectName = ref(ActivityStatus0.details);
           text.value = `${FileNameStatus.value} ${ProjectName.value}`;
@@ -60,8 +66,12 @@ onMounted(async () => {
       } else if (ActivityStatus0.type === 2) {
         const SpotifyCurrentlyPlayingSong = ref(ActivityStatus0.details);
         const SpotifyCurrentlyPlayingArtist = ref(ActivityStatus0.state);
-        const SpotifyCurrentlyPlayingArtistComma = ref(SpotifyCurrentlyPlayingArtist.value.replace(/;/g, ", "));
-        const SpotifyCurrentlyPlaying = ref(`${SpotifyCurrentlyPlayingSong.value} - ${SpotifyCurrentlyPlayingArtistComma.value}`);
+        const SpotifyCurrentlyPlayingArtistComma = ref(
+          SpotifyCurrentlyPlayingArtist.value.replace(/;/g, ", "),
+        );
+        const SpotifyCurrentlyPlaying = ref(
+          `${SpotifyCurrentlyPlayingSong.value} - ${SpotifyCurrentlyPlayingArtistComma.value}`,
+        );
         text.value = SpotifyCurrentlyPlaying.value;
         statusIcon.value = "bi-music-note fontsize1";
       } else if (ActivityStatus0.type === 3) {
@@ -71,7 +81,7 @@ onMounted(async () => {
         text.value = SpotifyCurrentlyPlaying.value;
         statusIcon.value = "bi-music-note fontsize1";
       } else if (ActivityStatus0.type === 4) {
-        const ActivityName= ref(ActivityStatus0.state);
+        const ActivityName = ref(ActivityStatus0.state);
         text.value = `Status: ${ActivityName.value}`;
       }
     }
@@ -82,10 +92,11 @@ onMounted(async () => {
 </script>
 
 <template>
-    <span class="err" v-if="errorb == true">error fetching Discord status</span>
-    <span class="onlinepr" v-else><i class="bi" :class="statusIcon" :style="statusColor"></i>&nbsp;
-      <span>{{ text }}</span>
-    </span>
+  <span class="err" v-if="errorb == true">error fetching Discord status</span>
+  <span class="onlinepr" v-else
+    ><i class="bi" :class="statusIcon" :style="statusColor"></i>&nbsp;
+    <span>{{ text }}</span>
+  </span>
 </template>
 
 <style scoped>
@@ -94,6 +105,6 @@ onMounted(async () => {
   margin-top: 0em;
 }
 .fontsize1 {
-  font-size:1.123em;
+  font-size: 1.123em;
 }
 </style>

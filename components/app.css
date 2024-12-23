@@ -5,7 +5,8 @@
   --bg-color2: #232730;
   --bg-color3: #737373;
 }
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,10 +19,10 @@ body {
   font-family: "Fira Mono";
   font-size: 1.5em;
   align-items: center;
-  width:100%;
+  width: 100%;
 }
 ::selection {
-  opacity:1;
+  opacity: 1;
   background-color: rgba(71, 166, 255, 0.38);
 }
 a {
@@ -76,71 +77,71 @@ footer {
   }
 }
 br.mobile {
-    display: none;
+  display: none;
+}
+br.desktop {
+  display: block;
+}
+span.mobile {
+  display: none;
+}
+span.desktop {
+  display: block;
+}
+h2.pagetitle {
+  margin-top: 0.3em;
+}
+h1.nametitle {
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+  font-size: 2.2em;
+  font-weight: bold;
+  color: aquamarine;
+}
+.not-a-button {
+  background-color: transparent;
+  border: none;
+  color: rgba(191, 191, 191, 0.7);
+  font-size: 1em;
+  cursor: pointer;
+}
+.not-a-button:hover {
+  background-color: transparent;
+}
+a.white {
+  color: white;
+}
+a.white:hover {
+  color: #939393;
+}
+
+@media (max-width: 502px) {
+  br.mobile {
+    display: block;
   }
   br.desktop {
-    display: block;
-  }
-  span.mobile {
     display: none;
   }
-  span.desktop {
+  span.mobile {
     display: block;
   }
-  h2.pagetitle {
-    margin-top: 0.3em;
+  span.desktop {
+    display: none;
   }
-  h1.nametitle {
-    margin-top: 0.3em;
-    margin-bottom: 0em;
-    font-size: 2.2em;
-    font-weight: bold;
-    color: aquamarine;
-  }
-  .not-a-button {
-    background-color: transparent;
-    border: none;
-    color: rgba(191, 191, 191, 0.7);
-    font-size: 1em;
-    cursor: pointer;
-  }
-  .not-a-button:hover {
-    background-color: transparent;
-  }
-  a.white {
-    color: white;
-  }
-  a.white:hover {
-    color: #939393;
-  }
-  
-  @media (max-width: 502px) {
-    br.mobile {
-      display: block;
-    }
-    br.desktop {
-      display: none;
-    }
-    span.mobile {
-      display: block;
-    }
-    span.desktop {
-      display: none;
-    }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1.5em;
   }
 
-  @media (max-width: 600px) {
-    body {
-      font-size: 1.5em;
-    }
-  
-    h1 {
-      font-size: 2em;
-      margin-bottom: 0;
-    }
-  
-    p {
-      font-size: 1em;
-      margin-bottom: 0;
-    }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0;
   }
+
+  p {
+    font-size: 1em;
+    margin-bottom: 0;
+  }
+}

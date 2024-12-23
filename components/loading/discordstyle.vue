@@ -1,13 +1,19 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { animate, scroll } from 'motion';
+import { animate, scroll } from "motion";
 const loading = ref(null);
 
 onMounted(() => {
   animate(
     loading.value,
-    { rotate: 360},
-    { type: "spring", ease: "easeInOut",repeat: Infinity, repeatDelay: 1, duration: 0.8}
+    { rotate: 360 },
+    {
+      type: "spring",
+      ease: "easeInOut",
+      repeat: Infinity,
+      repeatDelay: 1,
+      duration: 0.8,
+    },
   );
 });
 </script>
@@ -15,10 +21,9 @@ onMounted(() => {
   <div class="center">
     <!--Loading Animation-->
     <div class="loading" ref="loading"></div>
-</div>
-<br/>
-載入中...
-
+  </div>
+  <br />
+  載入中...
 </template>
 <style scoped>
 .loading {

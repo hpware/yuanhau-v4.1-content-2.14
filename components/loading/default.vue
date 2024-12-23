@@ -1,26 +1,35 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { animate, scroll, stagger } from 'motion';
+import { animate, scroll, stagger } from "motion";
 const loading = ref(null);
 const dots = ref("...");
 onMounted(() => {
-    animate("li", { opacity: 1, y: [50, 0] }, { delay: stagger(0.05), duration: 0.5, repeat: Infinity, repeatDelay:0.8, ease: "easeInOut" });
+  animate(
+    "li",
+    { opacity: 1, y: [50, 0] },
+    {
+      delay: stagger(0.05),
+      duration: 0.5,
+      repeat: Infinity,
+      repeatDelay: 0.8,
+      ease: "easeInOut",
+    },
+  );
 });
 </script>
 <template>
   <div class="center">
     <!--Loading Animation-->
     <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
     </ul>
-</div>
-<br/>
-載入中{{ dots }}
-
+  </div>
+  <br />
+  載入中{{ dots }}
 </template>
 <style scoped>
 .loading {
@@ -33,10 +42,10 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 ul {
   list-style: none;
@@ -44,8 +53,8 @@ ul {
   justify-content: center;
   gap: 50px;
   flex: 0;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
 
 li {
@@ -60,5 +69,4 @@ li {
   opacity: 0;
   flex: 0 0 30px;
 }
-
 </style>

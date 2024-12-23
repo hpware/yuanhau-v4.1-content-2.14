@@ -1,5 +1,5 @@
-import { createApi } from 'unsplash-js';
-import nodeFetch from 'node-fetch';
+import { createApi } from "unsplash-js";
+import nodeFetch from "node-fetch";
 global.fetch = fetch;
 
 const unsplash = createApi({
@@ -7,21 +7,19 @@ const unsplash = createApi({
   fetch: nodeFetch,
 });
 
-const img = unsplash.users.getPhotos({ username: 'hwtw' })
+const img = unsplash.users.getPhotos({ username: "hwtw" });
 
 async function main() {
-    const feres = await unsplash.users.getPhotos({ username: 'hwtw' });
-    if (feres.type !== 'success') {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ message: 'Error fetching images' }),
-        }
-    }
-    return feres.response.results;
+  const feres = await unsplash.users.getPhotos({ username: "hwtw" });
+  if (feres.type !== "success") {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Error fetching images" }),
+    };
+  }
+  return feres.response.results;
 }
 
-
-
-export default defineEventHandler((event) =>{
-    return main();
-})
+export default defineEventHandler((event) => {
+  return main();
+});
