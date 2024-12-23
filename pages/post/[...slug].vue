@@ -28,7 +28,9 @@ import Giscus from '@giscus/vue'
           </div>
         </template>
         <template #not-found>
-            <h1>沒有這個文章 >_<</h1>
+            <h1>>_<</h1>
+            <h2>沒有這個文章</h2>
+            <a href="/blog"><button>返回Blog主頁</button></a>
         </template>
     </ContentDoc>
     </main>
@@ -36,9 +38,11 @@ import Giscus from '@giscus/vue'
 <style scoped>
 .comments {
   margin-top: 2rem;
+  margin-bottom:20px;
   width:90%;
   display:block;
   margin-left:auto;
   margin-right:auto;
+  
 }
 </style>
