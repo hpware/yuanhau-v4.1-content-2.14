@@ -9,21 +9,23 @@ import Giscus from '@giscus/vue'
             <h1>{{ doc.title }}</h1>
             <ContentRenderer :value="doc" />
           </article>
-          <Giscus 
+          <div class="comments">
+            <Giscus 
             repo="hpware/posts"
             repo-id="R_kgDONg6K8Q"
-        category="posts"
+            category="posts"
            category-id="DIC_kwDONg6K8c4Clc9m"
            mapping="title"
            strict="0"
             reactions-enabled="1"
             emit-metadata="0"
             input-position="bottom"
-            theme="preferred_color_scheme"
+            theme="cobalt"
             lang="zh-TW"
             loading="lazy"
             crossorigin="anonymous"
             async/>
+          </div>
         </template>
         <template #not-found>
             <h1>沒有這個文章 >_<</h1>
@@ -31,3 +33,12 @@ import Giscus from '@giscus/vue'
     </ContentDoc>
     </main>
 </template>
+<style scoped>
+.comments {
+  margin-top: 2rem;
+  width:90%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+</style>
