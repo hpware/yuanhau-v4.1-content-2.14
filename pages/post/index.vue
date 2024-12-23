@@ -19,12 +19,12 @@ const fdate = (dateString: string) => {
       <ContentList path="/post/">
         <template #default="{ list }">
           <div v-for="article in list" :key="article._path">
-            <a :href="article._path" class="card">
+            <NuxtLink :to="article._path" class="card">
               <div class="a">
                 <div class="title"><h2>{{ article.title }}</h2><span>{{ fdate(article.date) }}</span></div>
                 <p>{{ article.description }}</p>
               </div>
-            </a>
+            </NuxtLink>
             </div>
             </template>
       <template #not-found>
