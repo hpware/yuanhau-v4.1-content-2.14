@@ -27,7 +27,7 @@ import Giscus from '@giscus/vue'
             async/>
           </div>
           <div class="footer">
-            <p>Made with nuxt & giscus.</p>
+            <p>Built using <a href="https://nuxtjs.org">NuxtJS</a> & <a href="https://giscus.app">Giscus.</a></p>
             <p class="end">我的網站，我的規則</p>
           </div>
         </template>
@@ -67,6 +67,14 @@ import Giscus from '@giscus/vue'
     font-size:x-large;
     color:rgb(169, 169, 169);
   }
+  a {
+    text-decoration: none;
+    color:white;
+    transition: all 200ms;
+  }
+  a:hover {
+    color:rgb(169, 169, 169);
+  }
   margin-top:1em;
   margin-bottom:1em;
 }
@@ -77,4 +85,5 @@ import Giscus from '@giscus/vue'
     margin-right:0;
   }
 }
+
 </style>
