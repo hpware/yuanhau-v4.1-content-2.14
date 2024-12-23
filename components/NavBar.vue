@@ -33,7 +33,7 @@ const ff_off = () => {
               <i class="bi bi-info-circle"></i>關於我
             </button></NuxtLink
           >
-          <NuxtLink to="/blog"
+          <NuxtLink to="/post/"
             ><button alt="Blog">
               <i class="bi bi-journal-text"></i>Blog
             </button></NuxtLink

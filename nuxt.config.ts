@@ -14,8 +14,7 @@ export default defineNuxtConfig({
     "/web3/**": { prerender: true },
     "/api/**": { cors: true },
     "/user/panel/**": { ssr: true },
-    "/blog/": { prerender: true },
-    "/post/**": { ssr: true },
+    "/post/**": { swr: 3600 },
   },
 
   modules: [

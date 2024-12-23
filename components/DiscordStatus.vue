@@ -92,7 +92,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <span class="err" v-if="errorb == true">error fetching Discord status</span>
+  <span class="onlinepr" v-if="errorb === true"
+    ><i class="bi bi-circle-fill" style="color:grey"></i>&nbsp;
+    <span>Error fetching Status.</span>
+  </span>
   <span class="onlinepr" v-else
     ><i class="bi" :class="statusIcon" :style="statusColor"></i>&nbsp;
     <span>{{ text }}</span>

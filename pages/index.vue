@@ -80,7 +80,7 @@ const othercooltext = dyothertext();
       <h3 class="buttons">
         <NuxtLink class="not-a-button profilebutton" href="/about"
           >關於我</NuxtLink
-        >|<NuxtLink class="not-a-button profilebutton" to="/blog">Blog</NuxtLink
+        >|<NuxtLink class="not-a-button profilebutton" to="/post/">Blog</NuxtLink
         >|<!--暫用--><a
           class="not-a-button profilebutton"
           href="https://yuanh.xyz/projects"

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import Giscus from "@giscus/vue";
+const formatDate = (dateString:string) => {
+  const D1 = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString("zh-TW", D1);
+};
 </script>
 <template>
   <main>
@@ -7,6 +11,9 @@ import Giscus from "@giscus/vue";
       <template v-slot="{ doc }">
         <article>
           <h1>{{ doc.title }}</h1>
+          <div class="meta">
+            <span>{{ formatDate(doc.date) }}</span> | <span>吳元皓</span>
+          </div>
           <ContentRenderer :value="doc" />
         </article>
         <div class="comments">
@@ -44,6 +51,16 @@ import Giscus from "@giscus/vue";
   </main>
 </template>
 <style scoped>
+.meta {
+  font-size: 0.8em;
+  color: rgb(133, 133, 133);
+  margin-top: 0em;
+  margin-bottom: 0.5em;
+  span {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+}
 .comments {
   margin-top: 2rem;
   margin-bottom: 0;
@@ -84,9 +101,10 @@ import Giscus from "@giscus/vue";
 }
 @media (max-width: 502px) {
   .comments {
-    width: 95%;
+    width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
 }
+
 </style>
