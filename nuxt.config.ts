@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     '/post/**': { ssr: true },
   },
 
-  modules: ['nuxt-umami', '@nuxtjs/robots', 'nuxt-auth-utils', '@kgierke/nuxt-basic-auth', '@sentry/nuxt/module', '@nuxt/image', '@nuxtjs/sitemap', '@nuxt/content'],
+  modules: ['nuxt-umami', '@nuxtjs/robots', 'nuxt-auth-utils', '@kgierke/nuxt-basic-auth', '@sentry/nuxt/module', '@nuxt/image', '@nuxtjs/sitemap', '@nuxt/content', 'nuxt-gtag'],
 
   umami: {
     enabled: true,
@@ -82,4 +82,7 @@ export default defineNuxtConfig({
       driver: 'fs',
     },
   },
+  gtag: {
+    id: 'G-2J2M9834SQ',
+  }
 })
