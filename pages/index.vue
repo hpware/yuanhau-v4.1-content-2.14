@@ -148,7 +148,7 @@ const othercooltext = dyothertext();
   border-radius: 50%;
   width: 20%;
   min-width: 250px;
-  animation: ease-in 300ms pfp-fade-in;
+  animation: ease-in 600ms pfp-fade-in;
   margin-bottom: 0em;
 }
 .pfp:hover {

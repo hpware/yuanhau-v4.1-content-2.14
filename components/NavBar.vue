@@ -19,8 +19,8 @@ const ff_on = () => {
         <i class="bi bi-list"></i>
       </button>
     </div>
+    <Transition name="slide">
     <div class="nav" v-if="ff">
-      <Transition name="fade">
         <div class="nav-content">
           <button class="x-off" @click="ff_off" alt="Close the menu">
             <i class="bi bi-x" v-ref="x_off"></i>
@@ -73,8 +73,8 @@ const ff_on = () => {
             >回報 :)
           </p>
         </div>
-      </Transition>
     </div>
+  </Transition>
   </div>
 </template>
 <style scoped>
@@ -83,6 +83,7 @@ const ff_on = () => {
 }
 .po {
   z-index: 1000;
+  
 }
 .enablesidebar {
   position: fixed;
@@ -176,5 +177,28 @@ const ff_on = () => {
   a:hover {
     color: #b3b3b3;
   }
+}
+@keyframes slide-out {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.slide-enter-active {
+  animation: slide-out 0.5s ease-out;
+}
+
+.slide-leave-active {
+  animation: slide-in 0.5s ease-in;
 }
 </style>

@@ -52,4 +52,17 @@ getCodingHistoryMD();
   text-align: center;
   margin-top: 5%;
 }
+.about {
+  animation: fade-in 1200ms ease-in-out;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
 </style>
