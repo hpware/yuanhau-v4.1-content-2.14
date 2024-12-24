@@ -72,8 +72,8 @@ const othercooltext = dyothertext();
       </h2>
       <DiscordStatus />
       <p class="mbmt0">
-        嗨! 我是一個高中生，我對<a href="/photos" style="color: white">攝影</a
-        >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 HTML, Vercel 與 Git &
+        嗨! 我是一個五專生，我對<a href="/photos" style="color: white">攝影</a
+        >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 VueJS, Git &
         Debian(Ubuntu)<br />
         <span>{{ otherCoolText }}</span>
       </p>

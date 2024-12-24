@@ -25,7 +25,14 @@ const fdate = (dateString: string) => {
                 <p>{{ article.description }}</p>
               </div>
             </NuxtLink>
-            </div>
+          </div>
+          <div class="footer">
+          <p>
+            Built using <a href="https://nuxtjs.org">NuxtJS</a> &
+            <a href="https://giscus.app">Giscus.</a>
+          </p>
+          <p class="end">我的網站，我的規則</p>
+        </div>
             </template>
       <template #not-found>
         <p>沒有文章 :(</p>
@@ -51,11 +58,13 @@ h1 {
   text-decoration: none;
   color:white;
   div.a {
-    padding: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: #33333350;
     border-radius: 10px;
     margin: 1em;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     transition: all 300ms;
     h2 {
       margin-bottom: 0;
@@ -120,5 +129,35 @@ h1 {
       }
     }
   }
+}
+.footer {
+  align-content: end;
+  align-items: end;
+  text-align: center;
+  position: absolute;
+  display: grid;
+  left: 0;
+  right: 0;
+  p {
+    font-size: 0.5em;
+    margin-top: 0.1em;
+    margin-bottom: 0;
+  }
+  p.end {
+    margin-bottom: 0.5em;
+    margin-top: 0.1em;
+    font-size: x-large;
+    color: rgb(169, 169, 169);
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    transition: all 200ms;
+  }
+  a:hover {
+    color: rgb(169, 169, 169);
+  }
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 </style>

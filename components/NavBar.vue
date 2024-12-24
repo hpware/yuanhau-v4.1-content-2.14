@@ -7,26 +7,28 @@ const x_off = ref();
 
 const ff_off = () => {
   ff.value = false;
-  animate(x_off.value, {});
+};
+const ff_on = () => {
+  ff.value = true;
 };
 </script>
 <template>
   <div class="po">
     <div class="enablesidebar" v-if="!ff">
-      <button @click="ff = true" alt="Menu Button" id="menu-button">
+      <button @click="ff_on" alt="Menu Button" id="menu-button">
         <i class="bi bi-list"></i>
       </button>
     </div>
     <div class="nav" v-if="ff">
       <Transition name="fade">
         <div class="nav-content">
-          <button class="x-off" @click="ff = false" alt="Close the menu">
+          <button class="x-off" @click="ff_off" alt="Close the menu">
             <i class="bi bi-x" v-ref="x_off"></i>
           </button>
 
           <!--Main Navagation-->
-          <a href="/"
-            ><button alt="Home page"><i class="bi bi-house"></i>首頁</button></a
+          <NuxtLink to="/" @click="ff_off"
+            ><button alt="Home page"><i class="bi bi-house"></i>首頁</button></NuxtLink
           >
           <NuxtLink to="/about"
             ><button alt="About page">

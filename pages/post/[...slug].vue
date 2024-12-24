@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Giscus from "@giscus/vue";
+import { inView, animate } from "motion";
 const formatDate = (dateString:string) => {
   const D1 = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString("zh-TW", D1);
