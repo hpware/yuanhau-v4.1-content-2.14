@@ -91,6 +91,8 @@ export default defineNuxtConfig({
         },
         { name: "og:author", content: "吳元皓" },
         { name: "og:author:email", content: "hw@yuanhau.com" },
+        { "http-equiv": "X-UA-Compatible", content: "IE=edge" },
+        { "http-equiv": "X-Frame-Options", content: "DENY" },
       ],
     },
   },
