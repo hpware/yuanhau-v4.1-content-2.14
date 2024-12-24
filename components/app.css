@@ -1,10 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import "@fontsource/fira-mono/index.css";
-:root {
-  --bg-color1: #181818;
-  --bg-color2: #232730;
-  --bg-color3: #737373;
-}
 html,
 body {
   margin: 0;
@@ -12,7 +7,7 @@ body {
   box-sizing: border-box;
 }
 body {
-  background-color: var(--bg-color2);
+  background-color: #232730;
   color: white;
   text-align: center;
   font-family: sans-serif;
@@ -27,7 +22,7 @@ body {
 }
 a {
   color: rgb(71, 166, 255);
-  transition: all 200ms;
+  transition: all 300ms;
 }
 a:hover {
   color: rgb(53, 129, 201);
