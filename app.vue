@@ -4,16 +4,17 @@ import NavBar from "~/components/NavBar.vue";
 import { defineProps, ref, onMounted } from "vue";
 </script>
 <template>
-  <noscript>
-    <p>這個網站必需要使用 JavaScript 才能運作</p>
-  </noscript>
-  <NavBar />
-  <NuxtPage />
-  <footer>
+  <NuxtLoadingIndicator />
+  <NuxtLayout>
+    <NavBar />
+    <NuxtPage />
+    <footer>
     <p style="text-align: center; font-size: 0.6em">
       Copyright © {{ new Date().getFullYear() }} 吳元皓
     </p>
   </footer>
+  <noscript>這個網站必需要使用 JavaScript 才能運作</noscript>
+  </NuxtLayout>
 </template>
 <style scoped>
 footer {
