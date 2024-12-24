@@ -15,7 +15,7 @@ const fdate = (dateString: string) => {
     <h1 class="title">Blog</h1>
     <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!</h6>
     <Loading v-if="loading" />
-    <div v-else>
+    <div v-else class="list">
       <ContentList path="/post/">
         <template #default="{ list }">
           <div v-for="article in list" :key="article._path">
@@ -159,5 +159,18 @@ h1 {
   }
   margin-top: 1em;
   margin-bottom: 1em;
+}
+div.list {
+  animation: fade-in 700ms ease-in-out;
+}
+@keyframes fade-in {
+  0% {
+    opacity:0;
+    transform: translateY(20px);
+  };
+  100% {
+    opacity:1;
+    transform: translateY(0);
+  }
 }
 </style>
