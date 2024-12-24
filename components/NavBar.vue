@@ -30,17 +30,17 @@ const ff_on = () => {
           <NuxtLink to="/" @click="ff_off"
             ><button alt="Home page"><i class="bi bi-house"></i>首頁</button></NuxtLink
           >
-          <NuxtLink to="/about"
+          <NuxtLink to="/about" @click="ff_off"
             ><button alt="About page">
               <i class="bi bi-info-circle"></i>關於我
             </button></NuxtLink
           >
-          <NuxtLink to="/post/"
+          <NuxtLink to="/post/" @click="ff_off"
             ><button alt="Blog">
               <i class="bi bi-journal-text"></i>Blog
             </button></NuxtLink
           >
-          <NuxtLink to=""
+          <NuxtLink to="" 
             ><button alt="My Projects" class="nd">
               <i class="bi bi-code-square"></i>專案
             </button></NuxtLink

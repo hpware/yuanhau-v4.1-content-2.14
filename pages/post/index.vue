@@ -13,7 +13,7 @@ const fdate = (dateString: string) => {
 <template>
   <div class="main" id="main">
     <h1 class="title">Blog</h1>
-    <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!</h6>
+    <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞) </h6>
     <Loading v-if="loading" />
     <div v-else class="list">
       <ContentList path="/post/">
