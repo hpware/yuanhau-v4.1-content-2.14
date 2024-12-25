@@ -54,6 +54,12 @@ getCodingHistoryMD();
 }
 .about {
   animation: fade-in 1200ms ease-in-out;
+  width: 98%;
+}
+@media (max-width: 600px) {
+  .about {
+    width: 100%;
+  }
 }
 @keyframes fade-in {
   from {

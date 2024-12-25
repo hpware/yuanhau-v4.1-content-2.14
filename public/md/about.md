@@ -4,8 +4,6 @@
 
 我的成績沒有怎樣，但我的強項為英文
 
-English is what most docs are writen in. This is a huge advantage for me, as I can read docs by the dev instead of some person on the internet that will make something wrong, or just translating software not doing it's job.
-
 我認為英文 不等於 Coding，但一定有好處的
 
 分數排名: 英文 > 社會 > 自然 > 數學 > 國文
@@ -22,7 +20,7 @@ English is what most docs are writen in. This is a huge advantage for me, as I c
    hw@yuanhau.com
 2. Discord: @hwtw
 3. 網站：
-   [yuanhau.com](https://yuanhau.com)
+   [yuanhau.com](https://yuanhau.com) 或 [舊版的網站](https://mdviewer.yuanhau.com/?u=https://raw.githubusercontent.com/hpware/hpware/refs/heads/main/old-sites.md)
 4. Signal: yuanhau.01
 
 ## 經歷
@@ -37,7 +35,7 @@ English is what most docs are writen in. This is a huge advantage for me, as I c
 
 當時的我沒有放入< a > 的標籤，所以不是HyperLink，我當時也沒想太多就繼續使用著。
 
-但我在這一年內增加了許多HTML &CSS的知識，讓我更有信心可以在學VueJS 或 ~~ReactJS~~ SvelteJS。
+但我在這一年內增加了許多VueJS, CSS 與 Typescript 的知識，讓我在下一年更有信心可以在學 ReactJS 和 SvelteJS。
 
 ---
 
@@ -66,11 +64,10 @@ English is what most docs are writen in. This is a huge advantage for me, as I c
 我也對 Windows Server IIS 也有一點經驗，主要的原因是我在 Windows Server 2022 IIS 10.0 上讓我的爛網站跑起來，但最後還是跑回 Vercel 了。
 
 ### 找 Bug
-
 Zeroday (HITCON)
 [![](https://zeroday.hitcon.org/images/zd-logo.svg)](https://zeroday.hitcon.org/user/hw49/vulnerability)
 
-這個平台為一個 [Thread](https://www.threads.net/@rex978956/post/C91y8CQx2ON) 上有人建議我舉報 Bug 的平台。
+這個平台為一個 [Threads](https://www.threads.net/@rex978956/post/C91y8CQx2ON) 上有人建議我舉報 Bug 的平台。
 
 ---
 
@@ -88,12 +85,9 @@ Listening & Writing Score: 745 (2023)
 ## 我想學的
 
 ### 程式語言
-
-Vue&nbsp; Python&nbsp; mySQL&nbsp; Svelte
-
+Vue Python mySQL Svelte React Typescript
 ### Linux
-
-Arch&nbsp; Fedora
+Arch Fedora
 
 ## GitHub 資料
 
