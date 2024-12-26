@@ -13,7 +13,7 @@ const fdate = (dateString: string) => {
 <template>
   <div class="main" id="main">
     <h1 class="title">Blog</h1>
-    <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞) </h6>
+    <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞)</h6>
     <Loading v-if="loading" />
     <div v-else class="list">
       <ContentList path="/post/">
@@ -21,23 +21,26 @@ const fdate = (dateString: string) => {
           <div v-for="article in list" :key="article._path">
             <NuxtLink :to="article._path" class="card">
               <div class="a">
-                <div class="title"><h2>{{ article.title }}</h2><span>{{ fdate(article.date) }}</span></div>
+                <div class="title">
+                  <h2>{{ article.title }}</h2>
+                  <span>{{ fdate(article.date) }}</span>
+                </div>
                 <p>{{ article.description }}</p>
               </div>
             </NuxtLink>
           </div>
           <div class="footer">
-          <p>
-            Built using <a href="https://nuxtjs.org">NuxtJS</a> &
-            <a href="https://giscus.app">Giscus.</a>
-          </p>
-          <p class="end">我的網站，我的規則</p>
-        </div>
-            </template>
-      <template #not-found>
-        <p>沒有文章 :(</p>
-      </template>
-    </ContentList>
+            <p>
+              Built using <a href="https://nuxtjs.org">NuxtJS</a> &
+              <a href="https://giscus.app">Giscus.</a>
+            </p>
+            <p class="end">我的網站，我的規則</p>
+          </div>
+        </template>
+        <template #not-found>
+          <p>沒有文章 :(</p>
+        </template>
+      </ContentList>
     </div>
   </div>
 </template>
@@ -56,7 +59,7 @@ h1 {
 }
 .card {
   text-decoration: none;
-  color:white;
+  color: white;
   div.a {
     padding: 5px;
     padding-left: 10px;
@@ -68,30 +71,29 @@ h1 {
     transition: all 300ms;
     h2 {
       margin-bottom: 0;
-      text-align:left;
+      text-align: left;
     }
     p {
       margin-top: 0;
-      color:rgb(153, 153, 153);
+      color: rgb(153, 153, 153);
     }
   }
   div.a:hover {
-    border-color:rgb(71, 166, 255);
+    border-color: rgb(71, 166, 255);
   }
   .title {
     display: flex;
     span {
-      color:rgb(153, 153, 153);
-      text-align:left;
-      align-items:left;
+      color: rgb(153, 153, 153);
+      text-align: left;
+      align-items: left;
       justify-content: left;
       margin-left: auto;
-      align-self:self-end;
+      align-self: self-end;
     }
   }
 }
 @media (max-width: 502px) {
-
   h1.title {
     font-size: 2em;
   }
@@ -108,24 +110,24 @@ h1 {
       transition: all 300ms;
       h2 {
         margin-bottom: 0;
-        text-align:left;
+        text-align: left;
       }
       p {
         margin-top: 0;
-        color:rgb(153, 153, 153);
-        font-size:0.6em;
+        color: rgb(153, 153, 153);
+        font-size: 0.6em;
       }
     }
     .title {
       display: block;
       span {
-        color:rgb(153, 153, 153);
-        text-align:left;
-        align-items:left;
+        color: rgb(153, 153, 153);
+        text-align: left;
+        align-items: left;
         justify-content: left;
         margin-left: auto;
-        font-size:0.7em;
-        align-self:left;
+        font-size: 0.7em;
+        align-self: left;
       }
     }
   }

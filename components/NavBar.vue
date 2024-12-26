@@ -20,7 +20,7 @@ const ff_on = () => {
       </button>
     </div>
     <Transition name="slide">
-    <div class="nav" v-if="ff">
+      <div class="nav" v-if="ff">
         <div class="nav-content">
           <button class="x-off" @click="ff_off" alt="Close the menu">
             <i class="bi bi-x" v-ref="x_off"></i>
@@ -28,7 +28,9 @@ const ff_on = () => {
 
           <!--Main Navagation-->
           <NuxtLink to="/" @click="ff_off"
-            ><button alt="Home page"><i class="bi bi-house"></i>首頁</button></NuxtLink
+            ><button alt="Home page">
+              <i class="bi bi-house"></i>首頁
+            </button></NuxtLink
           >
           <NuxtLink to="/about" @click="ff_off"
             ><button alt="About page">
@@ -40,7 +42,7 @@ const ff_on = () => {
               <i class="bi bi-journal-text"></i>Blog
             </button></NuxtLink
           >
-          <NuxtLink to="" 
+          <NuxtLink to=""
             ><button alt="My Projects" class="nd">
               <i class="bi bi-code-square"></i>專案
             </button></NuxtLink
@@ -73,8 +75,8 @@ const ff_on = () => {
             >回報 :)
           </p>
         </div>
-    </div>
-  </Transition>
+      </div>
+    </Transition>
   </div>
 </template>
 <style scoped>
@@ -83,7 +85,6 @@ const ff_on = () => {
 }
 .po {
   z-index: 1000;
-  
 }
 .enablesidebar {
   position: fixed;

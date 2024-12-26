@@ -93,7 +93,7 @@ onMounted(async () => {
 
 <template>
   <span class="onlinepr" v-if="errorb === true"
-    ><i class="bi bi-circle-fill" style="color:grey"></i>&nbsp;
+    ><i class="bi bi-circle-fill" style="color: grey"></i>&nbsp;
     <span>Error fetching Status.</span>
   </span>
   <span class="onlinepr" v-else

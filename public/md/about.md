@@ -64,6 +64,7 @@
 我也對 Windows Server IIS 也有一點經驗，主要的原因是我在 Windows Server 2022 IIS 10.0 上讓我的爛網站跑起來，但最後還是跑回 Vercel 了。
 
 ### 找 Bug
+
 Zeroday (HITCON)
 [![](https://zeroday.hitcon.org/images/zd-logo.svg)](https://zeroday.hitcon.org/user/hw49/vulnerability)
 
@@ -85,8 +86,11 @@ Listening & Writing Score: 745 (2023)
 ## 我想學的
 
 ### 程式語言
+
 Vue Python mySQL Svelte React Typescript
+
 ### Linux
+
 Arch Fedora
 
 ## GitHub 資料

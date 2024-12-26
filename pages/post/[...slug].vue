@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Giscus from "@giscus/vue";
 import { inView, animate } from "motion";
-const formatDate = (dateString:string) => {
-  const D1 = { year: 'numeric', month: 'long', day: 'numeric' };
+const formatDate = (dateString: string) => {
+  const D1 = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString("zh-TW", D1);
 };
 </script>
@@ -112,11 +112,11 @@ article {
 }
 @keyframes fade-in {
   0% {
-    opacity:0;
+    opacity: 0;
     transform: translateY(20px);
-  };
+  }
   100% {
-    opacity:1;
+    opacity: 1;
     transform: translateY(0);
   }
 }

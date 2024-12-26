@@ -9,11 +9,11 @@ import { defineProps, ref, onMounted } from "vue";
     <NavBar />
     <NuxtPage />
     <footer>
-    <p style="text-align: center; font-size: 0.6em">
-      Copyright © {{ new Date().getFullYear() }} 吳元皓
-    </p>
-  </footer>
-  <noscript>這個網站必需要使用 JavaScript 才能運作</noscript>
+      <p style="text-align: center; font-size: 0.6em">
+        Copyright © {{ new Date().getFullYear() }} 吳元皓
+      </p>
+    </footer>
+    <noscript>這個網站必需要使用 JavaScript 才能運作</noscript>
   </NuxtLayout>
 </template>
 <style scoped>
