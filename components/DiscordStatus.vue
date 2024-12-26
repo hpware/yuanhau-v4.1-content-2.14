@@ -52,7 +52,9 @@ onMounted(async () => {
           ActivityStatus0.name === "WebStorm" ||
           ActivityStatus0.name === "Visual Studio Code" ||
           ActivityStatus0.name === "PyCharm" ||
-          ActivityStatus0.name === "Code"
+          ActivityStatus0.name === "Code" ||
+          ActivityStatus0.name === "IntelliJ IDEA" ||
+          ActivityStatus0.name === "Zed"
         ) {
           const FileNameStatus = ref(ActivityStatus0.state);
           const ProjectName = ref(ActivityStatus0.details);
@@ -73,6 +75,7 @@ onMounted(async () => {
           `${SpotifyCurrentlyPlayingSong.value} - ${SpotifyCurrentlyPlayingArtistComma.value}`,
         );
         text.value = SpotifyCurrentlyPlaying.value;
+
         statusIcon.value = "bi-spotify fontsize1";
       } else if (ActivityStatus0.type === 3) {
         const Watching = ref(ActivityStatus0.name);
