@@ -5,7 +5,7 @@ import { marked } from "marked";
 const md = ref();
 
 async function getMarkdown() {
-  const response = await fetch("/markdown/pager/api.md");
+  const response = await fetch("/md/pager/api.md");
   const data = await response.text();
   md.value = marked.parse(data);
 }
