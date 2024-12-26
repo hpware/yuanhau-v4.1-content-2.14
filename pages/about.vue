@@ -55,6 +55,11 @@ getCodingHistoryMD();
 .about {
   animation: fade-in 1200ms ease-in-out;
   width: 98%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 600px) {
   .about {
@@ -67,7 +72,7 @@ getCodingHistoryMD();
     transform: translateY(20px);
   }
   to {
-    opacity:1;
+    opacity: 1;
     transform: translateY(0);
   }
 }
