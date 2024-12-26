@@ -42,4 +42,8 @@ User-agent: *
 Disallow: /user/
 Disallow: /api/
 Disallow: /markdown/
-Disallow: 
+Disallow: /index-blank
+# Delete after feature is complete.
+User-agent: *
+Disallow: /images
+Disallow: /projects
