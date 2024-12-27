@@ -1,6 +1,6 @@
-[submodule "posts"]
-    path = content
-    url = https://github.com/hpware/posts.git
+[submodule "content"]
+	path = content
+	url = https://github.com/hpware/posts.git
     branch = main
     update = merge
     fetchRecurseSubmodules = true

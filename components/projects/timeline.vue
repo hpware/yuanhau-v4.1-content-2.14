@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+export props: [{
+  date: String,
+  title: String,
+  content: String,
+  links: String
+}]
 </script>
 <template>
   <div class="component">
-    <span class="date"></span>
-    <span class="title"></span>
-    <span class="content"></span>
-    <span class="links"></span>
+    <span class="date"> {{ props.date }}</span>
+    <span class="title"> {{ props.title }}</span>
+    <span class="content">{{ props.content }}</span>
+    <div class="links">{{ props.links }}</div>
   </div>
 </template>
 <style scoped>
