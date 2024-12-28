@@ -42,7 +42,7 @@ const ff_on = () => {
               <i class="bi bi-journal-text"></i>Blog
             </button></NuxtLink
           >
-          <NuxtLink to=""
+          <!--<NuxtLink to=""
             ><button alt="My Projects" class="nd">
               <i class="bi bi-code-square"></i>專案
             </button></NuxtLink
@@ -51,7 +51,7 @@ const ff_on = () => {
             ><button alt="Photo library" class="nd">
               <i class="bi bi-images"></i>相簿
             </button></NuxtLink
-          >
+          >-->
           <a href="mailto:hw@yuanhau.com" target="_blank"
             ><button alt="email"><i class="bi bi-inbox"></i>我的信箱</button></a
           >
@@ -201,5 +201,11 @@ const ff_on = () => {
 
 .slide-leave-active {
   animation: slide-in 0.5s ease-in;
+}
+.router-link-active {
+  button {
+    color: rgb(207, 207, 207);
+  }
+  color: #27676ea9;
 }
 </style>
