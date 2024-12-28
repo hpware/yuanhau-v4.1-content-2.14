@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-export props: [{
-  date: String,
-  title: String,
-  content: String,
-  links: String
-}]
+const props = defineProps<{
+  date: string;
+  title: string;
+  content: string;
+  links: string;
+}>();
 </script>
 <template>
   <div class="component">
