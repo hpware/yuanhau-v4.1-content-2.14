@@ -43,6 +43,7 @@ Disallow: /user/
 Disallow: /api/
 Disallow: /markdown/
 Disallow: /index-blank
+Allow: /post/
 # Delete after feature is complete.
 User-agent: *
 Disallow: /images
