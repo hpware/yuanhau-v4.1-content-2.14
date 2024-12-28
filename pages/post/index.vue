@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Loading from "@/components/loading/default.vue";
+import type { QueryBuilderParams } from "@nuxt/content/dist/runtime/types";
 const loading = ref(false);
 useSeoMeta({
   title: "Blog | 吳元皓",
@@ -9,6 +10,12 @@ const fdate = (dateString: string) => {
   const D1 = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString("zh-TW", D1);
 };
+const submit_search = (e: Event) => {
+  e.preventDefault();
+};
+const query: QueryBuilderParams = {
+  sort: [{ date: -1 }],
+};
 </script>
 <template>
   <div class="main" id="main">
@@ -16,7 +23,13 @@ const fdate = (dateString: string) => {
     <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞)</h6>
     <Loading v-if="loading" />
     <div v-else class="list">
-      <ContentList path="/post/">
+      <!--<div class="search">
+        <form @submit="">
+          <input type="text" placeholder="Ex: Editor" />
+          <button>search</button>
+        </form>
+      </div>-->
+      <ContentList path="/post/" :query="query">
         <template #default="{ list }">
           <div v-for="article in list" :key="article._path">
             <NuxtLink :to="article._path" class="card">
@@ -164,5 +177,30 @@ h1 {
 }
 div.list {
   animation: fade-in 700ms ease-in-out;
+}
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  form {
+    display: flex;
+    input {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #333333;
+      margin-right: 5px;
+    }
+    button {
+      padding: 5px;
+      border-radius: 5px;
+      background-color: #333333;
+      color: white;
+      transition: all 500ms;
+    }
+    button:hover {
+      border: 1px solid #9afa9a;
+    }
+  }
 }
 </style>
