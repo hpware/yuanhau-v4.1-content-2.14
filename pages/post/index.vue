@@ -19,8 +19,10 @@ const query: QueryBuilderParams = {
 </script>
 <template>
   <div class="main" id="main">
-    <h1 class="title">Blog</h1>
-    <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞)</h6>
+    <div class="top">
+      <h1 class="title">Blog</h1>
+      <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞)</h6>
+    </div>
     <Loading v-if="loading" />
     <div v-else class="list">
       <!--<div class="search">
@@ -58,8 +60,6 @@ const query: QueryBuilderParams = {
   </div>
 </template>
 <style scoped>
-.main {
-}
 h1.title {
   margin-bottom: 0;
   font-size: 2.5em;
@@ -200,6 +200,33 @@ div.list {
     }
     button:hover {
       border: 1px solid #9afa9a;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .top {
+    font-size: 0.9em;
+    .dec {
+      font-size: 0.8em;
+    }
+  }
+  .footer {
+    p {
+      font-size: 0.4em;
+    }
+    p.end {
+      font-size: 0.8em;
+    }
+  }
+  .card {
+    margin-top: 0;
+    .a {
+      margin-top: 0;
+    }
+    .title {
+      h2 {
+        font-size: 0.9em;
+      }
     }
   }
 }

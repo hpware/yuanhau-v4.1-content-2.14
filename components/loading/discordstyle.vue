@@ -23,7 +23,7 @@ onMounted(() => {
     <div class="loading" ref="loading"></div>
   </div>
   <br />
-  載入中...
+  <span class="text">載入中..</span>
 </template>
 <style scoped>
 .loading {
@@ -34,10 +34,17 @@ onMounted(() => {
   background-image: url("https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7");
   background-repeat: no-repeat;
   background-size: 100px 100px;
+  top: 0;
+  bottom: 0;
 }
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 500px) {
+  .text {
+    font-size: 0.8em;
+  }
 }
 </style>

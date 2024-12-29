@@ -15,7 +15,7 @@ const formatDate = (dateString: string) => {
           <div class="meta">
             <span>{{ formatDate(doc.date) }}</span> | <span>吳元皓</span>
           </div>
-          <ContentRenderer :value="doc" />
+          <ContentRenderer :value="doc" class="content" />
         </article>
         <div class="comments">
           <Giscus
@@ -118,6 +118,22 @@ article {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 600px) {
+  .meta {
+    font-size: 0.7em;
+  }
+  .content {
+    font-size: 0.9em;
+  }
+  .footer {
+    p {
+      font-size: 0.4em;
+    }
+    p.end {
+      font-size: 0.8em;
+    }
   }
 }
 </style>
