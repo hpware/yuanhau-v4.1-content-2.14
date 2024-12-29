@@ -113,4 +113,9 @@ onMounted(async () => {
 .fontsize1 {
   font-size: 1.123em;
 }
+@media (max-width: 700px) {
+  .onlinepr {
+    font-size: 0.5em;
+  }
+}
 </style>

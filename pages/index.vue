@@ -112,6 +112,8 @@ const othercooltext = dyothertext();
   background-size: cover;
   margin: 0;
   padding: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
   background-repeat: no-repeat;
   background-color: #878a8e;
@@ -125,6 +127,8 @@ const othercooltext = dyothertext();
 }
 .about {
   text-align: center;
+  top: 0;
+  bottom: 0;
   backdrop-filter: blur(10px);
   padding: 0;
   margin: 0;
@@ -169,6 +173,7 @@ const othercooltext = dyothertext();
 }
 .button {
   width: 100%;
+  font-size: 1em;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -208,6 +213,15 @@ const othercooltext = dyothertext();
   }
   footer {
     display: none;
+  }
+  .about {
+    font-size: 1em;
+  }
+  .buttons {
+    font-size: 0.86em;
+  }
+  .socials {
+    font-size: 0.8em;
   }
 }
 .mbmt0 {
