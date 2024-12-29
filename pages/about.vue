@@ -64,6 +64,7 @@ getCodingHistoryMD();
 @media (max-width: 600px) {
   .about {
     width: 100%;
+    font-size: 0.9em;
   }
 }
 @keyframes fade-in {
