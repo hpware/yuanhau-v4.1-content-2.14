@@ -3,11 +3,14 @@ import { ref } from "vue";
 useSeoMeta({
   title: "我的專案 | 吳元皓",
 });
+const projects = [1];
 </script>
 <template>
   <div class="main" id="main">
     <h1 class="title">我的專案</h1>
-    <div class="content"></div>
+    <div class="content">
+      <!--<div v-for="item in projects" :key="{{item.id}}"></div>-->
+    </div>
   </div>
 </template>
 <style scoped>
