@@ -9,6 +9,8 @@ useSeoMeta({
 async function githubLogOn() {
   window.location.href = "/api/auth/github";
 }
+// Ths is a comment for me testing my enw keyboard!
+// This is a comment for me using my macbooks internal keyboard. Its fine.ßß
 </script>
 <template>
   <div>

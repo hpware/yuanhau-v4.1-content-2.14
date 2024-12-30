@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { marked } from "marked";
 import { animate } from "motion";
-import "~/components/about.css";
+import "~/components/markdown.css";
 import Loading from "~/components/loading/discordstyle.vue";
 useHead({
   title: "關於我 | 吳元皓",
