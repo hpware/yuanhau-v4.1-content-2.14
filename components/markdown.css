@@ -1,0 +1,17 @@
+ul {
+  display: inline-flexbox;
+  text-align: left;
+  list-style-position: inside;
+  unicode-bidi: isolate;
+}
+ol {
+  display: inline-block;
+  text-align: left;
+  list-style-type: decimal;
+  unicode-bidi: isolate;
+}
+li {
+  display: list-item;
+  margin-left: 40px;
+  text-align: left;
+}
