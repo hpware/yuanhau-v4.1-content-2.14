@@ -11,8 +11,7 @@ async function githubLogOn() {
 }
 // Ths is a comment for me testing my enw keyboard!
 // This is a comment for me using my macbooks internal keyboard. Its fine.ßß
-
-throw new Error("Service not available");
+// UnDeny Login Panel. Thanks Vercel! Why the fuck can't I include this?
 </script>
 <template>
   <div>
