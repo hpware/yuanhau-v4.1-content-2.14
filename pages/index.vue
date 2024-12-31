@@ -75,7 +75,8 @@ const othercooltext = dyothertext();
         嗨! 我是一個五專生，我對<a href="/photos" style="color: white">攝影</a
         >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 VueJS, Git &
         Debian(Ubuntu)<br />
-        <span>{{ otherCoolText }}</span>
+        <!--<span>{{ otherCoolText }}</span>-->
+        <span>2024結束了...</span>
       </p>
       <h3 class="buttons">
         <NuxtLink class="not-a-button profilebutton" href="/about"
