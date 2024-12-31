@@ -11,6 +11,8 @@ async function githubLogOn() {
 }
 // Ths is a comment for me testing my enw keyboard!
 // This is a comment for me using my macbooks internal keyboard. Its fine.ßß
+
+throw new Error("Service not available");
 </script>
 <template>
   <div>
@@ -24,7 +26,7 @@ async function githubLogOn() {
         class="google"
         onclick="//window.location.href='/api/auth/google'"
       >
-        <i class="bi bi-google"></i>&nbsp;使用 Google 登入 (未完成)
+        <i class="b i bi-google"></i>&nbsp;使用 Google 登入 (未完成)
       </button>
       <p class="readreq">您在登入的同時，您將同意我們的條款</p>
     </div>

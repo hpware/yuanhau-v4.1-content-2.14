@@ -53,7 +53,11 @@ const query: QueryBuilderParams = {
           </div>
         </template>
         <template #not-found>
-          <p>沒有文章 :(</p>
+          <div class="not-found">
+            <p>沒有文章 :(</p>
+            <p>可能這個系統沒有設定好，記得跑</p>
+            <p><code>git submodule update --init --remote</code></p>
+          </div>
         </template>
       </ContentList>
     </div>
@@ -228,6 +232,11 @@ div.list {
         font-size: 0.9em;
       }
     }
+  }
+}
+div.not-found {
+  p {
+    color: gray;
   }
 }
 </style>
