@@ -12,7 +12,7 @@ import { animate } from "motion";
 const moreAbout = ref(false);
 const handPickedImages = ref(false);
 const name = ref("");
-const otherCoolText = ref("");
+const othercooltext = ref("");
 const pfp = ref();
 
 // Picker
@@ -46,16 +46,16 @@ function abcdpicker() {
 const dytextabcd = abcdpicker();
 function dyothertext() {
   if (dytextabcd === "A") {
-    return "";
+    return "開啟新篇章?";
   } else if (dytextabcd === "B") {
-    return "print('Hello World!')";
+    return "2025年到了";
   } else if (dytextabcd === "C") {
-    return "I use some vim btw.";
+    return "Developer";
   } else if (dytextabcd === "D") {
-    return "";
+    return "IG: yh_.5_26";
   }
 }
-const othercooltext = dyothertext();
+othercooltext.value = dyothertext();
 </script>
 <template>
   <div class="background">
@@ -75,8 +75,8 @@ const othercooltext = dyothertext();
         嗨! 我是一個五專生，我對<a href="/photos" style="color: white">攝影</a
         >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 VueJS, Git &
         Debian(Ubuntu)<br />
-        <!--<span>{{ otherCoolText }}</span>-->
-        <span>2024結束了...</span>
+        <span>{{ othercooltext }}</span>
+        <!--<span>2024結束了...</span>-->
       </p>
       <h3 class="buttons">
         <NuxtLink class="not-a-button profilebutton" href="/about"
