@@ -11,8 +11,7 @@ const func = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }
-
+      },
   } catch (e) {
     console.error(e);
   } finally {
