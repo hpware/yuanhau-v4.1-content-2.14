@@ -12,11 +12,11 @@ const func = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        discordhandle: discordhandle,
-        email: email,
-        message: message,
-    });
+      //body: JSON.stringify({
+        //discordhandle: discordhandle,
+        //email: email,
+        //message: message,
+    //});
   } catch (e) {
     console.error(e);
   } finally {
