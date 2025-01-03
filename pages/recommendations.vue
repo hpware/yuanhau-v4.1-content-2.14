@@ -4,20 +4,20 @@ import loading from "@/components/loading/discordstyle.vue";
 useHead: {
   title: "Recommendations | 吳元皓";
 }
-const func = async () => {
-  loading.value = true;
-  try {
-    const res = await fetch("/api/db/recommendations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-  } catch (e) {
-    console.error(e);
-  } finally {
-    loading.value = false;
-  }
-};
+//const func = async () => {
+  //loading.value = true;
+  //try {
+    //const res = await fetch("/api/db/recommendations", {
+      //method: "POST",
+      //headers: {
+        //"Content-Type": "application/json",
+      //},
+//  } catch (e) {
+    //console.error(e);
+  //} finally {
+    //loading.value = false;
+  //}
+//};
 </script>
 <template>
   <div class="background">
