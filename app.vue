@@ -4,7 +4,7 @@ import NavBar from "~/components/NavBar.vue";
 import { defineProps, ref, onMounted } from "vue";
 </script>
 <template>
-  <NuxtLoadingIndicator />
+  <NuxtLoadingIndicator color="#47a6ff" />
   <NuxtLayout>
     <NavBar />
     <NuxtPage />
@@ -31,5 +31,8 @@ footer {
     text-decoration: none;
     font-size: 0.8em;
   }
+}
+.t {
+  color:linear-gradient(#47a6ff, #0ccf4d)
 }
 </style>
