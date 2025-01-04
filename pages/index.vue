@@ -7,6 +7,7 @@ import { ref, onMounted } from "vue";
 import DiscordStatus from "~/components/DiscordStatus.vue";
 import { marked } from "marked";
 import { animate } from "motion";
+import { NuxtImg } from "#components";
 
 // Ref
 const moreAbout = ref(false);
@@ -102,6 +103,9 @@ othercooltext.value = dyothertext();
         <a href="mailto:hw@yuanhau.com" alt="email" id="email"
           ><i class="bi bi-inbox"></i
         ></a>
+        <!--<a href="https://unsplash.com/@hwtw" alt="unsplash" id="unsplash">
+          <NuxtImg src="/img/unsplash_logo.png" width="auto" />
+        </a>-->
       </p>
     </section>
   </div>
