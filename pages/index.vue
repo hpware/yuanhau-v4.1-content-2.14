@@ -100,6 +100,9 @@ othercooltext.value = dyothertext();
         <a href="https://threads.net/yh_.5_26" alt="threads" id="threads"
           ><i class="bi bi-threads"></i
         ></a>
+        <a href="https://youtube.com/@號" alt="youtube" id="youtube"
+          ><i class="bi bi-youtube"></i
+        ></a>
         <a href="mailto:hw@yuanhau.com" alt="email" id="email"
           ><i class="bi bi-inbox"></i
         ></a>
@@ -110,7 +113,6 @@ othercooltext.value = dyothertext();
     </section>
   </div>
 </template>
-
 <style scoped>
 .background {
   background-image: url("https://utfs.io/f/CCLPSN5W2HD58Z27Hs4o2sROedIPkBh97bo83YyxSurMXgNt");
