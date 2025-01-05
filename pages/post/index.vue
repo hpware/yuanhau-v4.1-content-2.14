@@ -31,7 +31,7 @@ const query: QueryBuilderParams = {
           <button>search</button>
         </form>
       </div>-->
-      <ContentList path="/post/" :query="query">
+      <ContentList path="/posts/" :query="query">
         <template #default="{ list }">
           <div v-for="article in list" :key="article._path">
             <NuxtLink :to="article._path" class="card">
