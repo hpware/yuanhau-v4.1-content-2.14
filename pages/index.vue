@@ -86,8 +86,8 @@ othercooltext.value = dyothertext();
           >Blog</NuxtLink
         >|<!--暫用--><a
           class="not-a-button profilebutton"
-          href="https://yuanh.xyz/projects"
-          >專案(舊站)</a
+          href="/v3-pages/projects"
+          >專案(v3)</a
         ><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>-->
       </h3>
       <p class="socials">
