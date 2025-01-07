@@ -37,9 +37,14 @@ const ff_on = () => {
               <i class="bi bi-info-circle"></i>關於我
             </button></NuxtLink
           >
-          <NuxtLink to="/post/" @click="ff_off"
+          <NuxtLink to="/posts/" @click="ff_off"
             ><button alt="Blog">
               <i class="bi bi-journal-text"></i>Blog
+            </button></NuxtLink
+          >
+          <NuxtLink to="/v3-pages/projects" @click="ff_off">
+            <button alt="Blog">
+              <i class="bi bi-journal-text"></i>專案(v3)
             </button></NuxtLink
           >
           <!--<NuxtLink to=""

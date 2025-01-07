@@ -7,6 +7,7 @@ import { ref, onMounted } from "vue";
 import DiscordStatus from "~/components/DiscordStatus.vue";
 import { marked } from "marked";
 import { animate } from "motion";
+import { NuxtImg } from "#components";
 
 // Ref
 const moreAbout = ref(false);
@@ -85,8 +86,8 @@ othercooltext.value = dyothertext();
           >Blog</NuxtLink
         >|<!--暫用--><a
           class="not-a-button profilebutton"
-          href="https://yuanh.xyz/projects"
-          >專案(舊站)</a
+          href="/v3-pages/projects"
+          >專案(v3)</a
         ><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>-->
       </h3>
       <p class="socials">
@@ -99,14 +100,19 @@ othercooltext.value = dyothertext();
         <a href="https://threads.net/yh_.5_26" alt="threads" id="threads"
           ><i class="bi bi-threads"></i
         ></a>
+        <a href="https://youtube.com/@號" alt="youtube" id="youtube"
+          ><i class="bi bi-youtube"></i
+        ></a>
         <a href="mailto:hw@yuanhau.com" alt="email" id="email"
           ><i class="bi bi-inbox"></i
         ></a>
+        <!--<a href="https://unsplash.com/@hwtw" alt="unsplash" id="unsplash">
+          <NuxtImg src="/img/unsplash_logo.png" width="auto" />
+        </a>-->
       </p>
     </section>
   </div>
 </template>
-
 <style scoped>
 .background {
   background-image: url("https://utfs.io/f/CCLPSN5W2HD58Z27Hs4o2sROedIPkBh97bo83YyxSurMXgNt");
