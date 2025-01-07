@@ -33,6 +33,6 @@ footer {
   }
 }
 .t {
-  color:linear-gradient(#47a6ff, #0ccf4d)
+  color: linear-gradient(#47a6ff, #0ccf4d);
 }
 </style>

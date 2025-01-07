@@ -33,18 +33,18 @@ const func = async () => {
       successq.value = true;
       success.value = "Successfully submitted.";
     }
-    } catch (e) {
+  } catch (e) {
     console.error(e);
   } finally {
     setTimeout(() => {
       loading.value = false;
-    },500);
+    }, 500);
   }
-}
+};
 </script>
 <template>
   <div v-if="loading">
-    <br/>
+    <br />
     <LoadingAnimation />
   </div>
   <div v-if="successq && !loading && !errorq">
@@ -82,7 +82,12 @@ const func = async () => {
           placeholder="ex: web@yuanhau.com"
         />
         <label for="message">Message</label>
-        <textarea id="message" name="message" v-model="message" required></textarea>
+        <textarea
+          id="message"
+          name="message"
+          v-model="message"
+          required
+        ></textarea>
         <button>Submit</button>
       </form>
     </div>
@@ -92,10 +97,10 @@ const func = async () => {
 form {
   display: flex;
   flex-direction: column;
-  text-align:center;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  align-self:center;
+  align-self: center;
   width: auto;
   margin: 0 auto;
   padding: 1em;
@@ -109,11 +114,11 @@ input {
   padding: 0.5em;
   border: 1px solid #1d1d1d;
   border-radius: 7px;
-  background-color:#8d8d8d5c;
-  width:100%;
+  background-color: #8d8d8d5c;
+  width: 100%;
   color: white;
   transition: all 1000ms ease-in-out;
-  font-size:0.8em;
+  font-size: 0.8em;
 }
 input:focus {
   border-color: #ffffff;
@@ -122,19 +127,19 @@ input::grammar-error {
   border-color: red;
 }
 input::spelling-error {
-  border-color:red;
+  border-color: red;
 }
 textarea {
   margin: 0.5em;
   padding: 0.5em;
   border: 1px solid #1d1d1d;
   border-radius: 7px;
-  background-color:#8d8d8d5c;
-  width:100%;
+  background-color: #8d8d8d5c;
+  width: 100%;
   color: white;
   transition: all 1000ms ease-in-out;
-  min-height:10em;
-  height:40%;
+  min-height: 10em;
+  height: 40%;
 }
 textarea:focus {
   border-color: #ffffff;

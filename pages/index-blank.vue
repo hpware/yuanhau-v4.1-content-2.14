@@ -1,6 +1,33 @@
 <script setup lang="ts">
+// Picker
+function abcdpicker() {
+  const randomValue = Math.random();
+  if (randomValue < 0.25) {
+    return "D";
+  } else if (randomValue < 0.5) {
+    return "B";
+  } else if (randomValue < 0.75) {
+    return "C";
+  } else {
+    return "A";
+  }
+}
+
+const dytextabcd = abcdpicker();
+function title() {
+  if (dytextabcd === "A") {
+    return "A";
+  } else if (dytextabcd === "B") {
+    return "B";
+  } else if (dytextabcd === "C") {
+    return "C";
+  } else {
+    return "D";
+  }
+}
+
 useHead({
-  title: "Work in Progess| 吳元皓",
+  title: title(),
 });
 </script>
 <template>
