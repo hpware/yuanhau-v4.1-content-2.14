@@ -67,10 +67,10 @@ const ff_on = () => {
             <a href="https://github.com/hpware" target="_blank"
               ><i class="bi bi-github"></i
             ></a>
-            <a href="https://instagram.com/yh_.5_26" target="_blank"
+            <a href="https://yhw.tw/fuckmeta" target="_blank"
               ><i class="bi bi-instagram"></i
             ></a>
-            <a href="https://threads.net/yh_.5_26" target="_blank"
+            <a href="https://yhw.tw/fuckmeta" target="_blank"
               ><i class="bi bi-threads"></i
             ></a>
           </p>
