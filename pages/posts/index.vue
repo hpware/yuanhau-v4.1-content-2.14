@@ -45,6 +45,7 @@ const query: QueryBuilderParams = {
             </NuxtLink>
           </div>
           <div class="footer">
+            <p class="adminpanel"><a href="/admin/login">管理員後台</a></p>
             <p>
               Built using <a href="https://nuxtjs.org">NuxtJS</a> &
               <a href="https://giscus.app">Giscus.</a>
@@ -237,6 +238,14 @@ div.list {
 div.not-found {
   p {
     color: gray;
+  }
+}
+.adminpanel {
+  a {
+    color: #2599ba;
+  }
+  a:hover {
+    color: #1a728c;
   }
 }
 </style>

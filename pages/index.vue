@@ -82,7 +82,7 @@ othercooltext.value = dyothertext();
       <h3 class="buttons">
         <NuxtLink class="not-a-button profilebutton" href="/about"
           >關於我</NuxtLink
-        >|<NuxtLink class="not-a-button profilebutton" to="/post/"
+        >|<NuxtLink class="not-a-button profilebutton" to="/posts/"
           >Blog</NuxtLink
         >|<!--暫用--><a
           class="not-a-button profilebutton"
@@ -106,6 +106,9 @@ othercooltext.value = dyothertext();
         <a href="https://youtube.com/@號" alt="youtube" id="youtube"
           ><i class="bi bi-youtube"></i
         ></a>
+        <a href="https://unsplash.com/@hwtw" alt="unsplash" id="unsplash">
+          <i class="fab fa-unsplash"></i>
+        </a>
         <a href="mailto:hw@yuanhau.com" alt="email" id="email"
           ><i class="bi bi-inbox"></i
         ></a>

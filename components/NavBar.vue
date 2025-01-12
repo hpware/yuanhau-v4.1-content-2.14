@@ -44,7 +44,7 @@ const ff_on = () => {
           >
           <NuxtLink to="/v3-pages/projects" @click="ff_off">
             <button alt="Blog">
-              <i class="bi bi-journal-text"></i>專案(v3)
+              <i class="bi bi-node-plus-fill"></i>專案(v3)
             </button></NuxtLink
           >
           <!--<NuxtLink to=""
