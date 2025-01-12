@@ -45,6 +45,7 @@ Disallow: /user/
 Disallow: /api/
 Disallow: /markdown/
 Disallow: /index-blank
+Disallow: /admin/
 Disallow: /post/
 Allow: /posts/
 # Delete after feature is complete.
