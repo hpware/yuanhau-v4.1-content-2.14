@@ -3,156 +3,156 @@
 /*Component Based*/
 html,
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
-    background-color: #232730;
-    color: white;
-    text-align: center;
-    font-family: "Fira Mono";
-    font-size: 1.5em;
-    align-items: center;
-    width: 100%;
+  background-color: #232730;
+  color: white;
+  text-align: center;
+  font-family: "Fira Mono";
+  font-size: 1.5em;
+  align-items: center;
+  width: 100%;
 }
 ::selection {
-    opacity: 1;
-    background-color: rgba(71, 166, 255, 0.38);
+  opacity: 1;
+  background-color: rgba(71, 166, 255, 0.38);
 }
 a {
-    color: rgb(71, 166, 255);
-    transition: all 300ms;
+  color: rgb(71, 166, 255);
+  transition: all 300ms;
 }
 a:hover {
-    color: rgb(53, 129, 201);
+  color: rgb(53, 129, 201);
 }
 nav {
-    align-items: center;
-    padding: 1em 2em;
-    a {
-        color: white;
-        text-decoration: none;
-    }
-    a:hover {
-        color: #b3b3b3;
-    }
+  align-items: center;
+  padding: 1em 2em;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #b3b3b3;
+  }
 }
 hr {
-    align-items: center;
-    text-align: center;
-    width: 80%;
+  align-items: center;
+  text-align: center;
+  width: 80%;
 }
 
 button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 0.8em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #6bd3af;
-    cursor: pointer;
-    transition: 200ms ease-out;
-    transition: border-color 300ms ease-out;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #6bd3af;
+  cursor: pointer;
+  transition: 200ms ease-out;
+  transition: border-color 300ms ease-out;
 }
 button:hover {
-    border-color: #646cff;
-    background-color: #4f9c82;
+  border-color: #646cff;
+  background-color: #4f9c82;
 }
 footer {
-    text-align: center;
-    p {
-        font-size: 0.9em;
-        margin-bottom: 0;
-    }
-    a {
-        text-decoration: none;
-        font-size: 0.8em;
-    }
+  text-align: center;
+  p {
+    font-size: 0.9em;
+    margin-bottom: 0;
+  }
+  a {
+    text-decoration: none;
+    font-size: 0.8em;
+  }
 }
 textarea {
-    font-family: "Fira Mono";
+  font-family: "Fira Mono";
 }
 /*Values*/
 br.mobile {
-    display: none;
+  display: none;
 }
 br.desktop {
-    display: block;
+  display: block;
 }
 span.mobile {
-    display: none;
+  display: none;
 }
 span.desktop {
-    display: block;
+  display: block;
 }
 h2.pagetitle {
-    margin-top: 0.3em;
+  margin-top: 0.3em;
 }
 h1.nametitle {
-    margin-top: 0.3em;
-    margin-bottom: 0em;
-    font-size: 2.2em;
-    font-weight: bold;
-    color: aquamarine;
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+  font-size: 2.2em;
+  font-weight: bold;
+  color: aquamarine;
 }
 .not-a-button {
-    background-color: transparent;
-    border: none;
-    color: rgba(191, 191, 191, 0.7);
-    font-size: 1em;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: rgba(191, 191, 191, 0.7);
+  font-size: 1em;
+  cursor: pointer;
 }
 .not-a-button:hover {
-    background-color: transparent;
+  background-color: transparent;
 }
 a.white {
-    color: white;
+  color: white;
 }
 a.white:hover {
-    color: #939393;
+  color: #939393;
 }
 /*Media Screen Size and others*/
 @media (max-width: 502px) {
-    br.mobile {
-        display: block;
-    }
-    br.desktop {
-        display: none;
-    }
-    span.mobile {
-        display: block;
-    }
-    span.desktop {
-        display: none;
-    }
+  br.mobile {
+    display: block;
+  }
+  br.desktop {
+    display: none;
+  }
+  span.mobile {
+    display: block;
+  }
+  span.desktop {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
-    body {
-        font-size: 1.5em;
-    }
+  body {
+    font-size: 1.5em;
+  }
 
-    h1 {
-        font-size: 2em;
-        margin-bottom: 0;
-    }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+  }
 
-    p {
-        font-size: 1em;
-        margin-bottom: 0;
-    }
+  p {
+    font-size: 1em;
+    margin-bottom: 0;
+  }
 }
 /*Animations*/
 @keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

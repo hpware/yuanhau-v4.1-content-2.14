@@ -41,7 +41,9 @@ const props = defineProps({
       >(AI 有幫助完整程式)</span
     >
     <br v-if="props.ai" />
-    <a v-if="props.about" :href="`https://yuanh.xyz/About/AboutThisProject/${props.about}`"
+    <a
+      v-if="props.about"
+      :href="`https://yuanh.xyz/About/AboutThisProject/${props.about}`"
       >關於</a
     >
     <span v-if="props.about && props.repo">&nbsp;</span>
