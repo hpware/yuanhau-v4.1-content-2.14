@@ -29,6 +29,7 @@
     "nuxt": "^3.14.1592",
     "nuxt-gtag": "^3.0.2",
     "nuxt-umami": "^3.0.2",
+    "scrypt-js": "^3.0.1",
     "unsplash-js": "^7.0.19",
     "unstorage": "^1.14.1",
     "vue": "latest",

@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     "/api/**": { cors: true },
     "/user/panel/**": { ssr: true },
     "/post/**": { swr: 3600 },
+    "/admin/**": { ssr: true },
   },
 
   modules: [
