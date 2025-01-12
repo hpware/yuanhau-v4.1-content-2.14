@@ -36,6 +36,8 @@ User-agent: VelenPublicWebCrawler
 User-agent: Webzio-Extended
 User-agent: YouBot
 Disallow: /
+Allow: /about
+Allow: /v3-pages/
 
 # Normal bots
 User-agent: *
@@ -43,7 +45,8 @@ Disallow: /user/
 Disallow: /api/
 Disallow: /markdown/
 Disallow: /index-blank
-Allow: /post/
+Disallow: /post/
+Allow: /posts/
 # Delete after feature is complete.
 User-agent: *
 Disallow: /images
