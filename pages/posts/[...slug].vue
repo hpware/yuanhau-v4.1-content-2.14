@@ -12,11 +12,11 @@ const formatDate = (dateString: string) => {
     <ContentDoc>
       <template v-slot="{ doc }">
         <article>
-          <h1>{{ doc.title }}</h1>
+          <h1 class="title">{{ doc.title }}</h1>
           <div class="meta">
-            <span>{{ formatDate(doc.date) }}</span> | <span>吳元皓</span>
+            <span>最後編輯: {{ formatDate(doc.ldate) }}</span>
           </div>
-          <ContentRenderer :value="doc" class="content" />
+          <ContentRenderer :value="doc" class="content"/>
         </article>
         <div class="comments">
           <Giscus
@@ -53,6 +53,10 @@ const formatDate = (dateString: string) => {
   </main>
 </template>
 <style scoped>
+h1.title {
+  margin-bottom: 0;
+}
+
 .meta {
   font-size: 0.8em;
   color: rgb(133, 133, 133);
@@ -110,6 +114,16 @@ const formatDate = (dateString: string) => {
 }
 article {
   animation: fade-in 700ms ease-in-out;
+}
+.content {
+  h1,h2,h3,h4,h5,h6 {
+    color:white;
+    text-decoration: none;
+    a {
+      color:white;
+      text-decoration: none;
+    }
+  }
 }
 @keyframes fade-in {
   0% {
