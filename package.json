@@ -17,6 +17,7 @@
     "@nuxtjs/robots": "^5.0.0",
     "@nuxtjs/sitemap": "^7.0.0",
     "@sentry/nuxt": "^8.41.0",
+    "@shlinkio/shlink-js-sdk": "^1.3.0",
     "@supabase/supabase-js": "^2.46.2",
     "bootstrap-icons": "^1.11.3",
     "dotenv": "^16.4.5",
