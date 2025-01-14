@@ -21,11 +21,11 @@ const username = cookieusername.value;
       <div class="donate">
         <h2 class="dtitle">Donate</h2>
         <div class="donate-items">
-          <div class="donate-amount window">
-            <span>金額</span>
+          <div class="donate-amount window donate-wi">
+           <span>金額</span>
             <span>{{ donateamount }}</span>
           </div>
-          <div class="donate-people window">
+          <div class="donate-people donate-wi window"> 
             <span>人數</span>
             <span>{{ donatepeople }}</span>
           </div>
@@ -42,6 +42,9 @@ const username = cookieusername.value;
   align-items: center;
 }
 .header {
+  align-items:left;
+  text-align:left;
+  margin-left:20px;
   h1 {
     margin-bottom: 0;
   }
@@ -63,8 +66,6 @@ const username = cookieusername.value;
   display: flex;
   flex-direction: column;
   background-color: #545454;
-  height: 60%;
-  width: 100px;
   justify-content: center;
   align-items: center;
   border-radius: 7px;
@@ -78,5 +79,24 @@ const username = cookieusername.value;
     margin-bottom: 0;
     margin-top: 0;
   }
+}
+.donate {
+  background-color: #27272775;
+  border-radius: 10px;
+  margin: 1em;
+  border: 2px solid transparent;
+  transition: all 300ms;
+  width:50%;
+  right:0;
+  left:0;
+  margin-left:auto;
+  margin-right:auto;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+}
+.donate-wi {
+  height: 60%;
+  width: 100px;
 }
 </style>

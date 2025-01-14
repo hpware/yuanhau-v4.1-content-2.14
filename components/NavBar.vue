@@ -106,9 +106,9 @@ onMounted(() => {
               <i class="bi bi-mailbox-flag"></i>管理文章
             </button></NuxtLink
           >
-          <NuxtLink to="/admin/dashboard" @click="ff_off"
+          <NuxtLink to="/admin/upload" @click="ff_off"
             ><button alt="Admin Dashboard">
-              <i class="bi bi-image-fill"></i>上傳圖片
+              <i class="bi bi-image-fill"></i>上傳到S3
             </button></NuxtLink
           >
           <a href="/api/admin/logout">

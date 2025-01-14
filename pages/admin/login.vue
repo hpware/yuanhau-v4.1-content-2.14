@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 // Init
 const token = useCookie("admintoken");
-const cookieusername = useCookie("usrn");
 const username = ref("");
 const pwd = ref("");
 // Redirect dashboard
@@ -40,6 +39,7 @@ const usercheck = async (e: Event) => {
   margin: 0 auto;
   left: 0;
   right: 0;
+  transition: all 500ms ease-in-out;
 }
 .login {
   display: flex;
@@ -52,6 +52,7 @@ form {
   display: flex;
   flex-direction: column;
   text-align: center;
+  transition: all 300ms ease-in-out;
 }
 input[type="text"],
 input[type="password"] {
