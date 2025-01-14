@@ -1,0 +1,82 @@
+<script setup lang="ts">
+import { ref } from "vue";
+
+const donateamount = ref(0);
+const donatepeople = ref(0);
+const token = useCookie("admintoken");
+const cookieusername = useCookie("usrn");
+const username = cookieusername.value;
+// Skip user check, remove when the login panel & the api works
+//if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
+//    router.push("/admin/login");
+//}
+</script>
+<template>
+  <div class="content">
+    <div class="header">
+      <h1>Admin Dashboard</h1>
+      <h4>{{ username }}, 歡迎回來!</h4>
+    </div>
+    <div class="dash">
+      <div class="donate">
+        <h2 class="dtitle">Donate</h2>
+        <div class="donate-items">
+          <div class="donate-amount window">
+            <span>金額</span>
+            <span>{{ donateamount }}</span>
+          </div>
+          <div class="donate-people window">
+            <span>人數</span>
+            <span>{{ donatepeople }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style scoped>
+.content {
+  align-self: center;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  h1 {
+    margin-bottom: 0;
+  }
+  h4 {
+    margin-top: 0;
+  }
+}
+.dtitle {
+  margin-bottom: 0;
+}
+.donate-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: 0;
+}
+.window {
+  display: flex;
+  flex-direction: column;
+  background-color: #545454;
+  height: 60%;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  border-color: #ffffff;
+  margin: 10px;
+  padding: 10px;
+  transition: all 1000ms ease-in-out;
+  span {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+</style>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 // Init
 const token = useCookie("admintoken");
+const cookieusername = useCookie("usrn");
 const username = ref("");
 const pwd = ref("");
 // Redirect dashboard

@@ -4,6 +4,7 @@ import { ref } from "vue";
 
 const ff = ref(false);
 const x_off = ref();
+const admin = ref(false);
 
 const ff_off = () => {
   ff.value = false;
@@ -11,14 +12,19 @@ const ff_off = () => {
 const ff_on = () => {
   ff.value = true;
 };
+onMounted(() => {
+  if (window.location.pathname.startsWith("/admin/") && window.location.pathname !== "/admin/login" ) {
+    admin.value = true;
+  }
+});
 </script>
 <template>
-  <div class="po">
-    <div class="enablesidebar" v-if="!ff">
-      <button @click="ff_on" alt="Menu Button" id="menu-button">
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
+  <div class="enablesidebar" v-if="!ff">
+    <button @click="ff_on" alt="Menu Button" id="menu-button">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+  <div v-if="!admin">
     <Transition name="slide">
       <div class="nav" v-if="ff">
         <div class="nav-content">
@@ -79,6 +85,37 @@ const ff_on = () => {
               >Email</a
             >回報 :)
           </p>
+        </div>
+      </div>
+    </Transition>
+  </div>
+  <div v-if="admin">
+    <Transition name="slide">
+      <div class="nav" v-if="ff">
+        <div class="nav-content">
+          <button class="x-off" @click="ff_off" alt="Close the menu">
+            <i class="bi bi-x" v-ref="x_off"></i>
+          </button>
+          <NuxtLink to="/admin/dashboard" @click="ff_off"
+            ><button alt="Admin Dashboard">
+              <i class="bi bi-house"></i>管理主頁
+            </button></NuxtLink
+          >
+          <NuxtLink to="/admin/posts" @click="ff_off"
+            ><button alt="Admin Dashboard">
+              <i class="bi bi-mailbox-flag"></i>管理文章
+            </button></NuxtLink
+          >
+          <NuxtLink to="/admin/dashboard" @click="ff_off"
+            ><button alt="Admin Dashboard">
+              <i class="bi bi-image-fill"></i>上傳圖片
+            </button></NuxtLink
+          >
+          <a href="/api/admin/logout">
+            <button alt="Logout">
+              <i class="bi bi-box-arrow-left"></i>登出
+            </button>
+          </a>
         </div>
       </div>
     </Transition>

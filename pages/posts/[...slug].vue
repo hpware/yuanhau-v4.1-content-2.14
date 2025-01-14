@@ -16,7 +16,7 @@ const formatDate = (dateString: string) => {
           <div class="meta">
             <span>最後編輯: {{ formatDate(doc.ldate) }}</span>
           </div>
-          <ContentRenderer :value="doc" class="content"/>
+          <ContentRenderer :value="doc" class="content" />
         </article>
         <div class="comments">
           <Giscus
@@ -116,11 +116,16 @@ article {
   animation: fade-in 700ms ease-in-out;
 }
 .content {
-  h1,h2,h3,h4,h5,h6 {
-    color:white;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
     text-decoration: none;
     a {
-      color:white;
+      color: white;
       text-decoration: none;
     }
   }

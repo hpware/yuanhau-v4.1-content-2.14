@@ -17,10 +17,21 @@ export default defineNuxtConfig({
     "/post/**": { swr: 3600 },
     "/admin/": { redirect: "/admin/login" },
     "/admin/**": { ssr: true },
-    "/signal": { redirect: "https://yhw.tw/signal"}, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
+    "/signal": { redirect: "https://yhw.tw/signal" }, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
   },
 
-  modules: ["nuxt-umami", "@nuxtjs/robots", "nuxt-auth-utils", "@kgierke/nuxt-basic-auth", "@sentry/nuxt/module", "@nuxt/image", "@nuxtjs/sitemap", "@nuxt/content", "nuxt-gtag", "@bg-dev/nuxt-s3"],
+  modules: [
+    "nuxt-umami",
+    "@nuxtjs/robots",
+    "nuxt-auth-utils",
+    "@kgierke/nuxt-basic-auth",
+    "@sentry/nuxt/module",
+    "@nuxt/image",
+    "@nuxtjs/sitemap",
+    "@nuxt/content",
+    "nuxt-gtag",
+    "@bg-dev/nuxt-s3",
+  ],
 
   umami: {
     enabled: true,
@@ -98,13 +109,13 @@ export default defineNuxtConfig({
     id: "G-2J2M9834SQ",
   },
   s3: {
-    accept: '^image/(png|jpeg|png|gif)',
+    accept: "^image/(png|jpeg|png|gif)",
     maxSizeMb: 10,
-    driver: 's3',
-    bucket: 'yuanhau.com-filesapi',
-    endpoint: 's3.ap-northeast-1.wasabisys.com',
-    region: 'auto',
+    driver: "s3",
+    bucket: "yuanhau.com-filesapi",
+    endpoint: "s3.ap-northeast-1.wasabisys.com",
+    region: "auto",
     accessKeyId: process.env.WASABI_S3_CLIENT_ID, // Client ID
     secretAccessKey: process.env.WASABI_S3_SECRET, // Client secret
-  }
+  },
 });
