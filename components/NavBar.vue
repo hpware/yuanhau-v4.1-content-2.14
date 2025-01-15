@@ -56,6 +56,11 @@ onMounted(() => {
               <i class="bi bi-node-plus-fill"></i>專案(v3)
             </button></NuxtLink
           >
+          <NuxtLink to="/recommendations" @click="ff_off"
+            ><button alt="Blog">
+              <i class="bi bi-chat-left-text"></i>建議/聯絡
+            </button></NuxtLink
+          >
           <!--<NuxtLink to=""
             ><button alt="My Projects" class="nd">
               <i class="bi bi-code-square"></i>專案
@@ -82,11 +87,6 @@ onMounted(() => {
             <a href="https://yhw.tw/fuckmeta" target="_blank"
               ><i class="bi bi-threads"></i
             ></a>
-          </p>
-          <p class="recomendations">
-            如果有任何建議，請用<a href="mailto:web+recomendations@yuanhau.com"
-              >Email</a
-            >回報 :)
           </p>
         </div>
       </div>
