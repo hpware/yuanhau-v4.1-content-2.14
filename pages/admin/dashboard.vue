@@ -48,6 +48,7 @@ if (!token.value || token.value === "" || !cookieusername.value || cookieusernam
   padding-top: 20px;
   justify-content: center;
   align-items: center;
+  animation: fade-in 800ms ease-in-out;
 }
 .header {
   margin-left: 20px;

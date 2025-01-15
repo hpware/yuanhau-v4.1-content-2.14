@@ -44,6 +44,7 @@ const usercheck = async (e: Event) => {
   left: 0;
   right: 0;
   transition: all 500ms ease-in-out;
+  animation: fade-in 800ms ease-in-out;
 }
 .login {
   display: flex;

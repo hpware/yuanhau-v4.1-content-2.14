@@ -114,7 +114,7 @@ onMounted(() => {
               <i class="bi bi-image-fill"></i>上傳到S3
             </button></NuxtLink
           >
-          <a href="/api/admin/logout">
+          <a href="/admin/logout">
             <button alt="Logout">
               <i class="bi bi-box-arrow-left"></i>登出
             </button>
