@@ -10,11 +10,11 @@ export default defineEventHandler(async (event) => {
   if (event.node.req.method === "POST") {
     try {
       const body = await readBody(event);
-      const { error, data } = supabase
-        .from("recommendations")
+      const { error, data } = await supabase
+        .from("contact")
         .insert([
           {
-            discord: body.discord,
+            handle: body.discord,
             email: body.email,
             message: body.message,
           },
@@ -22,13 +22,15 @@ export default defineEventHandler(async (event) => {
         .select()
         .single();
       if (error) {
+        console.error("Supabase error:", error);
         throw error;
       }
       return data;
-    } catch (error) {
+    } catch (e) {
+      console.error("Server Side Error:", e);
       throw createError({
         statusCode: 500,
-        message: "Internal Server Error",
+        message: "Server Side Error",
       });
     }
   } else {
