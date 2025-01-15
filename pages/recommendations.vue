@@ -28,10 +28,10 @@ const func = async () => {
     });
     if (!res.ok) {
       errorq.value = true;
-      error.value = "Something went wrong.";
+      error.value = "伺服器出了問題，請稍後再試";
     } else {
       successq.value = true;
-      success.value = "Successfully submitted.";
+      success.value = "成功提交！";
     }
   } catch (e) {
     console.error(e);
@@ -63,32 +63,32 @@ const func = async () => {
     <div class="main">
       <h1 class="title">建議平台</h1>
       <form @submit.prevent="func">
-        <label for="dchandle_matrix">Discord Handle or Matrix</label>
+        <label for="dchandle_matrix">Discord 或 Matrix 帳號</label>
         <input
           type="text"
           id="dchandle_matrix"
           name="dchandle_matrix"
           v-model="dchandle_matrix"
           required
-          placeholder="ex: hwtw or @hwtw:beeper.com"
+          placeholder="例: hwtw 或 @hwtw:beeper.com"
         />
-        <label for="email">Email</label>
+        <label for="email">信箱</label>
         <input
           type="email"
           id="email"
           name="email"
           v-model="email"
           required
-          placeholder="ex: web@yuanhau.com"
+          placeholder="例: example@yuanhau.com"
         />
-        <label for="message">Message</label>
+        <label for="message">訊息</label>
         <textarea
           id="message"
           name="message"
           v-model="message"
           required
         ></textarea>
-        <button>Submit</button>
+        <button>送出</button>
       </form>
     </div>
   </div>
@@ -108,6 +108,9 @@ form {
   width: 50%;
   border-radius: 15px;
   border: 1px solid #ccc;
+  transition: fade-in 500ms ease-in-out;
+  animation: fade-in 700ms ease-in-out;
+
 }
 input {
   margin: 0.5em;
@@ -160,6 +163,16 @@ button:hover {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

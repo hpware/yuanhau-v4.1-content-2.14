@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
+const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
+const router = useRouter()
 const username = cookieusername.value;
 // Skip user check, remove when the login panel & the api works
-//if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
-//    router.push("/admin/login");
-//}
+if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
+  router.push("/admin/login");
+}
 </script>
 <template>
   <div class="content">

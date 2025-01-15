@@ -47,6 +47,7 @@ Disallow: /markdown/
 Disallow: /index-blank
 Disallow: /admin/
 Disallow: /post/
+Disallow: /temp/
 Allow: /posts/
 # Delete after feature is complete.
 User-agent: *

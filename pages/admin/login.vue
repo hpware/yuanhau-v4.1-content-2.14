@@ -3,6 +3,7 @@
 const token = useCookie("admintoken");
 const username = ref("");
 const pwd = ref("");
+const router = useRouter()
 // Redirect dashboard
 if (token.value) {
   router.push("/admin/dashboard");
@@ -25,6 +26,9 @@ const usercheck = async (e: Event) => {
         <label for="password">密碼</label>
         <input type="password" v-model="pwd" required />
         <button>登入</button>
+        <div class="temp">
+          <h6>系統還沒做好ㄝ，可以用<a href="/temp/obtain_admin">按鈕取得暫時的管理員權限</a></h6>
+        </div>
       </form>
     </div>
   </div>
