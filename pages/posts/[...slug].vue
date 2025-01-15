@@ -129,6 +129,11 @@ article {
       text-decoration: none;
     }
   }
+  img {
+    width:auto;
+    height:auto;
+    max-width:100%;
+  }
 }
 @keyframes fade-in {
   0% {
