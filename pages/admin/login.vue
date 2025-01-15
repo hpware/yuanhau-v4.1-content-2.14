@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 // Init
+import SHA512 from "crypto-js/sha512";
 const token = useCookie("admintoken");
 const username = ref("");
 const pwd = ref("");
+const encryptedpwd = ref("");
 const router = useRouter()
 // Redirect dashboard
 if (token.value) {
@@ -11,9 +13,11 @@ if (token.value) {
 // Login [TODO]
 const usercheck = async (e: Event) => {
   e.preventDefault();
+  encryptedpwd.value = SHA512(pwd.value).toString();
   alert("Wrong Password");
   username.value = "";
   pwd.value = "";
+  encryptedpwd.value = "";
 };
 </script>
 <template>
