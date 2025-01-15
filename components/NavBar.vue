@@ -13,7 +13,10 @@ const ff_on = () => {
   ff.value = true;
 };
 onMounted(() => {
-  if (window.location.pathname.startsWith("/admin/") && window.location.pathname !== "/admin/login" ) {
+  if (
+    window.location.pathname.startsWith("/admin/") &&
+    window.location.pathname !== "/admin/login"
+  ) {
     admin.value = true;
   }
 });

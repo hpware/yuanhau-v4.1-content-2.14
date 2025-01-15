@@ -130,9 +130,9 @@ article {
     }
   }
   img {
-    width:auto;
-    height:auto;
-    max-width:100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
   }
 }
 @keyframes fade-in {

@@ -1,0 +1,23 @@
+<script setup lang="ts">
+import { ref } from "vue";
+const cookieusername= useCookie("usrn");
+const username = cookieusername.value;
+// Skip user check, remove when the login panel & the api works
+//if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
+//    router.push("/admin/login");
+//}
+</script>
+<template>
+    <div class="content">
+        <div class="header">
+            <h1>Wasabi S3 Upload</h1>
+            <h4>{{ username }}, 歡迎回來!</h4>
+        </div>
+        <div class="upload">
+            <form>
+                <input type="file" name="file" id="file" />
+                <button>Upload</button>
+            </form>
+        </div>
+    </div>
+</template>
