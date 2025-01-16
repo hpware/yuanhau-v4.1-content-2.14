@@ -3,15 +3,20 @@ import { ref } from "vue";
 
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
-const router = useRouter()
+const router = useRouter();
 const username = cookieusername.value;
 // Skip user check, remove when the login panel & the api works
-if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
+if (
+  !token.value ||
+  token.value === "" ||
+  !cookieusername.value ||
+  cookieusername.value === ""
+) {
   router.push("/admin/login");
 }
 useHead({
-  title: "管理者Panel上傳區域"
-})
+  title: "管理者Panel上傳區域",
+});
 </script>
 <template>
   <div class="content">

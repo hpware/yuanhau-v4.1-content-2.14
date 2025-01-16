@@ -110,7 +110,6 @@ form {
   border: 1px solid #ccc;
   transition: fade-in 500ms ease-in-out;
   animation: fade-in 700ms ease-in-out;
-
 }
 input {
   margin: 0.5em;

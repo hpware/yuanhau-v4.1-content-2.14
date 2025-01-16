@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 // Init
 useHead({
-  title: "管理者Panel登入區域"
-})
-import SHA512 from "crypto-js/sha512"
+  title: "管理者Panel登入區域",
+});
+import SHA512 from "crypto-js/sha512";
 const token = useCookie("admintoken");
 const username = ref("");
 const pwd = ref("");
 const encryptedpwd = ref("");
-const router = useRouter()
+const router = useRouter();
 const sitekey = process.env.YUANHAU_CAPTCHA;
 const captchaSuccess = ref(false);
 const error = ref("");
 onMounted(async () => {
-  await import('friendly-challenge/widget');
+  await import("friendly-challenge/widget");
 });
 
 // Redirect dashboard
@@ -27,29 +27,29 @@ const usercheck = async (e: Event) => {
     error.value = "請先完成驗證碼";
     return;
   } else {
-  try {
-    const res = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username.value,
-        password: encryptedpwd.value,
-      }),
-    });
-    const data = await res.json();
-    if (data.status === "success") {
-      token.value = data.token;
-      username.value = data.user;
-      router.push("/admin/dashboard");
-    } else {
+    try {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username.value,
+          password: encryptedpwd.value,
+        }),
+      });
+      const data = await res.json();
+      if (data.status === "success") {
+        token.value = data.token;
+        username.value = data.user;
+        router.push("/admin/dashboard");
+      } else {
+        alert("Wrong Password");
+      }
+    } catch (error) {
       alert("Wrong Password");
     }
-  } catch (error) {
-    alert("Wrong Password");
   }
-}
   pwd.value = "";
   encryptedpwd.value = "";
 };
@@ -66,16 +66,20 @@ function captchadone() {
         <input type="text" id="username" v-model="username" required />
         <label for="password">密碼</label>
         <input type="password" v-model="pwd" required />
-    <div 
-      class="frc-captcha captcha" 
-      :data-sitekey=sitekey
-      :data-callback=captchadone
-      data-lang="zh_TW"
-      data-puzzle-endpoint="https://captcha.yuanhau.com/puzzle.php"
-    ></div>
+        <div
+          class="frc-captcha captcha"
+          :data-sitekey="sitekey"
+          :data-callback="captchadone"
+          data-lang="zh_TW"
+          data-puzzle-endpoint="https://captcha.yuanhau.com/puzzle.php"
+        ></div>
         <button>登入</button>
         <div class="temp">
-          <h6>系統還沒做好ㄝ，可以用<a href="/temp/obtain_admin">按鈕取得暫時的管理員權限</a></h6>
+          <h6>
+            系統還沒做好ㄝ，可以用<a href="/temp/obtain_admin"
+              >按鈕取得暫時的管理員權限</a
+            >
+          </h6>
         </div>
       </form>
     </div>

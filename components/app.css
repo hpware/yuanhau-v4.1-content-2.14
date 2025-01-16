@@ -115,11 +115,11 @@ a.white:hover {
   color: #939393;
 }
 .captcha {
-  align-self:center;
-  align-content:center;
-  text-align:center;
-  margin:10px;
-  border-radius:10px;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  margin: 10px;
+  border-radius: 10px;
   animation: fade-in 600ms ease-in-out;
   transition: all 600ms ease-in-out;
 }

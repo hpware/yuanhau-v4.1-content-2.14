@@ -8,46 +8,48 @@ const supabase = createClient(
 );
 
 interface params {
-    username: string;
-    password: string;
+  username: string;
+  password: string;
 }
 
 export default defineEventHandler(async (event) => {
-    const params = await readBody<params>(event);
-    if (!params?.username || !params?.password) {
-        return {
-            status: "error",
-            user: null,
-            token: null
-        }
-    } else {
-        try {
-            const incomingpwd = new TextEncoder().encode(params.password);
-            const incomingsalt = new TextEncoder().encode(salt);
-            const pwdhash = scrypt.scrypt(incomingpwd, incomingsalt, 1024, 8, 1, 32);
-            console.log(pwdhash);
-            const { data } = await supabase.from("admin_users").select(`${params.username}`)
-            console.log(data);
-            if (!data || data === null) {
-                return {
-                    status: "user error",
-                    user: null,
-                    token: null
-                }
-            }
-            console.log(data);
-        } catch (e) {
-            console.error(e);
-            return {
-                status: "server error",
-                user: null,
-                token: null
-            }
-        }
-    }
+  const params = await readBody<params>(event);
+  if (!params?.username || !params?.password) {
     return {
-        status: "success",
-        user: params.username,
-        token: null
-    };  
+      status: "error",
+      user: null,
+      token: null,
+    };
+  } else {
+    try {
+      const incomingpwd = new TextEncoder().encode(params.password);
+      const incomingsalt = new TextEncoder().encode(salt);
+      const pwdhash = scrypt.scrypt(incomingpwd, incomingsalt, 1024, 8, 1, 32);
+      console.log(pwdhash);
+      const { data } = await supabase
+        .from("admin_users")
+        .select(`${params.username}`);
+      console.log(data);
+      if (!data || data === null) {
+        return {
+          status: "user error",
+          user: null,
+          token: null,
+        };
+      }
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+      return {
+        status: "server error",
+        user: null,
+        token: null,
+      };
+    }
+  }
+  return {
+    status: "success",
+    user: params.username,
+    token: null,
+  };
 });

@@ -3,24 +3,24 @@ const router = useRouter();
 const token = useCookie("admintoken");
 const username = useCookie("usrn");
 const logout = async () => {
-    token.value = "";
-    username.value = "";
-    setTimeout(() => {
-        router.push("/admin/login");
-    },2000);
-}
+  token.value = "";
+  username.value = "";
+  setTimeout(() => {
+    router.push("/admin/login");
+  }, 2000);
+};
 onMounted(() => {
-    logout();
-})
+  logout();
+});
 useHead({
-  title: "管理者Panel登出區域"
-})
+  title: "管理者Panel登出區域",
+});
 </script>
 <template>
-    <div class="content">
-        <h1>管理員登出</h1>
-        <h3>在2秒後自動返回到登入頁面</h3>
-    </div>
+  <div class="content">
+    <h1>管理員登出</h1>
+    <h3>在2秒後自動返回到登入頁面</h3>
+  </div>
 </template>
 <style scoped>
 .content {
@@ -33,7 +33,7 @@ useHead({
   left: 0;
   right: 0;
   transition: all 500ms ease-in-out;
-  animation: fade-in 500ms ease-in-out
+  animation: fade-in 500ms ease-in-out;
 }
 @keyframes fade-in {
   0% {

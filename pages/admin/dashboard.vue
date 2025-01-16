@@ -7,12 +7,17 @@ const router = useRouter();
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
 const username = cookieusername.value;
-if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
-    router.push("/admin/login");
+if (
+  !token.value ||
+  token.value === "" ||
+  !cookieusername.value ||
+  cookieusername.value === ""
+) {
+  router.push("/admin/login");
 }
 useHead({
-  title: "管理者Panel"
-})
+  title: "管理者Panel",
+});
 </script>
 <template>
   <div class="content">
@@ -20,7 +25,7 @@ useHead({
       <h1>Admin Dashboard</h1>
       <h4>{{ username }}, 歡迎回來!</h4>
     </div>
-    <hr/>
+    <hr />
     <div class="dash">
       <div class="donate">
         <h2 class="dtitle">Donate</h2>
@@ -35,7 +40,7 @@ useHead({
           </div>
         </div>
       </div>
-      <hr/>
+      <hr />
       <div class="contact">
         <h2 class="dtitle">Contact stuff</h2>
         <div class="contact-items">
