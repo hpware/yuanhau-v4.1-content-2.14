@@ -122,6 +122,15 @@ a.white:hover {
   border-radius: 10px;
   animation: fade-in 600ms ease-in-out;
   transition: all 600ms ease-in-out;
+  margin: 3px !important;
+  button {
+    transition: all 400ms ease-in-out !important;
+    border-radius: 6px !important;
+    animation: all 600ms ease-in-out; 
+  }
+  .frc-banner {
+    display:none !important;
+  }
 }
 /*Media Screen Size and others*/
 @media (max-width: 502px) {

@@ -4,7 +4,7 @@ const username = useCookie("usrn");
 const sitekey = process.env.YUANHAU_CAPTCHA;
 const captchaSuccess = ref(false);
 const obtain = () => {
-  if ((captchaSuccess.value = false)) {
+  if ((captchaSuccess.value = true)) {
     token.value = "temp";
     username.value = "temp_admin";
     token.maxAge = 1000;
@@ -30,6 +30,7 @@ onMounted(async () => {
       :data-sitekey="sitekey"
       :data-callback="captchadone"
       data-lang="zh_TW"
+      style="align-items:center;text-align:center;align-self:center;left:0;right:0;display:block;content:center;align-content:center;"
       data-puzzle-endpoint="https://captcha.yuanhau.com/puzzle.php"
     ></div>
     <button @click="obtain">Obtain</button>
