@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 // Init
+useHead({
+  title: "管理者Panel登入區域"
+})
 import SHA512 from "crypto-js/sha512"
 const token = useCookie("admintoken");
 const username = ref("");

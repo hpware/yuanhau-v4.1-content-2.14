@@ -12,6 +12,9 @@ const logout = async () => {
 onMounted(() => {
     logout();
 })
+useHead({
+  title: "管理者Panel登出區域"
+})
 </script>
 <template>
     <div class="content">

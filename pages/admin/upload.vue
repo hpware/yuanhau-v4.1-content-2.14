@@ -9,6 +9,9 @@ const username = cookieusername.value;
 if (!token.value || token.value === "" || !cookieusername.value || cookieusername.value === "") {
   router.push("/admin/login");
 }
+useHead({
+  title: "管理者Panel上傳區域"
+})
 </script>
 <template>
   <div class="content">
