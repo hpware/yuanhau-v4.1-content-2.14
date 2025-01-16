@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 // Init
 import SHA512 from "crypto-js/sha512";
+import "friendly-challenge/widget";
 const token = useCookie("admintoken");
 const username = ref("");
 const pwd = ref("");
@@ -10,12 +11,31 @@ const router = useRouter()
 if (token.value) {
   router.push("/admin/dashboard");
 }
-// Login [TODO]
 const usercheck = async (e: Event) => {
   e.preventDefault();
   encryptedpwd.value = SHA512(pwd.value).toString();
-  alert("Wrong Password");
-  username.value = "";
+  try {
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username.value,
+        password: encryptedpwd.value,
+      }),
+    });
+    const data = await res.json();
+    if (data.status === "success") {
+      token.value = data.token;
+      username.value = data.user;
+      router.push("/admin/dashboard");
+    } else {
+      alert("Wrong Password");
+    }
+  } catch (error) {
+    alert("Wrong Password");
+  }
   pwd.value = "";
   encryptedpwd.value = "";
 };
@@ -29,6 +49,7 @@ const usercheck = async (e: Event) => {
         <input type="text" id="username" v-model="username" required />
         <label for="password">密碼</label>
         <input type="password" v-model="pwd" required />
+
         <button>登入</button>
         <div class="temp">
           <h6>系統還沒做好ㄝ，可以用<a href="/temp/obtain_admin">按鈕取得暫時的管理員權限</a></h6>
