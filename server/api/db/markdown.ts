@@ -1,25 +1,32 @@
 import { createClient } from "@supabase/supabase-js";
 const supabasetoken = process.env.SUPABASE_KEY;
 const supabase = createClient(
-  'https://rlretgpxqtgzsjuhqjwu.supabase.co',
-  `${supabasetoken}`
+  "https://rlretgpxqtgzsjuhqjwu.supabase.co",
+  `${supabasetoken}`,
 );
 
 export default defineEventHandler(async (event) => {
-  const url = new URL(event.node.req.url!, `http://${event.node.req.headers.host}`);
-  const id = url.searchParams.get('id');
+  const url = new URL(
+    event.node.req.url!,
+    `http://${event.node.req.headers.host}`,
+  );
+  const id = url.searchParams.get("id");
   console.log("id", id);
   if (event.node.req.method === "GET" && id !== null) {
     try {
-      const { data, error } = await supabase.from("markdown").select('content').eq('id', `${id}`).single();
+      const { data, error } = await supabase
+        .from("markdown")
+        .select("content")
+        .eq("id", `${id}`)
+        .single();
       console.log(data);
       if (error || data === null) {
         throw createError({
-            statusCode: 403,
-            message: "No Content",
-        })
+          statusCode: 403,
+          message: "No Content",
+        });
       }
-      event.node.res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      event.node.res.setHeader("Content-Type", "text/markdown; charset=utf-8");
       return `${data.content}`;
     } catch (e) {
       console.log("error", e);

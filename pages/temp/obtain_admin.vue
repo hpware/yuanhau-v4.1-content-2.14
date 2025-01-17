@@ -5,11 +5,11 @@ const sitekey = process.env.YUANHAU_CAPTCHA;
 const captchaSuccess = ref(false);
 const obtain = () => {
   //if (captchaSuccess.value) {
-    token.value = "temp";
-    username.value = "temp_admin";
-    token.maxAge = 1000;
-    username.maxAge = 1000;
-    alert("done!");
+  token.value = "temp";
+  username.value = "temp_admin";
+  token.maxAge = 1000;
+  username.maxAge = 1000;
+  alert("done!");
   //} else {
   //  alert("Please compelete the captcha");
   //}

@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
 interface datastuff {
-    social: string,
-    email: string,
-    message: string
-};
+  social: string;
+  email: string;
+  message: string;
+}
 const donateamount = ref(0);
 const donatepeople = ref(0);
 const router = useRouter();
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
-const data = ref<datastuff[]>([]); 
+const data = ref<datastuff[]>([]);
 const username = cookieusername.value;
 if (
   !token.value ||
@@ -25,29 +25,29 @@ useHead({
 });
 </script>
 <template>
-    <div class="content">
-        <div class="header">
-            <h1>Recommendation Data Dashboard</h1>
-            <h4>Welcome Back, {{ username }}</h4>
-        </div>
-        <div class="dash">
-            <div class="data">
-                <table>
-                    <tr>
-                        <th>DC或MTRX</th>
-                        <th>Email</th>
-                        <th>訊息</th>
-                    </tr>
-                    <hr/>
-                        <tr v-bind="data">
-                        <td>{{ data.social }}</td>
-                        <td>{{ data.email }}</td>
-                        <td>{{ data.message }}</td>
-                    </tr>
-            </table>
-            </div>
-        </div>
+  <div class="content">
+    <div class="header">
+      <h1>Recommendation Data Dashboard</h1>
+      <h4>Welcome Back, {{ username }}</h4>
     </div>
+    <div class="dash">
+      <div class="data">
+        <table>
+          <tr>
+            <th>DC或MTRX</th>
+            <th>Email</th>
+            <th>訊息</th>
+          </tr>
+          <hr />
+          <tr v-bind="data">
+            <td>{{ data.social }}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.message }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 </template>
 <style scoped>
 .content {
@@ -114,20 +114,19 @@ useHead({
   width: 100px;
 }
 .data {
-    text-align:center;
-    align-self:center;
-    justify-content:center;
-    align-items:center;
-    table {
-        text-align:center;
-    align-self:center;
-    justify-content:center;
-    align-items:center;
-    left:0;
-    right:0;
-    width:100%; 
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  table {
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    width: 100%;
     text-decoration-line: dotted;
-    }
+  }
 }
 </style>
- 

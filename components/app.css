@@ -126,10 +126,10 @@ a.white:hover {
   button {
     transition: all 400ms ease-in-out !important;
     border-radius: 6px !important;
-    animation: all 600ms ease-in-out; 
+    animation: all 600ms ease-in-out;
   }
   .frc-banner {
-    display:none !important;
+    display: none !important;
   }
 }
 /*Media Screen Size and others*/
