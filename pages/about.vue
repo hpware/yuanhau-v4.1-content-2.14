@@ -20,7 +20,7 @@ const loading = ref(true);
 // Coding History List
 async function getCodingHistoryMD() {
   try {
-    const mdfile = await fetch("/md/about.md");
+    const mdfile = await fetch("/api/db/markdown?id=1");
     const mdtext = await mdfile.text();
     codinghistory.value = marked(mdtext);
   } catch (e) {
