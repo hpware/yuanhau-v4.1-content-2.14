@@ -81,10 +81,7 @@ onMounted(() => {
             <a href="https://github.com/hpware" target="_blank"
               ><i class="bi bi-github"></i
             ></a>
-            <a href="https://yhw.tw/fuckmeta" target="_blank"
-              ><i class="bi bi-instagram"></i
-            ></a>
-            <a href="https://yhw.tw/fuckmeta" target="_blank"
+            <a href="https://yhw.tw/threads" target="_blank"
               ><i class="bi bi-threads"></i
             ></a>
           </p>

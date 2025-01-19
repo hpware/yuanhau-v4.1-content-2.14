@@ -31,7 +31,7 @@ const preview = () => {
 <template>
     <div class="content">
         <div class="header">
-            <h1>Wasabi S3 Upload</h1>
+            <h1>Markdown editor</h1>
             <h4>{{ username }}, 歡迎回來!</h4>
         </div>
         <div class="dash">
