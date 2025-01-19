@@ -36,13 +36,6 @@ const preview = () => {
     </div>
     <div class="dash">
       <div class="picker">
-        <button
-          v-for="item in ['A', 'B', 'C', 'D']"
-          :key="item"
-          @click="current_item = item"
-        >
-          {{ item }}
-        </button>
         &nbsp;
         <button @click="preview">Preview</button>
       </div>
