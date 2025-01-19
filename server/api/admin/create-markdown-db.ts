@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js" 
+import { createClient } from "@supabase/supabase-js";
 const supabasetoken = process.env.SUPABASE_KEY;
 const supabase = createClient(
   "https://rlretgpxqtgzsjuhqjwu.supabase.co",
@@ -6,28 +6,30 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
-    try {
-        const url = new URL(
-            event.node.req.url!,
-            `http://${event.node.req.headers.host}`,
-        )
-        const nick = url.searchParams.get("nick");
-        const rawBody = await readBody(event) || "";
-        const content = rawBody.toString();
-        if (event.node.req.method === "POST") {
-        const {data, error} = await supabase.from("markdown").insert([{ nickname: nick, content: content }])
-        if (error) {
-            return {
-                error: 500,
-            }
-        }
-        return data;
-    } else {
+  try {
+    const url = new URL(
+      event.node.req.url!,
+      `http://${event.node.req.headers.host}`,
+    );
+    const nick = url.searchParams.get("nick");
+    const rawBody = (await readBody(event)) || "";
+    const content = rawBody.toString();
+    if (event.node.req.method === "POST") {
+      const { data, error } = await supabase
+        .from("markdown")
+        .insert([{ nickname: nick, content: content }]);
+      if (error) {
         return {
-            error: 403,
-        }
+          error: 500,
+        };
+      }
+      return data;
+    } else {
+      return {
+        error: 403,
+      };
     }
-    } catch(e) {
-        console.log(e);
-    }
-}) 
+  } catch (e) {
+    console.log(e);
+  }
+});

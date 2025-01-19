@@ -6,7 +6,7 @@ const cookieusername = useCookie("usrn");
 const router = useRouter();
 const username = cookieusername.value;
 const current_item = ref("");
-const markdown = ref("")
+const markdown = ref("");
 const prev = ref(false);
 // Skip user check, remove when the login panel & the api works
 if (
@@ -21,37 +21,40 @@ useHead({
   title: "管理者Panel",
 });
 const submit = () => {
-    console.log(current_item.value);
-}
+  console.log(current_item.value);
+};
 const preview = () => {
-    console.log("preview");
-    prev.value = !prev.value;
-}
+  console.log("preview");
+  prev.value = !prev.value;
+};
 </script>
 <template>
-    <div class="content">
-        <div class="header">
-            <h1>Markdown editor</h1>
-            <h4>{{ username }}, 歡迎回來!</h4>
-        </div>
-        <div class="dash">
-            <div class="picker">
-                <button v-for="item in ['A', 'B', 'C', 'D']" :key="item" @click="current_item = item">
-                    {{ item }}
-                </button>
-                &nbsp;
-                <button @click="preview">Preview</button>
-            </div>
-            <div class="preview" v-if="prev">
-            </div>
-            <div class="editor" v-else>
-                <form @submit.prevent="submit">
-                    <textarea v-model="markdown"></textarea>
-                    <button>Submit</button> 
-                </form>
-            </div>
-        </div>
+  <div class="content">
+    <div class="header">
+      <h1>Markdown editor</h1>
+      <h4>{{ username }}, 歡迎回來!</h4>
     </div>
+    <div class="dash">
+      <div class="picker">
+        <button
+          v-for="item in ['A', 'B', 'C', 'D']"
+          :key="item"
+          @click="current_item = item"
+        >
+          {{ item }}
+        </button>
+        &nbsp;
+        <button @click="preview">Preview</button>
+      </div>
+      <div class="preview" v-if="prev"></div>
+      <div class="editor" v-else>
+        <form @submit.prevent="submit">
+          <textarea v-model="markdown"></textarea>
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </template>
 <style scoped>
 .content {
@@ -118,24 +121,24 @@ const preview = () => {
   width: 100px;
 }
 form {
-    text-align:center;
-    align-self:center;
-    justify-content:center;
-    align-items:center;
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
 }
 textarea {
-    left:0;
-    right:0;
-    display:block;
-    content:top;
-    text-align:left;
-    width:96%;
-    height: auto;
-    min-height:100px;
-    border-radius:10px;
-    border:2px solid transparent;
-    transition:all 300ms;
-    margin:0 auto;
-    padding:10px;
+  left: 0;
+  right: 0;
+  display: block;
+  content: top;
+  text-align: left;
+  width: 96%;
+  height: auto;
+  min-height: 100px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 300ms;
+  margin: 0 auto;
+  padding: 10px;
 }
 </style>
