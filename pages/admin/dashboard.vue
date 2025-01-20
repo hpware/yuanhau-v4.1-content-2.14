@@ -2,9 +2,9 @@
 import { ref } from "vue";
 
 interface md {
-  id: number,
-  nickname: string,
-  content: string,
+  id: number;
+  nickname: string;
+  content: string;
 }
 
 const donateamount = ref(0);
@@ -14,7 +14,7 @@ const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
 const username = cookieusername.value;
 const mdresdata = ref<md[]>([]);
-const fmperror = ref("")
+const fmperror = ref("");
 if (
   !token.value ||
   token.value === "" ||
@@ -29,19 +29,17 @@ useHead({
 fetchMarkdownPosts();
 async function fetchMarkdownPosts() {
   try {
-    const res = await fetch("/api/admin/fetch-markdown-list",
-      {
-        method: "GET",
-      }
-    );
+    const res = await fetch("/api/admin/fetch-markdown-list", {
+      method: "GET",
+    });
     if (res.ok) {
       const redata = await res.json();
       mdresdata.value = redata;
     } else {
-      fmperror.value = "錯誤"
+      fmperror.value = "錯誤";
     }
   } catch (e) {
-    fmperror.value = "發生了錯誤"
+    fmperror.value = "發生了錯誤";
   }
 }
 </script>
@@ -78,20 +76,22 @@ async function fetchMarkdownPosts() {
           <h1></h1>
         </div>
       </div>
-      <hr/>
+      <hr />
       <div class="markdown-list">
         <div class="mini-header">
           <h2>MD 編輯系統</h2>
           <div class="md" v-if="!fmperror">
-          <div v-for="md in mdresdata" :key="md.id">
-            <a :href="`/admin/edit-markdown?id=${md.id}`">{{ md.nickname }}</a>
-          </div>
+            <div v-for="md in mdresdata" :key="md.id">
+              <a :href="`/admin/edit-markdown?id=${md.id}`">{{
+                md.nickname
+              }}</a>
+            </div>
           </div>
           <div v-else>
             {{ fmperror }}
           </div>
         </div>
-        <br/>
+        <br />
       </div>
     </div>
   </div>

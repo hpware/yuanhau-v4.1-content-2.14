@@ -17,28 +17,28 @@ if (token.value) {
 const usercheck = async (e: Event) => {
   e.preventDefault();
   encryptedpwd.value = SHA512(pwd.value).toString();
-    try {
-      const res = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username.value,
-          password: encryptedpwd.value,
-        }),
-      });
-      const data = await res.json();
-      if (data.status === "success") {
-        token.value = data.token;
-        username.value = data.user;
-        router.push("/admin/dashboard");
-      } else {
-        alert("Wrong Password");
-      }
-    } catch (error) {
+  try {
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username.value,
+        password: encryptedpwd.value,
+      }),
+    });
+    const data = await res.json();
+    if (data.status === "success") {
+      token.value = data.token;
+      username.value = data.user;
+      router.push("/admin/dashboard");
+    } else {
       alert("Wrong Password");
     }
+  } catch (error) {
+    alert("Wrong Password");
+  }
   pwd.value = "";
   encryptedpwd.value = "";
 };

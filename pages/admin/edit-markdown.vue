@@ -25,22 +25,20 @@ if (
 useHead({
   title: "管理者Panel",
 });
-const submit = async() => {
+const submit = async () => {
   try {
-  const req = await fetch(`/api/admin/push-markdown?id=${id}`, 
-    {
+    const req = await fetch(`/api/admin/push-markdown?id=${id}`, {
       method: "POST",
-      body: `${markdown.value}`
+      body: `${markdown.value}`,
+    });
+    if (!req.ok) {
+      throw new Error("error");
+    } else {
+      const res = await req.json();
+      if (res.status === "ok") {
+        complete.value = true;
+      }
     }
-  )
-  if (!req.ok) {
-    throw new Error("error");
-  } else {
-    const res = await req.json();
-    if (res.status === "ok") {
-      complete.value = true;
-    }
-  }
   } catch (e) {
     console.log(e);
   }
@@ -51,14 +49,14 @@ async function fetchmarkdown() {
     const md = await res.text();
     markdown.value = md;
   } catch (e) {
-    error.value = `${e}`
+    error.value = `${e}`;
   }
 }
 onMounted(async () => {
   if (id) {
     await fetchmarkdown();
   }
-})
+});
 </script>
 <template>
   <div class="content">
@@ -71,20 +69,18 @@ onMounted(async () => {
       &nbsp;
       <span><a href="/admin/logout">登出</a></span>
     </div>
-    <hr/> 
+    <hr />
     <div class="dash">
       <div class="editor" v-if="!complete">
         <form @submit.prevent="submit">
           <textarea v-model="markdown"></textarea>
-          <br>
+          <br />
           <button>Submit</button>
         </form>
       </div>
       <div v-else>
         <div>
-          <h3>
-            編輯完成！
-          </h3>
+          <h3>編輯完成！</h3>
           <button @click="router.push('/admin/dashboard')">返回首頁</button>
         </div>
       </div>
