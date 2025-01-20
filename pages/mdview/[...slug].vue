@@ -4,8 +4,8 @@ import "@/components/markdown.css";
 const markdown = ref();
 const router = useRoute();
 
-const id = router.query.id as string;
-
+const id = router.params.slug[0];
+console.log(id);
 const md = async () => {
   const req = await fetch(`/api/db/markdown?id=${id}`);
   const reqtext = await req.text();
