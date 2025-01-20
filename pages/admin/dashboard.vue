@@ -51,6 +51,11 @@ async function fetchMarkdownPosts() {
       <h1>Admin Dashboard</h1>
       <h4>{{ username }}, 歡迎回來!</h4>
     </div>
+    <div class="nav">
+      <span><a href="/admin/dashboard">首頁</a></span>
+      &nbsp;
+      <span><a href="/admin/logout">登出</a></span>
+    </div>
     <hr />
     <div class="dash">
       <div class="donate">
@@ -86,6 +91,7 @@ async function fetchMarkdownPosts() {
             {{ fmperror }}
           </div>
         </div>
+        <br/>
       </div>
     </div>
   </div>

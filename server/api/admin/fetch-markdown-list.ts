@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     if (event.node.req.method === "GET") {
       const { data, error } = await supabase
         .from("markdown")
-        .select()
+        .select("id, nickname")
         .order("id");
       if (error) {
         return {

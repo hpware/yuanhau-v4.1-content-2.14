@@ -37,7 +37,7 @@ const submit = async() => {
     throw new Error("error");
   } else {
     const res = await req.json();
-    if (res.status === "done") {
+    if (res.status === "ok") {
       complete.value = true;
     }
   }
@@ -66,6 +66,12 @@ onMounted(async () => {
       <h1>Markdown editor</h1>
       <h4>{{ username }}, 歡迎回來!</h4>
     </div>
+    <div class="nav">
+      <span><a href="/admin/dashboard">首頁</a></span>
+      &nbsp;
+      <span><a href="/admin/logout">登出</a></span>
+    </div>
+    <hr/> 
     <div class="dash">
       <div class="editor" v-if="!complete">
         <form @submit.prevent="submit">
@@ -79,6 +85,7 @@ onMounted(async () => {
           <h3>
             編輯完成！
           </h3>
+          <button @click="router.push('/admin/dashboard')">返回首頁</button>
         </div>
       </div>
     </div>

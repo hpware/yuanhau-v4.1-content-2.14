@@ -6,7 +6,7 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
-  if () {
+  if (event.node.req.headers.orgin = "https://yuanhau.com") {
   try {
     const url = new URL(
       event.node.req.url!,
@@ -16,7 +16,9 @@ export default defineEventHandler(async (event) => {
     if (event.node.req.method === "POST") {
       const { data, error } = await supabase
         .from("markdown")
-        .change(`${id}`, `${event.node.req.body}`);
+        .update({ content: await readBody(event) })
+        .eq("id", `${id}`)
+        .select()
       if (error) {
         return {
           status: "not ok",
@@ -25,6 +27,7 @@ export default defineEventHandler(async (event) => {
       }
       return {
         status: "ok",
+        data: data,
       }
     } else {
       return {
