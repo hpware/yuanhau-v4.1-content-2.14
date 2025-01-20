@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { marked } from "marked";
 
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
@@ -7,7 +8,11 @@ const router = useRouter();
 const username = cookieusername.value;
 const current_item = ref("");
 const markdown = ref("");
-const prev = ref(false);
+const complete = ref(false);
+const error = ref("");
+const route = useRoute();
+const id = route.query.id as string;
+const prev = route.query.id as string;
 // Skip user check, remove when the login panel & the api works
 if (
   !token.value ||
@@ -20,13 +25,40 @@ if (
 useHead({
   title: "管理者Panel",
 });
-const submit = () => {
-  console.log(current_item.value);
+const submit = async() => {
+  try {
+  const req = await fetch(`/api/admin/push-markdown?id=${id}`, 
+    {
+      method: "POST",
+      body: `${markdown.value}`
+    }
+  )
+  if (!req.ok) {
+    throw new Error("error");
+  } else {
+    const res = await req.json();
+    if (res.status === "done") {
+      complete.value = true;
+    }
+  }
+  } catch (e) {
+    console.log(e);
+  }
 };
-const preview = () => {
-  console.log("preview");
-  prev.value = !prev.value;
-};
+async function fetchmarkdown() {
+  try {
+    const res = await fetch(`/api/db/markdown?id=${id}`);
+    const md = await res.text();
+    markdown.value = md;
+  } catch (e) {
+    error.value = `${e}`
+  }
+}
+onMounted(async () => {
+  if (id) {
+    await fetchmarkdown();
+  }
+})
 </script>
 <template>
   <div class="content">
@@ -35,16 +67,19 @@ const preview = () => {
       <h4>{{ username }}, 歡迎回來!</h4>
     </div>
     <div class="dash">
-      <div class="picker">
-        &nbsp;
-        <button @click="preview">Preview</button>
-      </div>
-      <div class="preview" v-if="prev"></div>
-      <div class="editor" v-else>
+      <div class="editor" v-if="!complete">
         <form @submit.prevent="submit">
           <textarea v-model="markdown"></textarea>
+          <br>
           <button>Submit</button>
         </form>
+      </div>
+      <div v-else>
+        <div>
+          <h3>
+            編輯完成！
+          </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -126,8 +161,7 @@ textarea {
   content: top;
   text-align: left;
   width: 96%;
-  height: auto;
-  min-height: 100px;
+  height: 500px;
   border-radius: 10px;
   border: 2px solid transparent;
   transition: all 300ms;

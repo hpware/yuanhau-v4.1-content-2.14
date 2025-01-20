@@ -6,6 +6,7 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
+  if () {
   try {
     const url = new URL(
       event.node.req.url!,
@@ -18,16 +19,26 @@ export default defineEventHandler(async (event) => {
         .change(`${id}`, `${event.node.req.body}`);
       if (error) {
         return {
+          status: "not ok",
           error: 500,
         };
       }
-      return data;
+      return {
+        status: "ok",
+      }
     } else {
       return {
+        status: "not ok",
         error: 403,
       };
     }
   } catch (e) {
     console.log(e);
   }
+} else {
+  return {
+    status: "not ok",
+    error: 403,
+  }
+}
 });
