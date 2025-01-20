@@ -5,16 +5,10 @@ useHead({
 });
 import SHA512 from "crypto-js/sha512";
 const token = useCookie("admintoken");
-const username = ref("");
+const username = useCookie("usrn");
 const pwd = ref("");
 const encryptedpwd = ref("");
 const router = useRouter();
-const sitekey = process.env.YUANHAU_CAPTCHA;
-const captchaSuccess = ref(false);
-const error = ref("");
-onMounted(async () => {
-  await import("friendly-challenge/widget");
-});
 
 // Redirect dashboard
 if (token.value) {
@@ -23,10 +17,6 @@ if (token.value) {
 const usercheck = async (e: Event) => {
   e.preventDefault();
   encryptedpwd.value = SHA512(pwd.value).toString();
-  if (!captchaSuccess.value) {
-    error.value = "請先完成驗證碼";
-    return;
-  } else {
     try {
       const res = await fetch("/api/admin/login", {
         method: "POST",
@@ -49,13 +39,9 @@ const usercheck = async (e: Event) => {
     } catch (error) {
       alert("Wrong Password");
     }
-  }
   pwd.value = "";
   encryptedpwd.value = "";
 };
-function captchadone() {
-  captchaSuccess.value = true;
-}
 </script>
 <template>
   <div class="content">
@@ -66,13 +52,6 @@ function captchadone() {
         <input type="text" id="username" v-model="username" required />
         <label for="password">密碼</label>
         <input type="password" v-model="pwd" required />
-        <div
-          class="frc-captcha captcha"
-          :data-sitekey="sitekey"
-          :data-callback="captchadone"
-          data-lang="zh_TW"
-          data-puzzle-endpoint="https://captcha.yuanhau.com/puzzle.php"
-        ></div>
         <button>登入</button>
         <div class="temp">
           <h6>

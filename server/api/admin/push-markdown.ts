@@ -6,11 +6,11 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
-  if (event.node.req.headers.orgin = "https://yuanhau.com") {
+  if (event.node.req.headers.orgin = `https://${event.node.req.headers.host}`) {
   try {
     const url = new URL(
       event.node.req.url!,
-      `http://${event.node.req.headers.host}`,
+      `https://${event.node.req.headers.host}`,
     );
     const id = url.searchParams.get("id");
     if (event.node.req.method === "POST") {

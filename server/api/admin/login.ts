@@ -1,4 +1,5 @@
 import scrypt from "scrypt-js";
+import { v4 as uuidv4 } from 'uuid';
 import { createClient } from "@supabase/supabase-js";
 const supabasetoken = process.env.SUPABASE_KEY;
 const salt = process.env.ADMINLOGIN_SALT;
@@ -47,9 +48,10 @@ export default defineEventHandler(async (event) => {
       };
     }
   }
+  const uuid= uuidv4();
   return {
     status: "success",
     user: params.username,
-    token: null,
+    token: uuid,
   };
 });

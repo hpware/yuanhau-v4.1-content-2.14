@@ -38,6 +38,7 @@
     "scrypt-js": "^3.0.1",
     "unsplash-js": "^7.0.19",
     "unstorage": "^1.14.1",
+    "uuid": "^11.0.5",
     "vue": "latest",
     "vue-router": "latest",
     "vue3-highlightjs": "^1.0.5"
