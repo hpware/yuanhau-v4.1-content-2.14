@@ -29,8 +29,8 @@ export default defineEventHandler(async (event) => {
       console.log(pwdhash);
       const { data } = await supabase
         .from("admin_users")
-        .select(`${params.username}`);
-      console.log(data);
+        .select("pwdhash")
+        .eq("username", `${params.username}`);
       if (!data || data === null) {
         return {
           status: "user error",
@@ -38,7 +38,6 @@ export default defineEventHandler(async (event) => {
           token: null,
         };
       }
-      console.log(data);
     } catch (e) {
       console.error(e);
       return {
@@ -49,6 +48,7 @@ export default defineEventHandler(async (event) => {
     }
   }
   const uuid = uuidv4();
+  //const { pushtokendata } = await supabase 
   return {
     status: "success",
     user: params.username,
