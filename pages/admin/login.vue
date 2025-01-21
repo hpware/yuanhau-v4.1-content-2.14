@@ -32,14 +32,13 @@ const usercheck = async (e: Event) => {
     const data = await res.json();
     if (data.status === "success") {
       token.value = data.token;
-      token.value = "sdf";
       usrname.value = data.user;
       router.push("/admin/dashboard");
     } else {
-      alert("Wrong Password");
+      alert(`Error: ${data.error}`);
     }
   } catch (error) {
-    alert("Wrong Password");
+    alert("Client Side Error");
   }
   pwd.value = "";
   encryptedpwd.value = "";

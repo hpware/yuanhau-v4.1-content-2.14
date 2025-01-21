@@ -18,8 +18,7 @@ export default defineEventHandler(async (event) => {
         .from("markdown")
         .select("content")
         .eq("id", `${id}`)
-        .single();
-      console.log(data);
+        .single();      
       if (error || data === null) {
         throw createError({
           statusCode: 403,

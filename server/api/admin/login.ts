@@ -25,35 +25,48 @@ export default defineEventHandler(async (event) => {
     try {
       const incomingpwd = new TextEncoder().encode(params.password);
       const incomingsalt = new TextEncoder().encode(salt);
-      const pwdhash = scrypt.scrypt(incomingpwd, incomingsalt, 1024, 8, 1, 32);
+      // Need await so the whatever buffer thing would work.
+      const pwdhash = await scrypt.scrypt(incomingpwd, incomingsalt, 1024, 8, 1, 32);
       console.log(pwdhash);
       const { data } = await supabase
         .from("admin_users")
         .select("pwdhash")
         .eq("username", `${params.username}`);
-      console.log(data);
       // Use length for [] aka [ {pwdhash = opsfodsfos} ], Use data === null when there is only a value
       if (!data || data.length === 0) {
         return {
-          status: "user error",
+          status: "No User account",
           user: null,
           token: null,
         };
       }
+      const dbhash = data[0].pwdhash;
+      // Uses Buffer.from(pwdhash).toString('hex'), because js have no clue what is a Uint8Array, so buffer transfers the uint8array to a butter then to hex
+      const scrypthash = Buffer.from(pwdhash).toString('hex');
+      if (dbhash !== scrypthash) {
+        return {
+          status: "Wrong Password",
+          user: null,
+          token: null,
+        }        
+      }
     } catch (e) {
       console.error(e);
       return {
-        status: "server error",
+        status: "Server error",
         user: null,
         token: null,
       };
     }
   }
   const uuid = uuidv4();
-  //const { pushtokendata } = await supabase 
+  const { data, error } = await supabase
+  .from("admin_login_tokens")
+  .insert([{ username: params.username, btoken: uuid }]);
   return {
     status: "success",
     user: params.username,
     token: uuid,
+    supabase: data
   };
 });
