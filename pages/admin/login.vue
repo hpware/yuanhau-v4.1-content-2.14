@@ -5,7 +5,8 @@ useHead({
 });
 import SHA512 from "crypto-js/sha512";
 const token = useCookie("admintoken");
-const username = useCookie("usrn");
+const usrname = useCookie("usrn");
+const username = ref("");
 const pwd = ref("");
 const encryptedpwd = ref("");
 const router = useRouter();
@@ -32,7 +33,7 @@ const usercheck = async (e: Event) => {
     if (data.status === "success") {
       token.value = data.token;
       token.value = "sdf";
-      username.value = data.user;
+      usrname.value = data.user;
       router.push("/admin/dashboard");
     } else {
       alert("Wrong Password");

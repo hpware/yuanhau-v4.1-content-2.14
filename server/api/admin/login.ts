@@ -31,7 +31,9 @@ export default defineEventHandler(async (event) => {
         .from("admin_users")
         .select("pwdhash")
         .eq("username", `${params.username}`);
-      if (!data || data === null) {
+      console.log(data);
+      // Use length for [] aka [ {pwdhash = opsfodsfos} ], Use data === null when there is only a value
+      if (!data || data.length === 0) {
         return {
           status: "user error",
           user: null,
