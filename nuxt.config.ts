@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     "/admin/**": { ssr: true },
     "/signal": { redirect: "https://yhw.tw/signal" }, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
     "/post": { redirect: "/posts" },
+    "mdview/**": { ssr: true },
   },
 
   modules: [
