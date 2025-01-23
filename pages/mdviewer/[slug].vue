@@ -3,17 +3,16 @@ import { marked } from "marked";
 import "@/components/markdown.css";
 const markdown = ref();
 const router = useRoute();
-const id = ref("220");
+const id = router.params.slug[0];
 async function md(id : string) {
   try {
-  id = router.params.slug[0];
   const req = await fetch(`/api/db/markdown?id=${id}`);
   const reqtext = await req.text();
   markdown.value = marked(reqtext);
   } catch (e) {
   }
 };
-md();
+md(id);
 </script>
 <template>
   <main>

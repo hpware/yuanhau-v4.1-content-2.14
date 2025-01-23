@@ -20,7 +20,7 @@ if (
   !cookieusername.value ||
   cookieusername.value === ""
 ) {
-  router.push("/admin/login");
+  router.push("/admin/logout");
 }
 useHead({
   title: "管理者Panel",
@@ -57,6 +57,22 @@ onMounted(async () => {
     await fetchmarkdown();
   }
 });
+// Check User Auth 
+const userauth = async () => {
+  try {
+    const res = await fetch('/api/admin/checkauth?plaform=inv&access_key=2ojca0s',
+      {
+        method: "POST",
+        body: `${token}`
+      }
+    )
+  } catch (e) {
+    console.log(e);
+  }
+}
+onMounted(async () => {
+  await userauth();
+})
 </script>
 <template>
   <div class="content">

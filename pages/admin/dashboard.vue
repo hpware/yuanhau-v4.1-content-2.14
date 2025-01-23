@@ -21,7 +21,7 @@ if (
   !cookieusername.value ||
   cookieusername.value === ""
 ) {
-  router.push("/admin/login");
+  router.push("/admin/logout");
 }
 useHead({
   title: "管理者Panel",

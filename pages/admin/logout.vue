@@ -7,7 +7,7 @@ const logout = async () => {
   username.value = "";
   setTimeout(() => {
     router.push("/admin/login");
-  }, 2000);
+  }, 500);
 };
 onMounted(() => {
   logout();
@@ -18,8 +18,7 @@ useHead({
 </script>
 <template>
   <div class="content">
-    <h1>管理員登出</h1>
-    <h3>在2秒後自動返回到登入頁面</h3>
+    <h1>登出</h1>
   </div>
 </template>
 <style scoped>

@@ -6,7 +6,6 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
-  console.log("event", event, event.node.req.method);
   if (event.node.req.method === "POST") {
     try {
       const body = await readBody(event);
