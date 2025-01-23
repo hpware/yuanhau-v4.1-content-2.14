@@ -57,22 +57,23 @@ onMounted(async () => {
     await fetchmarkdown();
   }
 });
-// Check User Auth 
+// Check User Auth
 const userauth = async () => {
   try {
-    const res = await fetch('/api/admin/checkauth?plaform=inv&access_key=2ojca0s',
+    const res = await fetch(
+      "/api/admin/checkauth?plaform=inv&access_key=2ojca0s",
       {
         method: "POST",
-        body: `${token}`
-      }
-    )
+        body: `${token}`,
+      },
+    );
   } catch (e) {
     console.log(e);
   }
-}
+};
 onMounted(async () => {
   await userauth();
-})
+});
 </script>
 <template>
   <div class="content">

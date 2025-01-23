@@ -4,14 +4,13 @@ import "@/components/markdown.css";
 const markdown = ref();
 const router = useRoute();
 const id = router.params.slug[0];
-async function md(id : string) {
+async function md(id: string) {
   try {
-  const req = await fetch(`/api/db/markdown?id=${id}`);
-  const reqtext = await req.text();
-  markdown.value = marked(reqtext);
-  } catch (e) {
-  }
-};
+    const req = await fetch(`/api/db/markdown?id=${id}`);
+    const reqtext = await req.text();
+    markdown.value = marked(reqtext);
+  } catch (e) {}
+}
 md(id);
 </script>
 <template>
