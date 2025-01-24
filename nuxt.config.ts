@@ -25,7 +25,6 @@ export default defineNuxtConfig({
   modules: [
     "nuxt-umami",
     "@nuxtjs/robots",
-    "nuxt-auth-utils",
     "@kgierke/nuxt-basic-auth",
     "@sentry/nuxt/module",
     "@nuxt/image",
