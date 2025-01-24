@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { marked } from "marked";
+import { rmSync } from "node:fs";
 
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
@@ -27,7 +28,7 @@ useHead({
 });
 const submit = async () => {
   try {
-    const req = await fetch(`/api/admin/push-markdown?id=${id}`, {
+    const req = await fetch(`/api/admin/push-markdown?id=${id}&action=create`, {
       method: "POST",
       body: `${markdown.value}`,
     });
@@ -60,13 +61,17 @@ onMounted(async () => {
 // Check User Auth
 const userauth = async () => {
   try {
-    const res = await fetch(
+    const req = await fetch(
       "/api/admin/checkauth?plaform=",
       {
         method: "POST",
         body: `${token.value}`,
       },
     );
+    const res = await req.json();
+    if (res.status !== "ok" && res.user === null) {
+      router.push("/admin/logout")
+    }
   } catch (e) {
     console.log(e);
   }

@@ -42,6 +42,27 @@ async function fetchMarkdownPosts() {
     fmperror.value = "發生了錯誤";
   }
 }
+// Check User Auth
+const userauth = async () => {
+  try {
+    const req = await fetch(
+      "/api/admin/checkauth?plaform=",
+      {
+        method: "POST",
+        body: `${token.value}`,
+      },
+    );
+    const res = await req.json();
+    if (res.status !== "ok" && res.user === null) {
+      router.push("/admin/logout")
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+onMounted(async () => {
+  await userauth();
+});
 </script>
 <template>
   <div class="content">
@@ -78,19 +99,24 @@ async function fetchMarkdownPosts() {
       </div>
       <hr />
       <div class="markdown-list">
-        <div class="mini-header">
+        <div class="md-header">
           <h2>MD 編輯系統</h2>
+          <div class="nav">
+              <a href="/admin/markdown/create"><i class="bi bi-plus"></i></a>
+              <a href="/admin/markdown/delete"><i class="bi bi-trash"></i></a>
+            </div>
+        </div>
           <div class="md" v-if="!fmperror">
             <div v-for="md in mdresdata" :key="md.id">
-              <a :href="`/admin/edit-markdown?id=${md.id}`">{{
-                md.nickname
-              }}</a>
+              <a :href="`/admin/markdown/edit?id=${md.id}`"><div class="window mdwindow">
+                <h5>{{ md.nickname }}</h5>
+                <p>{{ md.id }}</p>
+              </div></a>
             </div>
           </div>
           <div v-else>
             {{ fmperror }}
           </div>
-        </div>
         <br />
       </div>
     </div>
@@ -159,5 +185,64 @@ async function fetchMarkdownPosts() {
 .donate-wi {
   height: 60%;
   width: 100px;
+}
+.md-header {
+  display:absolute;
+  left:0;
+  right:0;
+  margin-top:10px;
+  h2 {
+    margin:0;
+  }
+  .nav {
+    margin:10px;
+    color: white;
+    a {
+      color: white;
+      transition: all 300ms ease-in-out;
+    }
+    a:hover {
+      color: rgb(208, 208, 208);
+    }
+  }
+}
+.md {
+  display:flex;
+  transition: all 300ms;
+  right: 0;
+  left: 0;
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration:none;
+    text-decoration-color: none;
+  }
+}
+.mdwindow {
+  width:fit-content;
+  min-width:150px;
+  height:150px;
+  color: white !important;
+  text-decoration: none !important;
+  a {
+    color: white !important;
+    text-decoration: none !important;
+    text-decoration-color: none;
+  }
+  a:hover {
+    color:white !important;
+  }
+  h5 {
+    color:white !important;
+    text-decoration: none !important;
+  }
+  p {
+    color:white !important;
+    text-decoration: none !important;
+  }
 }
 </style>

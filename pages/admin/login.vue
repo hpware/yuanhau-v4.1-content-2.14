@@ -122,6 +122,11 @@ button {
   align-self: center;
 }
 .error {
-  color: rgb(244, 116, 116);
+  color: rgb(209, 29, 29);
+  margin-top:0;
+  margin-bottom: 20px;
+}
+h1 {
+  margin-bottom:0;
 }
 </style>

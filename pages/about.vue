@@ -42,7 +42,7 @@ getCodingHistoryMD();
     <Loading />
   </div>
   <section id="about" class="about" v-if="!loading">
-    <div v-ref="codinghistory" v-html="codinghistory"></div>
+    <div v-html="codinghistory"></div>
   </section>
 </template>
 <style scoped>

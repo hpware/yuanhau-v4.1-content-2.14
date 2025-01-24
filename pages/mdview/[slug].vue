@@ -16,7 +16,8 @@ md(id);
 <template>
   <main>
     <article>
-      <div v-html="markdown" v-ref="markdown"></div>
+      <!--I just need to remove the v-ref="markdown" from the html, why the fuck is this a problem?-->
+      <div v-html="markdown"></div>
     </article>
     <div class="footer">
       <p>Built using markedJS</p>

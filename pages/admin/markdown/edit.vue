@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { ref } from "vue";
-interface datastuff {
-  social: string;
-  email: string;
-  message: string;
-}
-const donateamount = ref(0);
-const donatepeople = ref(0);
-const router = useRouter();
+import { marked } from "marked";
+import { rmSync } from "node:fs";
+
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
-const data = ref<datastuff[]>([]);
+const router = useRouter();
 const username = cookieusername.value;
+const current_item = ref("");
+const markdown = ref("");
+const complete = ref(false);
+const error = ref("");
+const route = useRoute();
+const id = route.query.id as string;
+const prev = route.query.id as string;
+// Skip user check, remove when the login panel & the api works
 if (
   !token.value ||
   token.value === "" ||
@@ -22,6 +25,38 @@ if (
 }
 useHead({
   title: "管理者Panel",
+});
+const submit = async () => {
+  try {
+    const req = await fetch(`/api/admin/push-markdown?id=${id}`, {
+      method: "POST",
+      body: `${markdown.value}`,
+    });
+    if (!req.ok) {
+      throw new Error("error");
+    } else {
+      const res = await req.json();
+      if (res.status === "ok") {
+        complete.value = true;
+      }
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+async function fetchmarkdown() {
+  try {
+    const res = await fetch(`/api/db/markdown?id=${id}`);
+    const md = await res.text();
+    markdown.value = md;
+  } catch (e) {
+    error.value = `${e}`;
+  }
+}
+onMounted(async () => {
+  if (id) {
+    await fetchmarkdown();
+  }
 });
 // Check User Auth
 const userauth = async () => {
@@ -48,24 +83,28 @@ onMounted(async () => {
 <template>
   <div class="content">
     <div class="header">
-      <h1>Recommendation Data Dashboard</h1>
-      <h4>Welcome Back, {{ username }}</h4>
+      <h1>Markdown editor</h1>
+      <h4>{{ username }}, 歡迎回來!</h4>
     </div>
+    <div class="nav">
+      <span><a href="/admin/dashboard">首頁</a></span>
+      &nbsp;
+      <span><a href="/admin/logout">登出</a></span>
+    </div>
+    <hr />
     <div class="dash">
-      <div class="data">
-        <table>
-          <tr>
-            <th>DC或MTRX</th>
-            <th>Email</th>
-            <th>訊息</th>
-          </tr>
-          <hr />
-          <tr v-bind="data">
-            <td>{{ data.social }}</td>
-            <td>{{ data.email }}</td>
-            <td>{{ data.message }}</td>
-          </tr>
-        </table>
+      <div class="editor" v-if="!complete">
+        <form @submit.prevent="submit">
+          <textarea v-model="markdown"></textarea>
+          <br />
+          <button>Submit</button>
+        </form>
+      </div>
+      <div v-else>
+        <div>
+          <h3>編輯完成！</h3>
+          <button @click="router.push('/admin/dashboard')">返回首頁</button>
+        </div>
       </div>
     </div>
   </div>
@@ -134,20 +173,24 @@ onMounted(async () => {
   height: 60%;
   width: 100px;
 }
-.data {
+form {
   text-align: center;
   align-self: center;
   justify-content: center;
   align-items: center;
-  table {
-    text-align: center;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    right: 0;
-    width: 100%;
-    text-decoration-line: dotted;
-  }
+}
+textarea {
+  left: 0;
+  right: 0;
+  display: block;
+  content: top;
+  text-align: left;
+  width: 96%;
+  height: 500px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 300ms;
+  margin: 0 auto;
+  padding: 10px;
 }
 </style>
