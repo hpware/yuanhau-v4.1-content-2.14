@@ -6,13 +6,13 @@ const supabase = createClient(
 );
 export default defineEventHandler(async (event) => {
   try {
-    const body = readBody(event);
+    // Debuging Everything, and the only thing that needed to bee added is "await", fuck myself. 
+    const body = await readBody(event);
     const { data, error } = await supabase
       .from("admin_login_tokens")
       .select("username")
-      .eq("btoken", `${body}`)
-      .single();
-    if (!data.username || data.username === null) {
+      .eq("btoken", body);
+    if (!data[0].username  || data[0].username  === null) {
       return {
         status: "Error",
         error: "No such cookie is found in the Database",
@@ -22,13 +22,13 @@ export default defineEventHandler(async (event) => {
       return {
         status: "ok",
         error: null,
-        user: data.username,
+        user: data[0].username ,
       };
     }
   } catch (e) {
     return {
       status: "Server Error",
-      error: e,
+      error: e.message,
       user: null,
     };
   }

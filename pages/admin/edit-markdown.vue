@@ -64,7 +64,7 @@ const userauth = async () => {
       "/api/admin/checkauth?plaform=",
       {
         method: "POST",
-        body: `${token}`,
+        body: `${token.value}`,
       },
     );
   } catch (e) {

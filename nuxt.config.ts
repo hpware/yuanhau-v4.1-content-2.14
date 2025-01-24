@@ -14,11 +14,13 @@ export default defineNuxtConfig({
     "/web3/**": { prerender: true },
     "/api/**": { cors: true },
     "/user/panel/**": { ssr: true },
-    "/post/**": { redirect: "/posts/**" },
     "/admin/": { redirect: "/admin/login" },
     "/admin/**": { ssr: true },
     "/signal": { redirect: "https://yhw.tw/signal" }, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
-    "/post": { redirect: "/posts" },
+    // Old Redirect stuff here.
+    "/post": { redirect: "/posts" }, 
+    "/post/**": { redirect: "/posts/**" },
+    // Sync the old with the new 
     "mdview/**": { ssr: true },
   },
 
