@@ -10,6 +10,8 @@ const username = ref("");
 const pwd = ref("");
 const encryptedpwd = ref("");
 const router = useRouter();
+const errorglobal = ref(false);
+const errormsg = ref("");
 
 // Redirect dashboard
 if (token.value) {
@@ -35,10 +37,13 @@ const usercheck = async (e: Event) => {
       usrname.value = data.user;
       router.push("/admin/dashboard");
     } else {
-      alert(`Error: ${data.error}`);
+      let errordata = data.status;
+      errorglobal.value = true;
+      errormsg.value = `Server: ${errordata}`;
     }
   } catch (error) {
-    alert("Client Side Error");
+    errorglobal.value = true;
+    errormsg.value = `Client: ${error.message}`
   }
   pwd.value = "";
   encryptedpwd.value = "";
@@ -47,6 +52,9 @@ const usercheck = async (e: Event) => {
 <template>
   <div class="content">
     <h1>管理員登入</h1>
+    <div class="error" v-if="errorglobal">
+        <span>{{ errormsg }}</span>
+      </div>
     <div class="login">
       <form @submit.prevent="usercheck">
         <label for="username">使用者</label>
@@ -112,5 +120,8 @@ button {
   align-items: center;
   justify-content: center;
   align-self: center;
+}
+.error {
+  color: rgb(244, 116, 116);
 }
 </style>

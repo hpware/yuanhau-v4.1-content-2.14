@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
       // Use length for [] aka [ {pwdhash = opsfodsfos} ], Use data === null when there is only a value
       if (!data || data.length === 0) {
         return {
-          status: "No User account",
+          status: "User account not found.",
           user: null,
           token: null,
         };

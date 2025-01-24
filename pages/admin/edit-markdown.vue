@@ -61,7 +61,7 @@ onMounted(async () => {
 const userauth = async () => {
   try {
     const res = await fetch(
-      "/api/admin/checkauth?plaform=inv&access_key=2ojca0s",
+      "/api/admin/checkauth?plaform=",
       {
         method: "POST",
         body: `${token}`,
