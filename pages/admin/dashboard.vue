@@ -141,6 +141,7 @@ onMounted(async () => {
 }
 .dtitle {
   margin-bottom: 0;
+  margin-top:10px;
 }
 .donate-items {
   display: flex;
@@ -225,8 +226,13 @@ onMounted(async () => {
 .mdwindow {
   width:fit-content;
   min-width:150px;
-  height:150px;
+  height:fit-content;
+  min-height: 125px;
   color: white !important;
+  transition: all 150ms ease-in-out;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #545454;
   text-decoration: none !important;
   a {
     color: white !important;
@@ -244,5 +250,8 @@ onMounted(async () => {
     color:white !important;
     text-decoration: none !important;
   }
+}
+.mdwindow:hover {
+  border-color: #6ba5c7;
 }
 </style>
