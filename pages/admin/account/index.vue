@@ -1,21 +1,20 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { marked } from "marked";
-import { rmSync } from "node:fs";
 
+interface md {
+  id: number;
+  nickname: string;
+  content: string;
+}
+
+const donateamount = ref(0);
+const donatepeople = ref(0);
+const router = useRouter();
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
-const router = useRouter();
 const username = cookieusername.value;
-const current_item = ref("");
-const nickname = ref("");
-const complete = ref(false);
-const markdown = ref("");
-const error = ref("");
-const route = useRoute();
-const id = ref(0);
-const prev = route.query.id as string;
-// Skip user check, remove when the login panel & the api works
+const mdresdata = ref<md[]>([]);
+const fmperror = ref("");
 if (
   !token.value ||
   token.value === "" ||
@@ -27,34 +26,22 @@ if (
 useHead({
   title: "管理者Panel",
 });
-const submit = async () => {
+fetchMarkdownPosts();
+async function fetchMarkdownPosts() {
   try {
-    const req = await fetch(`/api/admin/push-markdown`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nickname: nickname.value,
-        action: "create",
-        token: token.value,
-        content: markdown.value,
-        // Please add .value if using ref()
-      }),
+    const res = await fetch("/api/admin/fetch-markdown-list", {
+      method: "GET",
     });
-    if (!req.ok) {
-      throw new Error("error");
+    if (res.ok) {
+      const redata = await res.json();
+      mdresdata.value = redata;
     } else {
-      const res = await req.json();
-      if (res.status === "ok") {
-        complete.value = true;
-        id.value = res.data[0].id;
-      }
+      fmperror.value = "錯誤";
     }
   } catch (e) {
-    console.log(e);
+    fmperror.value = "發生了錯誤";
   }
-};
+}
 // Check User Auth
 const userauth = async () => {
   try {
@@ -77,8 +64,7 @@ onMounted(async () => {
 <template>
   <div class="content">
     <div class="header">
-      <h1>Markdown editor</h1>
-
+      <h1>後台管理</h1>
       <i class="bi bi-person"></i> {{ username }}
     </div>
     <div class="nav">
@@ -90,23 +76,7 @@ onMounted(async () => {
     </div>
     <hr />
     <div class="dash">
-      <div class="editor" v-if="!complete">
-        <form @submit.prevent="submit">
-          <label>Nickname</label>
-          <input type="text" v-model="nickname" required />
-          <label>Content</label>
-          <textarea v-model="markdown" required></textarea>
-          <br />
-          <button>Submit</button>
-        </form>
-      </div>
-      <div v-else>
-        <div>
-          <h3>Created!</h3>
-          <p>Here is your fancy id: {{ id }}</p>
-          <button @click="router.push('/admin/dashboard')">返回首頁</button>
-        </div>
-      </div>
+        <h2><a href="/admin/account/password">密碼更改</a></h2>
     </div>
   </div>
 </template>
@@ -116,12 +86,6 @@ onMounted(async () => {
   padding-top: 20px;
   justify-content: center;
   align-items: center;
-  animation: fade-in 800ms ease-in-out;
-}
-.dash {
-  animation: fade-in 800ms ease-in-out;
-}
-.dash {
   animation: fade-in 800ms ease-in-out;
 }
 .dash {
@@ -138,6 +102,7 @@ onMounted(async () => {
 }
 .dtitle {
   margin-bottom: 0;
+  margin-top: 10px;
 }
 .donate-items {
   display: flex;
@@ -183,39 +148,74 @@ onMounted(async () => {
   height: 60%;
   width: 100px;
 }
-form {
-  text-align: center;
+.md-header {
+  display: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
+  h2 {
+    margin: 0;
+  }
+  .nav {
+    margin: 10px;
+    color: white;
+    a {
+      color: white;
+      transition: all 300ms ease-in-out;
+    }
+    a:hover {
+      color: rgb(208, 208, 208);
+    }
+  }
+}
+.md {
+  display: flex;
+  transition: all 300ms;
+  right: 0;
+  left: 0;
+  width: 100%;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
   align-self: center;
   justify-content: center;
   align-items: center;
-  display: flex;
-  flex-direction: column;
+  a {
+    text-decoration: none;
+    text-decoration-color: none;
+  }
 }
-textarea {
-  left: 0;
-  right: 0;
-  display: block;
-  content: top;
-  text-align: left;
-  width: 96%;
-  height: 500px;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  transition: all 300ms;
-  margin: 0 auto;
-  padding: 10px;
+.mdwindow {
+  width: fit-content;
+  min-width: 150px;
+  height: fit-content;
+  min-height: 125px;
+  color: white !important;
+  transition: all 150ms ease-in-out;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #545454;
+  text-decoration: none !important;
+  grid-template-columns: 1fr;
+  a {
+    color: white !important;
+    text-decoration: none !important;
+    text-decoration-color: none;
+  }
+  a:hover {
+    color: white !important;
+  }
+  h5 {
+    color: white !important;
+    text-decoration: none !important;
+  }
+  p {
+    color: white !important;
+    text-decoration: none !important;
+  }
 }
-input {
-  left: 0;
-  right: 0;
-  display: block;
-  content: top;
-  text-align: center;
-
-  border-radius: 10px;
-  border: 2px solid transparent;
-  transition: all 300ms;
-  margin: 0 auto;
-  padding: 10px;
+.mdwindow:hover {
+  border-color: #6ba5c7;
+  filter: drop-shadow(0 0 2em #444444aa);
 }
 </style>

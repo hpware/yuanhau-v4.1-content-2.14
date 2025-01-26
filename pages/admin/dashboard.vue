@@ -129,7 +129,6 @@ onMounted(async () => {
   padding-top: 20px;
   justify-content: center;
   align-items: center;
-  animation: fade-in 800ms ease-in-out;
 }
 .header {
   margin-left: 20px;
@@ -139,6 +138,9 @@ onMounted(async () => {
   h4 {
     margin-top: 0;
   }
+}
+.dash {
+  animation: fade-in 800ms ease-in-out;
 }
 .dtitle {
   margin-bottom: 0;
