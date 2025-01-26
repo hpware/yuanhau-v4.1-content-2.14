@@ -123,10 +123,17 @@ export default defineNuxtConfig({
     accessKeyId: process.env.WASABI_S3_CLIENT_ID, // Client ID
     secretAccessKey: process.env.WASABI_S3_SECRET, // Client secret
   },
+  lazyLoad: {
+    images: false,
+    videos: true,
+    audios: true,
+    iframes: true,
+    defaultImage: '/img/pfp-1.jpg'
+  },
   runtimeConfig: {
     public: {
-      //posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
-      //posthogHost: "https://us.i.posthog.com",
+      posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
+      posthogHost: "https://us.i.posthog.com",
     },
   },
 });

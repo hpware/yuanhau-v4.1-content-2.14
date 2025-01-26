@@ -62,11 +62,12 @@ othercooltext.value = dyothertext();
   <div class="background">
     <section id="aboutme" class="about">
       <br />
-      <NuxtImg
+      <img
         alt="大頭貼"
         class="pfp"
         draggable="false"
         src="/img/pfp-1.jpg"
+        v-lazy-load
       />
       <h2 class="mbmt0">
         <span style="margin-bottom: 0em" id="zhname">吳元皓</span>
