@@ -26,16 +26,13 @@ useHead({
 // Check User Auth
 const userauth = async () => {
   try {
-    const req = await fetch(
-      "/api/admin/checkauth?plaform=",
-      {
-        method: "POST",
-        body: `${token.value}`,
-      },
-    );
+    const req = await fetch("/api/admin/checkauth?plaform=", {
+      method: "POST",
+      body: `${token.value}`,
+    });
     const res = await req.json();
     if (res.status !== "ok" && res.user === null) {
-      router.push("/admin/logout")
+      router.push("/admin/logout");
     }
   } catch (e) {
     console.log(e);

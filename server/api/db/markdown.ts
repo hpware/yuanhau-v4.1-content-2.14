@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     `http://${event.node.req.headers.host}`,
   );
   const id = url.searchParams.get("id");
-   if (event.node.req.method === "GET" && id !== null) {
+  if (event.node.req.method === "GET" && id !== null) {
     try {
       const { data, error } = await supabase
         .from("markdown")

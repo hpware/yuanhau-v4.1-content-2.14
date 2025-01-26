@@ -2,9 +2,9 @@
 import AccountSideNav from "~/components/AccountSideNav.vue";
 
 useHead({
-    title: "Change account Password"
-})
-const token = useCookie("admintoken")
+  title: "Change account Password",
+});
+const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
 const username = cookieusername.value;
 const router = useRouter();
@@ -12,16 +12,13 @@ const router = useRouter();
 // Check User Auth
 const userauth = async () => {
   try {
-    const req = await fetch(
-      "/api/admin/checkauth?plaform=",
-      {
-        method: "POST",
-        body: `${token.value}`,
-      },
-    );
+    const req = await fetch("/api/admin/checkauth?plaform=", {
+      method: "POST",
+      body: `${token.value}`,
+    });
     const res = await req.json();
     if (res.status !== "ok" && res.user === null) {
-      router.push("/admin/logout")
+      router.push("/admin/logout");
     }
   } catch (e) {
     console.log(e);
@@ -32,23 +29,21 @@ onMounted(async () => {
 });
 </script>
 <template>
-    <div class="content">
-        <div class="header">
-            <h1>後台管理
-            </h1>
-            <i class="bi bi-person"></i> {{ username }}
-        </div>
-        <div class="nav">
-            <span><a href="/admin/dashboard">首頁</a></span>
-            &nbsp;
-            <span><a href="/admin/account">帳戶</a></span>
-            &nbsp;
-            <span><a href="/admin/logout">登出</a></span>
-        </div>
-        <hr/>
-        <div class="dash">
-        </div>
+  <div class="content">
+    <div class="header">
+      <h1>後台管理</h1>
+      <i class="bi bi-person"></i> {{ username }}
     </div>
+    <div class="nav">
+      <span><a href="/admin/dashboard">首頁</a></span>
+      &nbsp;
+      <span><a href="/admin/account">帳戶</a></span>
+      &nbsp;
+      <span><a href="/admin/logout">登出</a></span>
+    </div>
+    <hr />
+    <div class="dash"></div>
+  </div>
 </template>
 <style scoped>
 .content {
@@ -69,7 +64,7 @@ onMounted(async () => {
 }
 .dtitle {
   margin-bottom: 0;
-  margin-top:10px;
+  margin-top: 10px;
 }
 .donate-items {
   display: flex;
@@ -116,15 +111,15 @@ onMounted(async () => {
   width: 100px;
 }
 .md-header {
-  display:absolute;
-  left:0;
-  right:0;
-  margin-top:10px;
+  display: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
   h2 {
-    margin:0;
+    margin: 0;
   }
   .nav {
-    margin:10px;
+    margin: 10px;
     color: white;
     a {
       color: white;
@@ -136,11 +131,11 @@ onMounted(async () => {
   }
 }
 .md {
-  display:flex;
+  display: flex;
   transition: all 300ms;
   right: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
@@ -148,14 +143,14 @@ onMounted(async () => {
   justify-content: center;
   align-items: center;
   a {
-    text-decoration:none;
+    text-decoration: none;
     text-decoration-color: none;
   }
 }
 .mdwindow {
-  width:fit-content;
-  min-width:150px;
-  height:fit-content;
+  width: fit-content;
+  min-width: 150px;
+  height: fit-content;
   min-height: 125px;
   color: white !important;
   transition: all 150ms ease-in-out;
@@ -170,14 +165,14 @@ onMounted(async () => {
     text-decoration-color: none;
   }
   a:hover {
-    color:white !important;
+    color: white !important;
   }
   h5 {
-    color:white !important;
+    color: white !important;
     text-decoration: none !important;
   }
   p {
-    color:white !important;
+    color: white !important;
     text-decoration: none !important;
   }
 }

@@ -98,7 +98,7 @@ h1 {
   }
   div.a:hover {
     border-color: rgb(71, 166, 255);
-    filter: drop-shadow(0 0 2em #646464aa); 
+    filter: drop-shadow(0 0 2em #646464aa);
   }
   .title {
     display: flex;

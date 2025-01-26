@@ -31,13 +31,13 @@ const submit = async () => {
     const req = await fetch(`/api/admin/push-markdown`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "id": id,
-        "action": "edit",
-        "token": token.value,
-        "content": markdown.value
+        id: id,
+        action: "edit",
+        token: token.value,
+        content: markdown.value,
       }),
     });
     if (!req.ok) {
@@ -69,16 +69,13 @@ onMounted(async () => {
 // Check User Auth
 const userauth = async () => {
   try {
-    const req = await fetch(
-      "/api/admin/checkauth?plaform=",
-      {
-        method: "POST",
-        body: `${token.value}`,
-      },
-    );
+    const req = await fetch("/api/admin/checkauth?plaform=", {
+      method: "POST",
+      body: `${token.value}`,
+    });
     const res = await req.json();
     if (res.status !== "ok" && res.user === null) {
-      router.push("/admin/logout")
+      router.push("/admin/logout");
     }
   } catch (e) {
     console.log(e);
@@ -93,15 +90,15 @@ onMounted(async () => {
     <div class="header">
       <h1>Markdown editor</h1>
 
-            <i class="bi bi-person"></i> {{ username }}
+      <i class="bi bi-person"></i> {{ username }}
     </div>
-        <div class="nav">
-            <span><a href="/admin/dashboard">首頁</a></span>
-            &nbsp;
-            <span><a href="/admin/account">帳戶</a></span>
-            &nbsp;
-            <span><a href="/admin/logout">登出</a></span>
-        </div>
+    <div class="nav">
+      <span><a href="/admin/dashboard">首頁</a></span>
+      &nbsp;
+      <span><a href="/admin/account">帳戶</a></span>
+      &nbsp;
+      <span><a href="/admin/logout">登出</a></span>
+    </div>
     <hr />
     <div class="dash">
       <div class="editor" v-if="!complete">

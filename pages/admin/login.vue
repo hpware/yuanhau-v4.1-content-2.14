@@ -43,7 +43,7 @@ const usercheck = async (e: Event) => {
     }
   } catch (error) {
     errorglobal.value = true;
-    errormsg.value = `Client: ${error.message}`
+    errormsg.value = `Client: ${error.message}`;
   }
   pwd.value = "";
   encryptedpwd.value = "";
@@ -53,8 +53,8 @@ const usercheck = async (e: Event) => {
   <div class="content">
     <h1>管理員登入</h1>
     <div class="error" v-if="errorglobal">
-        <span>{{ errormsg }}</span>
-      </div>
+      <span>{{ errormsg }}</span>
+    </div>
     <div class="login">
       <form @submit.prevent="usercheck">
         <label for="username">使用者</label>
@@ -123,10 +123,10 @@ button {
 }
 .error {
   color: rgb(209, 29, 29);
-  margin-top:0;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 h1 {
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 </style>

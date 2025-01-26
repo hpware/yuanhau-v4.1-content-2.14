@@ -8,7 +8,14 @@ async function md(id: string) {
   try {
     const req = await fetch(`/api/db/markdown/${id}`);
     const reqtext = await req.text();
-    if (reqtext.includes("403") && reqtext.includes("message") && reqtext.includes("No Content") && reqtext.startsWith("{") && reqtext.endsWith("}") && reqtext.includes("statusCode")) {
+    if (
+      reqtext.includes("403") &&
+      reqtext.includes("message") &&
+      reqtext.includes("No Content") &&
+      reqtext.startsWith("{") &&
+      reqtext.endsWith("}") &&
+      reqtext.includes("statusCode")
+    ) {
       markdown.value = marked("Markdown not found in db");
       return;
     }
@@ -17,8 +24,8 @@ async function md(id: string) {
 }
 md(id);
 useHead({
-  title: `Magic View ${id}`
-})
+  title: `Magic View ${id}`,
+});
 </script>
 <template>
   <main>

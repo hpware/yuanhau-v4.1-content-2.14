@@ -6,8 +6,8 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
-    const id = getRouterParam(event, "id");
-   if (event.node.req.method === "GET" && id !== null) {
+  const id = getRouterParam(event, "id");
+  if (event.node.req.method === "GET" && id !== null) {
     try {
       const { data, error } = await supabase
         .from("markdown")

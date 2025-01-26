@@ -32,13 +32,13 @@ const submit = async () => {
     const req = await fetch(`/api/admin/push-markdown`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "nickname": nickname.value,
-        "action": "create",
-        "token": token.value,
-        "content": markdown.value
+        nickname: nickname.value,
+        action: "create",
+        token: token.value,
+        content: markdown.value,
         // Please add .value if using ref()
       }),
     });
@@ -58,16 +58,13 @@ const submit = async () => {
 // Check User Auth
 const userauth = async () => {
   try {
-    const req = await fetch(
-      "/api/admin/checkauth?plaform=",
-      {
-        method: "POST",
-        body: `${token.value}`,
-      },
-    );
+    const req = await fetch("/api/admin/checkauth?plaform=", {
+      method: "POST",
+      body: `${token.value}`,
+    });
     const res = await req.json();
     if (res.status !== "ok" && res.user === null) {
-      router.push("/admin/logout")
+      router.push("/admin/logout");
     }
   } catch (e) {
     console.log(e);
@@ -82,21 +79,21 @@ onMounted(async () => {
     <div class="header">
       <h1>Markdown editor</h1>
 
-            <i class="bi bi-person"></i> {{ username }}
+      <i class="bi bi-person"></i> {{ username }}
     </div>
-        <div class="nav">
-            <span><a href="/admin/dashboard">首頁</a></span>
-            &nbsp;
-            <span><a href="/admin/account">帳戶</a></span>
-            &nbsp;
-            <span><a href="/admin/logout">登出</a></span>
-        </div>
+    <div class="nav">
+      <span><a href="/admin/dashboard">首頁</a></span>
+      &nbsp;
+      <span><a href="/admin/account">帳戶</a></span>
+      &nbsp;
+      <span><a href="/admin/logout">登出</a></span>
+    </div>
     <hr />
     <div class="dash">
       <div class="editor" v-if="!complete">
         <form @submit.prevent="submit">
           <label>Nickname</label>
-          <input type="text" v-model="nickname" required>
+          <input type="text" v-model="nickname" required />
           <label>Content</label>
           <textarea v-model="markdown" required></textarea>
           <br />
@@ -182,7 +179,7 @@ form {
   align-self: center;
   justify-content: center;
   align-items: center;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 textarea {
@@ -200,16 +197,16 @@ textarea {
   padding: 10px;
 }
 input {
-    left: 0;
+  left: 0;
   right: 0;
   display: block;
   content: top;
   text-align: center;
-  
+
   border-radius: 10px;
   border: 2px solid transparent;
   transition: all 300ms;
   margin: 0 auto;
-  padding: 10px; 
+  padding: 10px;
 }
 </style>

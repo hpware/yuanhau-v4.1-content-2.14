@@ -20,16 +20,13 @@ useHead({
 // Check User Auth
 const userauth = async () => {
   try {
-    const req = await fetch(
-      "/api/admin/checkauth?plaform=",
-      {
-        method: "POST",
-        body: `${token.value}`,
-      },
-    );
+    const req = await fetch("/api/admin/checkauth?plaform=", {
+      method: "POST",
+      body: `${token.value}`,
+    });
     const res = await req.json();
     if (res.status !== "ok" && res.user === null) {
-      router.push("/admin/logout")
+      router.push("/admin/logout");
     }
   } catch (e) {
     console.log(e);
@@ -44,7 +41,7 @@ onMounted(async () => {
     <div class="header">
       <h1>Wasabi S3 Upload</h1>
 
-            <i class="bi bi-person"></i> {{ username }}
+      <i class="bi bi-person"></i> {{ username }}
     </div>
     <div class="upload">
       <form>

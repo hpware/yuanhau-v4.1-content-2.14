@@ -18,14 +18,25 @@ export default defineNuxtConfig({
     "/admin/**": { ssr: true },
     "/signal": { redirect: "https://yhw.tw/signal" }, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
     // Old Redirect stuff here.
-    "/post": { redirect: "/posts" }, 
+    "/post": { redirect: "/posts" },
     "/post/**": { redirect: "/posts/**" },
-    // Sync the old with the new 
+    // Sync the old with the new
     "/mdview/**": { ssr: true },
-    "/en-about": { redirect: "/mdview/6"},
+    "/en-about": { redirect: "/mdview/6" },
   },
 
-  modules: ["nuxt-umami", "@nuxtjs/robots", "@kgierke/nuxt-basic-auth", "@sentry/nuxt/module", "@nuxt/image", "@nuxtjs/sitemap", "@nuxt/content", "nuxt-gtag", "@bg-dev/nuxt-s3", "@nuxtjs/i18n"],
+  modules: [
+    "nuxt-umami",
+    "@nuxtjs/robots",
+    "@kgierke/nuxt-basic-auth",
+    "@sentry/nuxt/module",
+    "@nuxt/image",
+    "@nuxtjs/sitemap",
+    "@nuxt/content",
+    "nuxt-gtag",
+    "@bg-dev/nuxt-s3",
+    "@nuxtjs/i18n",
+  ],
 
   umami: {
     enabled: true,
