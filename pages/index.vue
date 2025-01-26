@@ -122,7 +122,7 @@ othercooltext.value = dyothertext();
 </template>
 <style scoped>
 .background {
-  background-image: url("https://utfs.io/f/CCLPSN5W2HD58Z27Hs4o2sROedIPkBh97bo83YyxSurMXgNt");
+  background-image: url("/img/tokyo-smallest.jpg");
   background-size: cover;
   margin: 0;
   padding: 0;
