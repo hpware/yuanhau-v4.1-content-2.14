@@ -117,7 +117,7 @@ const ff_on = () => {
   right: 0;
   width: var(--navbar-width);
   height: 100%;
-  background: #27676ea9;
+  background: #12642771;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   button {

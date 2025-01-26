@@ -43,7 +43,8 @@ onMounted(async () => {
   <div class="content">
     <div class="header">
       <h1>Wasabi S3 Upload</h1>
-      <h4>{{ username }}, 歡迎回來!</h4>
+
+            <i class="bi bi-person"></i> {{ username }}
     </div>
     <div class="upload">
       <form>

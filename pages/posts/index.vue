@@ -82,7 +82,7 @@ h1 {
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #33333350;
+    background-color: #33333327;
     border-radius: 10px;
     margin: 1em;
     border: 2px solid transparent;
@@ -98,6 +98,7 @@ h1 {
   }
   div.a:hover {
     border-color: rgb(71, 166, 255);
+    filter: drop-shadow(0 0 2em #646464aa); 
   }
   .title {
     display: flex;

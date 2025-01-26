@@ -84,13 +84,17 @@ onMounted(async () => {
   <div class="content">
     <div class="header">
       <h1>Markdown editor</h1>
-      <h4>{{ username }}, 歡迎回來!</h4>
+
+            <i class="bi bi-person"></i> {{ username }}
+            <i class="bi bi-person"></i> {{ username }}
     </div>
-    <div class="nav">
-      <span><a href="/admin/dashboard">首頁</a></span>
-      &nbsp;
-      <span><a href="/admin/logout">登出</a></span>
-    </div>
+        <div class="nav">
+            <span><a href="/admin/dashboard">首頁</a></span>
+            &nbsp;
+            <span><a href="/admin/account">帳戶</a></span>
+            &nbsp;
+            <span><a href="/admin/logout">登出</a></span>
+        </div>
     <hr />
     <div class="dash">
       <div class="editor" v-if="!complete">

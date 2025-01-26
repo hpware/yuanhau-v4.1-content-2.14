@@ -1,47 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import AccountSideNav from "~/components/AccountSideNav.vue";
 
-interface md {
-  id: number;
-  nickname: string;
-  content: string;
-}
-
-const donateamount = ref(0);
-const donatepeople = ref(0);
-const router = useRouter();
-const token = useCookie("admintoken");
+useHead({
+    title: "Change account Password"
+})
+const token = useCookie("admintoken")
 const cookieusername = useCookie("usrn");
 const username = cookieusername.value;
-const mdresdata = ref<md[]>([]);
-const fmperror = ref("");
-if (
-  !token.value ||
-  token.value === "" ||
-  !cookieusername.value ||
-  cookieusername.value === ""
-) {
-  router.push("/admin/logout");
-}
-useHead({
-  title: "管理者Panel",
-});
-fetchMarkdownPosts();
-async function fetchMarkdownPosts() {
-  try {
-    const res = await fetch("/api/admin/fetch-markdown-list", {
-      method: "GET",
-    });
-    if (res.ok) {
-      const redata = await res.json();
-      mdresdata.value = redata;
-    } else {
-      fmperror.value = "錯誤";
-    }
-  } catch (e) {
-    fmperror.value = "發生了錯誤";
-  }
-}
+const router = useRouter();
+
 // Check User Auth
 const userauth = async () => {
   try {
@@ -65,7 +32,7 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <div class="content">
+    <div class="content">
         <div class="header">
             <h1>後台管理
             </h1>
@@ -78,52 +45,10 @@ onMounted(async () => {
             &nbsp;
             <span><a href="/admin/logout">登出</a></span>
         </div>
-    <hr />
-    <div class="dash">
-      <div class="donate">
-        <h2 class="dtitle">Donate</h2>
-        <div class="donate-items">
-          <div class="donate-amount window donate-wi">
-            <span>金額</span>
-            <span>{{ donateamount }}</span>
-          </div>
-          <div class="donate-people donate-wi window">
-            <span>人數</span>
-            <span>{{ donatepeople }}</span>
-          </div>
+        <hr/>
+        <div class="dash">
         </div>
-      </div>
-      <hr />
-      <div class="contact">
-        <h2 class="dtitle">Contact stuff</h2>
-        <div class="contact-items">
-          <h1></h1>
-        </div>
-      </div>
-      <hr />
-      <div class="markdown-list">
-        <div class="md-header">
-          <h2>MD 編輯系統</h2>
-          <div class="nav">
-              <a href=""><i class="bi bi-plus"></i></a>
-              <a href="/admin/markdown/delete"><i class="bi bi-trash"></i></a>
-            </div>
-        </div>
-          <div class="md" v-if="!fmperror">
-            <div v-for="md in mdresdata" :key="md.id">
-              <a :href="`/admin/markdown/edit?id=${md.id}`"><div class="window mdwindow">
-                <h5>{{ md.nickname }}</h5>
-                <p>{{ md.id }}</p>
-              </div></a>
-            </div>
-          </div>
-          <div v-else>
-            {{ fmperror }}
-          </div>
-        <br />
-      </div>
     </div>
-  </div>
 </template>
 <style scoped>
 .content {
