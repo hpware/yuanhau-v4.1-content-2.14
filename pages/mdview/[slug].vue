@@ -6,8 +6,12 @@ const router = useRoute();
 const id = router.params.slug;
 async function md(id: string) {
   try {
-    const req = await fetch(`/api/db/markdown?id=${id}`);
+    const req = await fetch(`/api/db/markdown/${id}`);
     const reqtext = await req.text();
+    if (reqtext.includes("403") && reqtext.includes("message") && reqtext.includes("No Content") && reqtext.startsWith("{") && reqtext.endsWith("}") && reqtext.includes("statusCode")) {
+      markdown.value = marked("Markdown not found in db");
+      return;
+    }
     markdown.value = marked(reqtext);
   } catch (e) {}
 }

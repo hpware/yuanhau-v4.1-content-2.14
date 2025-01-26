@@ -34,7 +34,6 @@ export default defineEventHandler(async (event) => {
         1,
         32,
       );
-      console.log(pwdhash);
       const { data } = await supabase
         .from("admin_users")
         .select("pwdhash")
