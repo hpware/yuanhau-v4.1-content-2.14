@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import AccountSideNav from "~/components/AccountSideNav.vue";
+import SHA512 from "crypto-js/sha512";
 
 useHead({
   title: "Change account Password",
@@ -9,16 +10,22 @@ useHead({
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
 const username = cookieusername.value
-const oldPassword = ref('')
-const newPassword = ref('')
-const confirmPassword = ref('')
+const oldpwd = ref('')
+const newpwd = ref('')
+const oldpwd512 = ref("")
+const newpwd512 = ref("")
+const newpwd2 = ref('')
 const errorMessage = ref('')
 const successMessage = ref('')
 
 const router = useRouter();
 
 // Check User Auth
-const userauth = async () => {
+const userauth = async (e: Event) => {
+  e.preventDefault();
+  oldpwd512.value = SHA512(oldpwd.value).toString();
+  newpwd512.value = SHA512(newpwd.value).toString();
+  if (newpwd !== newpwd2)
   try {
     const req = await fetch("/api/admin/checkauth?plaform=", {
       method: "POST",
@@ -34,7 +41,20 @@ const userauth = async () => {
 };
 onMounted(async () => {
   await userauth();
-})
+});
+const submit = async () => {
+  try {
+    const req = await fetch("/api/admin/changepwd", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+
+      })
+    })
+  }
+}
 </script>
 <template>
   <div class="content">
@@ -55,15 +75,15 @@ onMounted(async () => {
       <form @submit.prevent="">
         <div class="form-group">
           <label>當前密碼：</label>
-          <input type="password" v-model="oldPassword" required>
+          <input type="password" v-model="oldpwd" required>
         </div>
         <div class="form-group">
           <label>新密碼：</label>
-          <input type="password" v-model="newPassword" required>
+          <input type="password" v-model="newpwd" required>
         </div>
         <div class="form-group">
           <label>確認新密碼：</label>
-          <input type="password" v-model="confirmPassword" required>
+          <input type="password" v-model="newpwd2" required>
         </div>
         <button type="submit">更改密碼</button>
       </form>
