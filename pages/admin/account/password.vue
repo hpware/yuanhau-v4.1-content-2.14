@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import AccountSideNav from "~/components/AccountSideNav.vue";
 
 useHead({
@@ -6,7 +8,13 @@ useHead({
 });
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
-const username = cookieusername.value;
+const username = cookieusername.value
+const oldPassword = ref('')
+const newPassword = ref('')
+const confirmPassword = ref('')
+const errorMessage = ref('')
+const successMessage = ref('')
+
 const router = useRouter();
 
 // Check User Auth
@@ -26,7 +34,7 @@ const userauth = async () => {
 };
 onMounted(async () => {
   await userauth();
-});
+})
 </script>
 <template>
   <div class="content">
@@ -42,7 +50,25 @@ onMounted(async () => {
       <span><a href="/admin/logout">登出</a></span>
     </div>
     <hr />
-    <div class="dash"></div>
+    <div class="dash">
+      <!--start AI generated block-->
+      <form @submit.prevent="">
+        <div class="form-group">
+          <label>當前密碼：</label>
+          <input type="password" v-model="oldPassword" required>
+        </div>
+        <div class="form-group">
+          <label>新密碼：</label>
+          <input type="password" v-model="newPassword" required>
+        </div>
+        <div class="form-group">
+          <label>確認新密碼：</label>
+          <input type="password" v-model="confirmPassword" required>
+        </div>
+        <button type="submit">更改密碼</button>
+      </form>
+      <!--end AI generated block-->
+    </div>
   </div>
 </template>
 <style scoped>
@@ -180,4 +206,45 @@ onMounted(async () => {
   border-color: #6ba5c7;
   filter: drop-shadow(0 0 2em #444444aa);
 }
+/*Start Ai gen block*/
+.form-group {
+  margin: 1rem 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  margin: 1rem 0;
+}
+
+.success {
+  color: green;
+  margin: 1rem 0;
+}
+
+/*button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}*/
+/*end ai gen block */
 </style>
