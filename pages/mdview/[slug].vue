@@ -3,7 +3,7 @@ import { marked } from "marked";
 import "@/components/markdown.css";
 const markdown = ref();
 const router = useRoute();
-const id = router.params.slug[0];
+const id = router.params.slug;
 async function md(id: string) {
   try {
     const req = await fetch(`/api/db/markdown?id=${id}`);
@@ -12,6 +12,9 @@ async function md(id: string) {
   } catch (e) {}
 }
 md(id);
+useHead({
+  title: `Magic View ${id}`
+})
 </script>
 <template>
   <main>

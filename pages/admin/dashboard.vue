@@ -102,7 +102,7 @@ onMounted(async () => {
         <div class="md-header">
           <h2>MD 編輯系統</h2>
           <div class="nav">
-              <a href="/admin/markdown/create"><i class="bi bi-plus"></i></a>
+              <a href=""><i class="bi bi-plus"></i></a>
               <a href="/admin/markdown/delete"><i class="bi bi-trash"></i></a>
             </div>
         </div>
@@ -213,6 +213,7 @@ onMounted(async () => {
   right: 0;
   left: 0;
   width:100%;
+  flex-direction: row;
   margin-left: auto;
   margin-right: auto;
   align-self: center;
@@ -234,6 +235,7 @@ onMounted(async () => {
   border-style: solid;
   border-color: #545454;
   text-decoration: none !important;
+  grid-template-columns: 1fr;
   a {
     color: white !important;
     text-decoration: none !important;
@@ -253,5 +255,6 @@ onMounted(async () => {
 }
 .mdwindow:hover {
   border-color: #6ba5c7;
+  filter: drop-shadow(0 0 2em #444444aa);
 }
 </style>

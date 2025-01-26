@@ -21,7 +21,8 @@ export default defineNuxtConfig({
     "/post": { redirect: "/posts" }, 
     "/post/**": { redirect: "/posts/**" },
     // Sync the old with the new 
-    "mdview/**": { ssr: true },
+    "/mdview/**": { ssr: true },
+    "/en-about": { redirect: "/mdview/6"},
   },
 
   modules: ["nuxt-umami", "@nuxtjs/robots", "@kgierke/nuxt-basic-auth", "@sentry/nuxt/module", "@nuxt/image", "@nuxtjs/sitemap", "@nuxt/content", "nuxt-gtag", "@bg-dev/nuxt-s3", "@nuxtjs/i18n"],
@@ -49,7 +50,7 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: "dns-prefetch", href: "https://utfs.io" },
-        { rel: "dns-prefetch", href: "https://blogge.yuanh.xyz/" },
+        { rel: "dns-prefetch", href: "https://s3.yhw.tw" },
         {
           rel: "prefetch",
           href: "https://utfs.io/f/CCLPSN5W2HD5ziRBkeSZ5pJYf32lWLvIK8uGb41xkHCUnXm7",
@@ -113,8 +114,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
-      posthogHost: "https://us.i.posthog.com",
+      //posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
+      //posthogHost: "https://us.i.posthog.com",
     },
   },
 });

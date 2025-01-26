@@ -28,9 +28,17 @@ useHead({
 });
 const submit = async () => {
   try {
-    const req = await fetch(`/api/admin/push-markdown?id=${id}`, {
+    const req = await fetch(`/api/admin/push-markdown`, {
       method: "POST",
-      body: `${markdown.value}`,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "id": id,
+        "action": "edit",
+        "token": token.value,
+        "content": markdown.value
+      }),
     });
     if (!req.ok) {
       throw new Error("error");

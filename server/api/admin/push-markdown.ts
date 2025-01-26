@@ -6,20 +6,24 @@ const supabase = createClient(
 );
 
 export default defineEventHandler(async (event) => {
-  if (
-    (event.node.req.headers.orgin = `https://${event.node.req.headers.host}`)
-  ) {
-    try {
-      const url = new URL(
-        event.node.req.url!,
-        `https://${event.node.req.headers.host}`,
-      );
-      const id = url.searchParams.get("id");
+  try {
+  const body = await readBody(event);
+  const { data, error } = await supabase
+  .from("admin_login_tokens")
+  .select("username")
+  .eq("btoken", body.token);
+  if (!data[0].username  || data[0].username  === null) {
+    return {
+      status: "not ok",
+      error: 403,
+    };
+  } else {
       if (event.node.req.method === "POST") {
+        if (body.action === "edit") {
         const { data, error } = await supabase
           .from("markdown")
-          .update({ content: await readBody(event) })
-          .eq("id", `${id}`)
+          .update({ content: body.content })
+          .eq("id", `${body.id}`)
           .select();
         if (error) {
           return {
@@ -31,19 +35,30 @@ export default defineEventHandler(async (event) => {
           status: "ok",
           data: data,
         };
-      } else {
+      } else if (body.action === "create") {
+        const { data, error } = await supabase
+        .from("markdown")
+        .insert({ nickname: body.nickname, content: body.content})
+        .select("id");
+        if (error) {
+          return {
+            status: "not ok",
+            error: 500,
+          }
+        }
         return {
-          status: "not ok",
-          error: 403,
-        };
+          status: "ok",
+          data: data,
+        }
       }
-    } catch (e) {
-      console.log(e);
-    }
   } else {
     return {
       status: "not ok",
       error: 403,
     };
   }
+}
+} catch (e) {
+  console.log(e);
+}
 });

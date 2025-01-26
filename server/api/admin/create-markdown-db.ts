@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
     if (event.node.req.method === "POST") {
       const { data, error } = await supabase
         .from("markdown")
-        .insert([{ nickname: nick, content: content }]);
+        .insert([{ nickname: nick }]);
       if (error) {
         return {
           error: 500,

@@ -8,11 +8,12 @@ const cookieusername = useCookie("usrn");
 const router = useRouter();
 const username = cookieusername.value;
 const current_item = ref("");
-const markdown = ref("");
+const nickname = ref("");
 const complete = ref(false);
+const markdown = ref("");
 const error = ref("");
 const route = useRoute();
-const id = route.query.id as string;
+const id = ref(0);
 const prev = route.query.id as string;
 // Skip user check, remove when the login panel & the api works
 if (
@@ -28,9 +29,18 @@ useHead({
 });
 const submit = async () => {
   try {
-    const req = await fetch(`/api/admin/push-markdown?id=${id}&action=create`, {
+    const req = await fetch(`/api/admin/push-markdown`, {
       method: "POST",
-      body: `${markdown.value}`,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "nickname": nickname.value,
+        "action": "create",
+        "token": token.value,
+        "content": markdown.value
+        // Please add .value if using ref()
+      }),
     });
     if (!req.ok) {
       throw new Error("error");
@@ -38,26 +48,13 @@ const submit = async () => {
       const res = await req.json();
       if (res.status === "ok") {
         complete.value = true;
+        id.value = res.data[0].id;
       }
     }
   } catch (e) {
     console.log(e);
   }
 };
-async function fetchmarkdown() {
-  try {
-    const res = await fetch(`/api/db/markdown?id=${id}`);
-    const md = await res.text();
-    markdown.value = md;
-  } catch (e) {
-    error.value = `${e}`;
-  }
-}
-onMounted(async () => {
-  if (id) {
-    await fetchmarkdown();
-  }
-});
 // Check User Auth
 const userauth = async () => {
   try {
@@ -95,14 +92,18 @@ onMounted(async () => {
     <div class="dash">
       <div class="editor" v-if="!complete">
         <form @submit.prevent="submit">
-          <textarea v-model="markdown"></textarea>
+          <label>Nickname</label>
+          <input type="text" v-model="nickname" required>
+          <label>Content</label>
+          <textarea v-model="markdown" required></textarea>
           <br />
           <button>Submit</button>
         </form>
       </div>
       <div v-else>
         <div>
-          <h3>編輯完成！</h3>
+          <h3>Created!</h3>
+          <p>Here is your fancy id: {{ id }}</p>
           <button @click="router.push('/admin/dashboard')">返回首頁</button>
         </div>
       </div>
@@ -178,6 +179,8 @@ form {
   align-self: center;
   justify-content: center;
   align-items: center;
+  display:flex;
+  flex-direction: column;
 }
 textarea {
   left: 0;
@@ -192,5 +195,18 @@ textarea {
   transition: all 300ms;
   margin: 0 auto;
   padding: 10px;
+}
+input {
+    left: 0;
+  right: 0;
+  display: block;
+  content: top;
+  text-align: center;
+  
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 300ms;
+  margin: 0 auto;
+  padding: 10px; 
 }
 </style>
