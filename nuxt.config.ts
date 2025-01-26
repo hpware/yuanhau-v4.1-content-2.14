@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     // Sync the old with the new
     "/mdview/**": { ssr: true },
     "/en-about": { redirect: "/mdview/6" },
+    "/form/**": { ssr: true },
   },
 
   modules: [
