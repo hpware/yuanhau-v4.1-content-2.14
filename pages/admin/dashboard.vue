@@ -101,7 +101,7 @@ onMounted(async () => {
         <div class="md-header">
           <h2>MD 編輯系統</h2>
           <div class="nav">
-            <a href=""><i class="bi bi-plus"></i></a>
+            <a href="/admin/markdown/create"><i class="bi bi-plus"></i></a>
             <a href="/admin/markdown/delete"><i class="bi bi-trash"></i></a>
           </div>
         </div>

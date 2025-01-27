@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "nuxt-gtag",
     "@bg-dev/nuxt-s3",
-    "@nuxtjs/i18n",
+    //"@nuxtjs/i18n",
   ],
 
   umami: {
