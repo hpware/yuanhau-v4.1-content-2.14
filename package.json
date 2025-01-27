@@ -28,6 +28,7 @@
     "friendly-challenge": "^0.9.18",
     "h3": "^1.14.0",
     "ionicons": "^7.4.0",
+    "js-confetti": "^0.12.0",
     "marked": "^15.0.6",
     "motion": "^11.18.2",
     "node-cache": "^5.1.2",

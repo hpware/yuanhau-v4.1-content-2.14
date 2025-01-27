@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import AccountSideNav from "~/components/AccountSideNav.vue";
 import SHA512 from "crypto-js/sha512";
+import confetti from "js-confetti";
 
 useHead({
   title: "Change account Password",
@@ -18,9 +19,9 @@ const newpwd2 = ref("");
 const errormsg = ref("");
 const success = ref(false);
 const loading = ref(false);
-
+const successcanvas = ref();
 const router = useRouter();
-
+let successpop: any;
 // Check User Auth
 const userauth = async () => {
   try {
@@ -38,6 +39,7 @@ const userauth = async () => {
 };
 onMounted(async () => {
   await userauth();
+  successpop = new confetti();
 });
 const submit = async (e: Event) => {
   e.preventDefault();
@@ -65,6 +67,11 @@ const submit = async (e: Event) => {
       console.log(res);
       if (res.status === "success") {
         success.value = true;
+        successpop.addConfetti({
+          emojis: ["🔑", "✨", "🎉", "⭐", "🎆"],
+          emojiSize: 100,
+          confettiNumber: 50,
+        });
       } else {
         errormsg.value = res.status;
       }
@@ -103,7 +110,7 @@ const submit = async (e: Event) => {
       <!--start AI generated block-->
       <form @submit.prevent="submit" v-if="!success">
         <div class="form-group">
-          <label>當前密碼：</label>
+          <label>舊密碼：</label>
           <input type="password" v-model="oldpwd" required />
         </div>
         <div class="form-group">
@@ -111,13 +118,17 @@ const submit = async (e: Event) => {
           <input type="password" v-model="newpwd" required />
         </div>
         <div class="form-group">
-          <label>確認新密碼：</label>
+          <label>在輸入一次新的密碼：</label>
           <input type="password" v-model="newpwd2" required />
         </div>
         <button type="submit">更改密碼</button>
       </form>
       <!--end AI generated block-->
-      <div class="success" v-if="success"></div>
+      <div class="success" v-if="success">
+        <h3>🥳</h3>
+        <p>你已成功更改密碼！</p>
+        <div v-ref="successcanvas"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -282,8 +293,11 @@ const submit = async (e: Event) => {
 }
 
 .success {
-  color: green;
-  margin: 1rem 0;
+  color: white;
+  h3 {
+    font-size: 100px;
+    margin-bottom: 0;
+  }
 }
 
 /*button {
