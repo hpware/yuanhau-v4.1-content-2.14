@@ -54,7 +54,7 @@ const submit = async () => {
 };
 async function fetchmarkdown() {
   try {
-    const res = await fetch(`/api/db/markdown?id=${id}`);
+    const res = await fetch(`/api/db/markdown/${id}`);
     const md = await res.text();
     markdown.value = md;
   } catch (e) {
@@ -123,7 +123,6 @@ onMounted(async () => {
   padding-top: 20px;
   justify-content: center;
   align-items: center;
-  animation: fade-in 800ms ease-in-out;
 }
 .dash {
   animation: fade-in 800ms ease-in-out;

@@ -31,10 +31,12 @@ export default defineEventHandler(async (event) => {
   } else {
     try {
       const { data, error } = await supabase
-        .from("admin_user_tokens")
+        // Please use the right name its admin_login_tokens NOT admin_user_tokens, you idiot.
+        .from("admin_login_tokens")
         .select("username")
         .eq("btoken", `${params.token}`);
       token_user = data[0].username;
+      //console.log(data);
       if (error) {
         return {
           status: "server error",
@@ -99,8 +101,14 @@ export default defineEventHandler(async (event) => {
   }
   const { data, error } = await supabase
     .from("admin_users")
-    .update({ btoken: `${newscrypthashg}` })
-    .eq("username", `${token_user}`);
+    // STOP MAKING BASIC MISTAKES, ITS PWDHASH NOT BTOKEN!!!
+    .update({ pwdhash: `${newscrypthashg}` })
+    .eq("username", `${params.username}`);
+  if (error) {
+    return {
+      status: "Server Error",
+    };
+  }
   return {
     status: "success",
     supabase: data,

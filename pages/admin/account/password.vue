@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import AccountSideNav from "~/components/AccountSideNav.vue";
 import SHA512 from "crypto-js/sha512";
 
@@ -9,23 +9,20 @@ useHead({
 });
 const token = useCookie("admintoken");
 const cookieusername = useCookie("usrn");
-const username = cookieusername.value
-const oldpwd = ref('')
-const newpwd = ref('')
-const oldpwd512 = ref("")
-const newpwd512 = ref("")
-const newpwd2 = ref('')
-const errorMessage = ref('')
-const successMessage = ref('')
+const username = cookieusername.value;
+const oldpwd = ref("");
+const newpwd = ref("");
+const oldpwd512 = ref("");
+const newpwd512 = ref("");
+const newpwd2 = ref("");
+const errormsg = ref("");
+const success = ref(false);
+const loading = ref(false);
 
 const router = useRouter();
 
 // Check User Auth
-const userauth = async (e: Event) => {
-  e.preventDefault();
-  oldpwd512.value = SHA512(oldpwd.value).toString();
-  newpwd512.value = SHA512(newpwd.value).toString();
-  if (newpwd !== newpwd2)
+const userauth = async () => {
   try {
     const req = await fetch("/api/admin/checkauth?plaform=", {
       method: "POST",
@@ -42,19 +39,42 @@ const userauth = async (e: Event) => {
 onMounted(async () => {
   await userauth();
 });
-const submit = async () => {
-  try {
-    const req = await fetch("/api/admin/changepwd", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-
-      })
-    })
+const submit = async (e: Event) => {
+  e.preventDefault();
+  errormsg.value = "";
+  loading.value = true;
+  oldpwd512.value = SHA512(oldpwd.value).toString();
+  newpwd512.value = SHA512(newpwd.value).toString();
+  if (newpwd.value !== newpwd2.value) {
+    errormsg.value = "Passwords do not match.";
+  } else {
+    try {
+      const req = await fetch("/api/admin/changepwd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          oldpassword: oldpwd512.value,
+          newpassword: newpwd512.value,
+          token: token.value,
+        }),
+      });
+      const res = await req.json();
+      console.log(res);
+      if (res.status === "success") {
+        success.value = true;
+      } else {
+        errormsg.value = res.status;
+      }
+    } catch (e) {
+      console.log(e);
+    } finally {
+      loading.value = false;
+    }
   }
-}
+};
 </script>
 <template>
   <div class="content">
@@ -71,23 +91,33 @@ const submit = async () => {
     </div>
     <hr />
     <div class="dash">
+      <div class="errormsg" v-if="errormsg">
+        <p>{{ errormsg }}</p>
+      </div>
+      <div v-else-if="loading" class="loading">
+        <div class="spinner-c7wet2"></div>
+      </div>
+      <div v-else>
+        <p>&nbsp;</p>
+      </div>
       <!--start AI generated block-->
-      <form @submit.prevent="">
+      <form @submit.prevent="submit" v-if="!success">
         <div class="form-group">
           <label>當前密碼：</label>
-          <input type="password" v-model="oldpwd" required>
+          <input type="password" v-model="oldpwd" required />
         </div>
         <div class="form-group">
           <label>新密碼：</label>
-          <input type="password" v-model="newpwd" required>
+          <input type="password" v-model="newpwd" required />
         </div>
         <div class="form-group">
           <label>確認新密碼：</label>
-          <input type="password" v-model="newpwd2" required>
+          <input type="password" v-model="newpwd2" required />
         </div>
         <button type="submit">更改密碼</button>
       </form>
       <!--end AI generated block-->
+      <div class="success" v-if="success"></div>
     </div>
   </div>
 </template>
@@ -97,7 +127,6 @@ const submit = async () => {
   padding-top: 20px;
   justify-content: center;
   align-items: center;
-  animation: fade-in 800ms ease-in-out;
 }
 .dash {
   animation: fade-in 800ms ease-in-out;
@@ -270,4 +299,71 @@ button:hover {
   background-color: #0056b3;
 }*/
 /*end ai gen block */
+
+/*Start 10015.io Copy Block*/
+.spinner-c7wet2 {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(farthest-side, #fafafa 94%, #0000) top/9px 9px no-repeat,
+    conic-gradient(#0000 30%, #fafafa);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 0.6s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.dots-wila4g {
+  width: 34.7px;
+  height: 34.7px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dots-wila4g::before,
+.dots-wila4g::after {
+  content: "";
+  width: 13.4px;
+  background:
+    radial-gradient(farthest-side, #ffffff 90%, #0000) top,
+    radial-gradient(farthest-side, #ffffff 90%, #0000) bottom;
+  background-size: 13.4px 13.4px;
+  background-repeat: no-repeat;
+  transform-origin: 50% calc(100% - 6.7px);
+  animation: dots-wila4g 1.2s infinite;
+}
+
+.dots-wila4g::after {
+  transform-origin: 50% 6.7px;
+}
+
+@keyframes dots-wila4g {
+  70%,
+  100% {
+    transform: rotate(-270deg);
+  }
+}
+/*End 10015.io Copy Block*/
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.errormsg {
+  p {
+    color: #e35e48;
+  }
+}
 </style>

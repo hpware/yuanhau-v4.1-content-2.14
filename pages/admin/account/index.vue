@@ -86,7 +86,6 @@ onMounted(async () => {
   padding-top: 20px;
   justify-content: center;
   align-items: center;
-  animation: fade-in 800ms ease-in-out;
 }
 .dash {
   animation: fade-in 800ms ease-in-out;
