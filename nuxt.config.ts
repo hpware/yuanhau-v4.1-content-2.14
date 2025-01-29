@@ -127,8 +127,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // Remember to uncomment this stuff.
-      //posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
-      //posthogHost: "https://us.i.posthog.com",
+      posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
+      posthogHost: "https://us.i.posthog.com",
     },
   },
 });

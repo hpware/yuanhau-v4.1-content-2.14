@@ -30,7 +30,9 @@ async function getList() {
   } catch (e) {
     console.error(e);
   } finally {
-    loading.value = false;
+    setTimeout(() => {
+      loading.value = false;
+    }, 3000);
   }
 }
 function gettags(tagg: string) {
