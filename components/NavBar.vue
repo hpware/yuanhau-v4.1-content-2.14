@@ -42,9 +42,9 @@ const ff_on = () => {
               <i class="bi bi-journal-text"></i>Blog
             </button></NuxtLink
           >
-          <NuxtLink to="/v3-pages/projects" @click="ff_off">
-            <button alt="Blog">
-              <i class="bi bi-node-plus-fill"></i>專案(v3)
+          <NuxtLink to=""
+            ><button alt="Photo library" class="nd">
+              <i class="bi bi-images"></i>相簿
             </button></NuxtLink
           >
           <NuxtLink to="/recommendations" @click="ff_off"
@@ -52,16 +52,16 @@ const ff_on = () => {
               <i class="bi bi-chat-left-text"></i>建議/聯絡
             </button></NuxtLink
           >
+          <NuxtLink to="/v3-pages/projects" @click="ff_off">
+            <button alt="Blog">
+              <i class="bi bi-node-plus-fill"></i>專案(v3)
+            </button></NuxtLink
+          >
           <!--<NuxtLink to=""
             ><button alt="My Projects" class="nd">
               <i class="bi bi-code-square"></i>專案
             </button></NuxtLink
-          >
-          <NuxtLink to=""
-            ><button alt="Photo library" class="nd">
-              <i class="bi bi-images"></i>相簿
-            </button></NuxtLink
-          >-->
+          >--->
           <a href="mailto:hw@yuanhau.com" target="_blank"
             ><button alt="email"><i class="bi bi-inbox"></i>我的信箱</button></a
           >
