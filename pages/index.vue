@@ -89,7 +89,9 @@ othercooltext.value = dyothertext();
           class="not-a-button profilebutton"
           href="/v3-pages/projects"
           >專案(v3)</a
-        >-->|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>
+        >-->|<NuxtLink class="not-a-button profilebutton" to="/images/"
+          >照片</NuxtLink
+        >
       </h3>
       <p class="socials">
         <a href="https://github.com/hpware" alt="github" id="github"

@@ -76,7 +76,7 @@ onMounted(async () => {
     </div>
     <hr />
     <div class="dash">
-        <h2><a href="/admin/account/password">密碼更改</a></h2>
+      <h2><a href="/admin/account/password">密碼更改</a></h2>
     </div>
   </div>
 </template>
