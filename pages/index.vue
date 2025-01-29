@@ -74,7 +74,7 @@ othercooltext.value = dyothertext();
       </h2>
       <DiscordStatus />
       <p class="mbmt0">
-        嗨! 我是一個五專生，我對<a href="/photos" style="color: white">攝影</a
+        嗨! 我是一個五專生，我對<a href="/images/" style="color: white">攝影</a
         >與前端(與後端)方面有興趣。 <br />習慣並熟悉使用 VueJS, Git &
         Debian(Ubuntu)<br />
         <span>{{ othercooltext }}</span>
@@ -85,11 +85,11 @@ othercooltext.value = dyothertext();
           >關於我</NuxtLink
         >|<NuxtLink class="not-a-button profilebutton" to="/posts/"
           >Blog</NuxtLink
-        >|<!--暫用--><a
+        ><!--|暫用<a
           class="not-a-button profilebutton"
           href="/v3-pages/projects"
           >專案(v3)</a
-        ><!--|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>-->
+        >-->|<NuxtLink class="not-a-button profilebutton" to="/images/">照片</NuxtLink>
       </h3>
       <p class="socials">
         <a href="https://github.com/hpware" alt="github" id="github"
