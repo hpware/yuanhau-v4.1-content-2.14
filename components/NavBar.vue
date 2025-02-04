@@ -43,7 +43,7 @@ const ff_on = () => {
             </button></NuxtLink
           >
           <NuxtLink to=""
-            ><button alt="Photo library" class="nd">
+            ><button alt="Photo library">
               <i class="bi bi-images"></i>相簿
             </button></NuxtLink
           >

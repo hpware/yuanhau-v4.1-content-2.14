@@ -197,6 +197,7 @@ textarea {
   transition: all 300ms;
   margin: 0 auto;
   padding: 10px;
+  resize: none;
 }
 input {
   left: 0;
