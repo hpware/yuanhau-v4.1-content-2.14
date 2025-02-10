@@ -35,6 +35,8 @@ export default defineEventHandler(async (event) => {
       if (!dbfetch.data || dbfetch.data === null) {
         const req = await shlinkapi.createShortUrl({
           longUrl: `https://yuanhau.com${body}`,
+          shortCodeLength: 7,
+          tags: ["yuanhau.com/posts"]
         });
         const dbsent = await supabase
           .from("shortlink")
