@@ -105,15 +105,18 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   content: {
     blog: {
       prefix: "/post",
       driver: "fs",
     },
   },
+
   gtag: {
     id: "G-2J2M9834SQ",
   },
+
   s3: {
     accept: "^image/(png|jpeg|png|gif)",
     maxSizeMb: 10,
@@ -124,11 +127,25 @@ export default defineNuxtConfig({
     accessKeyId: process.env.WASABI_S3_CLIENT_ID, // Client ID
     secretAccessKey: process.env.WASABI_S3_SECRET, // Client secret
   },
+
   runtimeConfig: {
     public: {
       // Remember to uncomment this stuff.
       posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
       posthogHost: "https://us.i.posthog.com",
     },
+  },
+
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: "hwtwcc",
+      project: "yuanhau-v4dot1",
+    },
+
+    autoInjectServerSentry: "top-level-import",
+  },
+
+  sourcemap: {
+    client: "hidden",
   },
 });

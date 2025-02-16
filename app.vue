@@ -3,6 +3,7 @@ import "~/components/icons.css";
 import "~/components/app.css";
 import NavBar from "~/components/NavBar.vue";
 import { defineProps, ref, onMounted } from "vue";
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 </script>
 <template>
   <NuxtLoadingIndicator color="#47a6ff" />
@@ -16,6 +17,7 @@ import { defineProps, ref, onMounted } from "vue";
     </footer>
     <noscript>這個網站必需要使用 JavaScript 才能運作</noscript>
   </NuxtLayout>
+  <SpeedInsights/>
 </template>
 <style scoped>
 footer {

@@ -25,3 +25,5 @@ logs
 
 # Json Test
 rwatestjson
+# Sentry Config File
+.env.sentry-build-plugin
