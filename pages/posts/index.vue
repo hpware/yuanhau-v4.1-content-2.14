@@ -7,8 +7,12 @@ useSeoMeta({
   title: "Blog | 吳元皓",
 });
 const fdate = (dateString: string) => {
-  const D1 = { year: "numeric", month: "long", day: "numeric" };
-  return new Date(dateString).toLocaleDateString("zh-TW", D1);
+  try {
+    const D1 = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("zh-TW", D1);
+  } catch (e) {
+    console.error(JSON.stringify(e));
+  }
 };
 const submit_search = (e: Event) => {
   e.preventDefault();
@@ -31,8 +35,8 @@ const query: QueryBuilderParams = {
           <button>search</button>
         </form>
       </div>-->
-      <ContentList path="/posts/" :query="query">
-        <template #default="{ list }">
+      <ContentList path="/posts/" :query="query" v-slot="{ list }">
+        <div v-if="list && list.length">
           <div v-for="article in list" :key="article._path">
             <NuxtLink :to="article._path" class="card">
               <div class="a">
@@ -52,14 +56,14 @@ const query: QueryBuilderParams = {
             </p>
             <p class="end">我的網站，我的規則</p>
           </div>
-        </template>
-        <template #not-found>
+        </div>
+        <div v-else>
           <div class="not-found">
             <p>沒有文章 :(</p>
             <p>可能這個系統沒有設定好，記得跑</p>
             <p><code>git submodule update --init --remote</code></p>
           </div>
-        </template>
+        </div>
       </ContentList>
     </div>
   </div>
