@@ -7,7 +7,6 @@ const supabase = createClient(
 
 export default defineEventHandler(async (event) => {
   console.log("event", event, event.node.req.method);
-  if (event.node.req.method === "GET") {
     try {
       const { data } = await supabase.from("images").select();
       return data;
@@ -17,9 +16,4 @@ export default defineEventHandler(async (event) => {
         error: 500,
       };
     }
-  } else {
-    return {
-      error: 403,
-    };
-  }
 });
