@@ -99,10 +99,10 @@ onMounted(async () => {
       <hr />
       <div class="markdown-list">
         <div class="md-header">
-          <h2>MD 編輯系統</h2>
+          <h2>MD 編輯系統 (v1)</h2>
           <div class="nav">
-            <a href="/admin/markdown/create"><i class="bi bi-plus"></i></a>
-            <a href="/admin/markdown/delete"><i class="bi bi-trash"></i></a>
+            <a href="/admin/markdown-v1/create"><i class="bi bi-plus"></i></a>
+            <a href="/admin/markdown-v1/delete"><i class="bi bi-trash"></i></a>
           </div>
         </div>
         <div class="md" v-if="!fmperror">
@@ -119,6 +119,14 @@ onMounted(async () => {
           {{ fmperror }}
         </div>
         <br />
+      </div>
+      <div class="markdown-list">
+        <div class="md-header">
+          <h2>MD Editor (v2)</h2>
+          <div class="nav">
+            <a href="/admin/markdown/create"><i class="bi bi-plus"></i></a>
+            <a href="/admin/markdown/delete"><i class="bi bi-trash"></i></a>
+          </div>
       </div>
     </div>
   </div>
