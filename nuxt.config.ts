@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     "/prerender/**": { prerender: true },
     "/web3/**": { prerender: true },
     "/api/**": { cors: true },
-    "/user/panel/**": { ssr: true },
     "/admin/": { redirect: "/admin/login" },
     "/admin/**": { ssr: true },
     "/signal": { redirect: "https://yhw.tw/signal" }, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
@@ -37,6 +36,7 @@ export default defineNuxtConfig({
     "nuxt-gtag",
     "@bg-dev/nuxt-s3",
     //"@nuxtjs/i18n",
+    "@logto/nuxt",
   ],
 
   umami: {
@@ -134,8 +134,19 @@ export default defineNuxtConfig({
       posthogPublicKey: "phc_E8muTZ7mYynVfGDxK0OwYf0wXme28svmjTXzxoBXHeZ",
       posthogHost: "https://us.i.posthog.com",
     },
+    logto: {
+      endpoint: 'https://logto.yuanhau.com/',
+      appId: '02l4vunlf4f17jpks449h',
+      appSecret: 'fAej9glG1MhbfmEnfhtCVfa1yxv0M4Hd',
+      cookieEncryptionKey: 'aIG2EC9souxqOgEPQXtSqwCZZLwUsd6e', // Random-generated
+      
+    },
   },
-
+logto: {
+  pathnames: {
+    callback: '/api/auth/callback',
+  },
+},
   sentry: {
     sourceMapsUploadOptions: {
       org: "hwtwcc",

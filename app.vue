@@ -10,11 +10,6 @@ import { SpeedInsights } from "@vercel/speed-insights/nuxt";
   <NuxtLayout>
     <NavBar />
     <NuxtPage />
-    <footer>
-      <p style="text-align: center; font-size: 0.6em">
-        Copyright © {{ new Date().getFullYear() }} 吳元皓
-      </p>
-    </footer>
     <noscript>這個網站必需要使用 JavaScript 才能運作</noscript>
   </NuxtLayout>
   <SpeedInsights />
