@@ -1,14 +1,15 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { LogtoClient } from '@logto/nuxt';
-
-const logto = LogtoClient();
-const isAuthenticated = computed(() => logto.isAuthenticated);
-const user = computed(() => logto.user);
 
 const activeTab = ref('profile');
 const isLoading = ref(true);
 const error = ref(null);
+
+// Get authentication state from Logto
+const logto = useLogtoUser();
+const isAuthenticated = computed(() => logto.isAuthenticated);
+const user = computed(() => logto.user);
+
 const userSettings = ref({
   notifications: {
     email: true,
@@ -50,7 +51,13 @@ const saveSettings = () => {
 };
 
 const signOut = async () => {
-  await logto.signOut();
+  try {
+    await logto.signOut();
+    // Redirect to home page after sign out
+    navigateTo('/');
+  } catch (err) {
+    console.error('Sign out error:', err);
+  }
 };
 
 onMounted(async () => {

@@ -37,7 +37,6 @@ export default defineNuxtConfig({
     "@bg-dev/nuxt-s3",
     //"@nuxtjs/i18n",
     "@logto/nuxt",
-    "@uploadthing/nuxt"
   ],
 
   umami: {
@@ -146,7 +145,6 @@ export default defineNuxtConfig({
       appId: '02l4vunlf4f17jpks449h',
       appSecret: 'fAej9glG1MhbfmEnfhtCVfa1yxv0M4Hd',
       cookieEncryptionKey: 'aIG2EC9souxqOgEPQXtSqwCZZLwUsd6e', // Random-generated
-      
     },
   },
 logto: {
