@@ -167,11 +167,3 @@ logto: {
     client: "hidden",
   },
 });
-
-export type ModuleOptions = RouteHandlerConfig & {
-  /**
-   * Path to your router definition file
-   * @default `~/server/uploadthing.ts`
-   */
-  routerPath?: string;
-};
