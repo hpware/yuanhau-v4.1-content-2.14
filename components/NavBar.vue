@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { animate } from "motion";
 import { ref, onMounted, onUnmounted } from "vue";
-import { useLogtoUser } from '#imports';
-const user = useLogtoUser();
-
 const isOpen = ref(false);
 const menuButton = ref(null);
 const sidebar = ref(null);

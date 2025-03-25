@@ -8,21 +8,12 @@ export default defineNuxtConfig({
   }, 
 
   routeRules: {
-    "/": { prerender: true },
-    "/**": { prerender: true },
-    "/prerender/**": { prerender: true },
-    "/web3/**": { prerender: true },
-    "/api/**": { cors: true },
-    "/admin/": { redirect: "/admin/login" },
-    "/admin/**": { ssr: true },
-    "/signal": { redirect: "https://yhw.tw/signal" }, // Compatibility with the Wordpresss version link aka https://yuanhau.com/signal
-    // Old Redirect stuff here.
-    "/post": { redirect: "/posts" },
-    "/post/**": { redirect: "/posts/**" },
+    "/": { redirect: "https://yuanhau.com" },
+    "/**": { redirect: "https://yuanhau.com/**" },
     // Sync the old with the new
+    "/posts/": { ssr: true },
+    "/posts/**": { ssr: true},
     "/mdview/**": { ssr: true },
-    "/en-about": { redirect: "/mdview/6" },
-    "/form/**": { ssr: true },
   },
 
   modules: [
