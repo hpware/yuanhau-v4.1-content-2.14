@@ -12,6 +12,7 @@ useHead({
     <main>
       <h1>{{ error.statusCode }}</h1>
       <h3>{{ error.message }}</h3>
+      <h4>這個網站只是在放置 @nuxt/content v2.14 的資訊而已，如果要使用其他功能，請把網址改成 <a href="https://yuanhau.com">yuanhau.com</a></h4>
     </main>
     <footer>
       <p>Copyright © {{ new Date().getFullYear() }} 吳元皓</p>
