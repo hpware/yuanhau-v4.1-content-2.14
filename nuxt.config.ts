@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: true,
-  },
+  }, 
 
   routeRules: {
     "/": { prerender: true },
@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     "@bg-dev/nuxt-s3",
     //"@nuxtjs/i18n",
     "@logto/nuxt",
+    "@uploadthing/nuxt"
   ],
 
   umami: {
@@ -127,7 +128,13 @@ export default defineNuxtConfig({
     accessKeyId: process.env.WASABI_S3_CLIENT_ID, // Client ID
     secretAccessKey: process.env.WASABI_S3_SECRET, // Client secret
   },
-
+  uploadthing: {
+    /**
+     * Path to your router definition file
+     * @default `~/server/uploadthing.ts`
+     */
+    routerPath: "",
+  },
   runtimeConfig: {
     public: {
       // Remember to uncomment this stuff.
@@ -160,3 +167,11 @@ logto: {
     client: "hidden",
   },
 });
+
+export type ModuleOptions = RouteHandlerConfig & {
+  /**
+   * Path to your router definition file
+   * @default `~/server/uploadthing.ts`
+   */
+  routerPath?: string;
+};

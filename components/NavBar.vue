@@ -61,7 +61,6 @@ onUnmounted(() => {
 
 <template>
   <div class="navbar-component">
-    <!-- Menu Toggle Button -->
     <div class="menu-button-container" ref="menuButton">
       <button 
         @click="toggleSidebar" 
@@ -72,12 +71,10 @@ onUnmounted(() => {
       </button>
     </div>
 
-    <!-- Sidebar Overlay (only shows when sidebar is open) -->
     <Transition name="fade">
       <div v-if="isOpen" class="sidebar-overlay" @click="closeSidebar"></div>
     </Transition>
 
-    <!-- Sidebar Navigation -->
     <Transition name="slide">
       <div 
         v-if="isOpen" 
@@ -123,7 +120,7 @@ onUnmounted(() => {
           </div>
           <div v-else>
             <NuxtLink to="/user/" @click="closeSidebar" class="user-item">
-            <i class="bi bi-person"></i>
+              <i v-if="!user.picture" class="bi bi-person"></i><img v-else :src="user.picture"/><span>&nbsp;{{ user.name ? user.name : user.username }}</span>
             <span></span>
           </NuxtLink>
           </div>
@@ -155,7 +152,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Base Styles */
 .navbar-component {
   --sidebar-width: 280px;
   --sidebar-bg: rgba(39, 76, 131, 0.569);
@@ -236,8 +232,10 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   z-index: 999;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(var(--backdrop-blur));
 }
 
 .sidebar {
@@ -298,6 +296,21 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
+}
+
+.user-item {
+  display:flex;
+  justify-content: center;
+  img {
+    width:24px;
+    height: 24px;
+    gap:2em;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    align-self:center;
+    
+  }
 }
 
 .nav-item {
