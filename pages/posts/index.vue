@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Loading from "@/components/loading/default.vue";
 import type { QueryBuilderParams } from "@nuxt/content/dist/runtime/types";
-const loading = ref(false);
 useSeoMeta({
   title: "Blog | 吳元皓",
 });
@@ -27,7 +25,6 @@ const query: QueryBuilderParams = {
       <h1 class="title">Blog</h1>
       <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞)</h6>
     </div>
-    <Loading v-if="loading" />
     <div v-else class="list">
       <!--<div class="search">
         <form @submit="">
