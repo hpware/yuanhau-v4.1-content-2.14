@@ -25,7 +25,7 @@ const query: QueryBuilderParams = {
       <h1 class="title">Blog</h1>
       <h6 class="dec">這裡是我的分享天地，逃離演算法的控制!(雖然有時候會壞)</h6>
     </div>
-    <div v-else class="list">
+    <div class="list">
       <!--<div class="search">
         <form @submit="">
           <input type="text" placeholder="Ex: Editor" />
